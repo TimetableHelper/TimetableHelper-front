@@ -18,10 +18,10 @@ export default function Article() {
       </span>
       <ClassList
         width="700px"
-        height="400px"
+        height="540px"
         position="relative"
-        left="370px"
-        top="40px"
+        /*left="370px"*/
+        top="20px"
       />
       <BlueBtn text="시간표 짜러가기" link="/select-class" />
     </>

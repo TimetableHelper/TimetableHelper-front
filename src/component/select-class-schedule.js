@@ -171,7 +171,7 @@ export default function ClassList({ width, height, position, left, top }) {
   var newheight = Number(height.slice(0, 3)) - 20 + 'px';
   return (
     <div
-      className="mainVy__grid"
+      className="mainVy__grid m-auto"
       style={{
         width: width,
         height: height,
