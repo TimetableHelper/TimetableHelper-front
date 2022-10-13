@@ -20,7 +20,6 @@ export default function Article() {
         width="700px"
         height="400px"
         position="relative"
-        left="370px"
         top="40px"
       />
       <BlueBtn text="시간표 짜러가기" link="/select-class" />
