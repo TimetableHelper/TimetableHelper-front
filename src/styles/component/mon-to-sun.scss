@@ -1,0 +1,74 @@
+.timetable {
+  width: 584px;
+  height: 532px;
+
+  background: #ffffff;
+  border: 1px solid #d5d5d5;
+  border-radius: 4px;
+  display: flex;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  > ul {
+    display: grid;
+    grid-template-rows: 20px repeat(11, 1fr);
+
+    width: 116.5px;
+    height: 532px;
+    text-align: center;
+
+    > li:first-child {
+      list-style: none;
+      height: 20px;
+      background: #849fe6;
+      border-radius: 0px;
+
+      font-family: 'Noto Sans KR';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 18px;
+      /* identical to box height, or 150% */
+
+      color: #ffffff;
+    }
+  }
+  > ul:not(:nth-child(5)) {
+    border-right: 1px solid #d5d5d5;
+  }
+}
+
+.focused-classtime-t-1 {
+  background-color: #768fff;
+}
+.focused-classtime-t-2 {
+  background-color: #b47cff;
+}
+.focused-classtime-t-3 {
+  background-color: #8f9bff;
+}
+.focused-classtime-t-4 {
+  background-color: #64c1ff;
+}
+.focused-classtime-t-5 {
+  background-color: #62ebff;
+}
+.focused-classtime-t-6 {
+  background-color: #9fffe0;
+}
+.focused-classtime-t-7 {
+  background-color: #ffe5b5;
+}
+.focused-classtime-t-8 {
+  background-color: #ffd0b0;
+}
+.focused-classtime-t-9 {
+  background-color: #ffbcaf;
+}
+.focused-classtime-t-10 {
+  background-color: #ffb2dd;
+}
+.focused-classtime-t-11 {
+  background-color: #63e6be;
+}

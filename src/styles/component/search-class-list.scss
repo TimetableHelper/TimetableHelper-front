@@ -1,0 +1,111 @@
+.SearchClassList__column {
+  width: 610px;
+  height: 264px;
+  background: #ffffff;
+  border: 1px solid #d5d5d5;
+  border-radius: 4px;
+}
+
+.SearchClassList__search-input {
+  padding-left: 32px;
+
+  width: 610px;
+  height: 48px;
+  background: #849fe6;
+  padding-top: 12px;
+  padding-bottom: 12px;
+
+  > select {
+    width: 80px;
+    height: 24px;
+    background: #ffffff;
+    border: none;
+    border-radius: 4px;
+
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 10px;
+    outline: none;
+
+    > option {
+      border: 1px solid #ffffff;
+      background: #ffffff;
+      border-radius: 4px;
+
+      font-family: 'Noto Sans KR';
+      font-style: normal;
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 10px;
+    }
+  }
+
+  > input {
+    margin-left: 10px;
+
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+
+    width: 180px;
+    height: 24px;
+
+    &::placeholder {
+      padding-left: 8px;
+
+      font-family: 'Noto Sans KR';
+      font-style: normal;
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 10px;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+
+  > svg {
+    margin-left: 9px;
+    width: 20px;
+    height: 20px;
+    color: white;
+
+    margin-bottom: 3px;
+  }
+}
+
+.SearchClassList__contents {
+  padding-left: 32px;
+}
+
+.SearchClassList__recommend-keyword {
+  display: flex;
+
+  margin-top: 11px;
+  > .SearchClassList__recommend-keyword-btn {
+    height: 24px;
+    border: 1px solid #d5d5d5;
+    border-radius: 12px;
+
+    padding-top: 2px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    margin-right: 12px;
+
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 17px;
+    /* identical to box height */
+
+    text-align: center;
+    white-space: nowrap;
+
+    color: #505050;
+    background-color: #ffffff;
+  }
+}

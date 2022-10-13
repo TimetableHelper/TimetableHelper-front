@@ -1,0 +1,70 @@
+.mainVy__grid {
+  box-sizing: border-box;
+
+  //  position: relative;
+  // width: 700px;
+  // height: 400px;
+  //  min-height: 400px;
+  //  left: 370px;
+  //  top: 216px;
+
+  background: #ffffff;
+  border: 1px solid #d5d5d5;
+  border-radius: 4px;
+
+  padding-bottom: 15px;
+
+  //  -ms-overflow-style: none; /* IE and Edge */
+  //  scrollbar-width: none; /* Firefox */
+}
+
+/* 
+    .mainVy__grid::-webkit-scrollbar {
+      //  display: none; // Chrome, Safari, Opera
+    } */
+
+.grid__grid-header {
+  width: 700px;
+  height: 20px;
+  left: 0px;
+  top: 0px;
+
+  background: #849fe5;
+  border-radius: 0px;
+
+  display: grid;
+  grid-template-columns: 2.3fr 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr;
+  align-items: center;
+
+  span {
+    width: 60px;
+    height: 18px;
+
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 17px;
+    color: #ffffff;
+  }
+  span:first-child {
+    // 과목명
+    margin-left: 40px;
+  }
+  span:nth-child(2) {
+    // 담당교수
+    margin-left: 27px;
+  }
+  span:nth-child(3) {
+    // 수업시간
+    margin-left: 35px;
+  }
+  span:nth-child(4) {
+    // 강의실
+    margin-left: 25px;
+  }
+  span:nth-child(5) {
+    // 강의실
+    margin-left: 15px;
+  }
+}

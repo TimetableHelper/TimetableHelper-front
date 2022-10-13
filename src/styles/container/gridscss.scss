@@ -1,0 +1,51 @@
+.grid__contents {
+  height: 380px;
+  overflow: auto;
+  overflow-x: hidden;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  padding-left: 40px;
+
+  > div {
+    display: grid;
+    grid-template-columns: 2.3fr 1.2fr 1fr 1fr 1fr 1.2fr;
+    grid-template-rows: auto;
+
+    padding-bottom: 8px;
+
+    span {
+      min-width: 40px;
+
+      font-family: 'Noto Sans KR';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+
+      padding-top: 15px;
+    }
+    span:not(:nth-child(6n + 1)) {
+      padding-left: 15px;
+    }
+
+    .grid__contents__className,
+    .grid__contents__Professor {
+      font-weight: 600 !important;
+    }
+    .grid__contents__ClassTime {
+      font-size: 13px;
+    }
+  }
+}
+
+.grid__contents::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+.grid__contents__columns {
+  &:hover {
+    background: rgba(118, 143, 255, 0.2);
+  }
+}
