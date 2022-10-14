@@ -72,3 +72,20 @@
 .focused-classtime-t-11 {
   background-color: #63e6be;
 }
+
+.timetable-list-day-div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding-left: 8px;
+  padding-top: 8px;
+
+  > span {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+  }
+}

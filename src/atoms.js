@@ -49,3 +49,9 @@ export const FriClassIds = atom({
   key: `MonClassIds/${v1()}`,
   default: [],
 });
+
+//
+export const numberOfPressesAtom = atom({
+  key: 'numberOfPresses',
+  default: 1,
+});

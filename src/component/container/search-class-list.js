@@ -16,6 +16,7 @@ import {
   ThuClassIds,
   FriClassArray,
   FriClassIds,
+  numberOfPressesAtom,
 } from '../../atoms';
 
 function SearchClassList() {
@@ -49,6 +50,7 @@ function SearchClassList() {
                   1,
                   1
                 ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
               };
               var newMon0arr = [...myMonClassArray, addMon0data];
               setMyMonClassArray(newMon0arr);
@@ -78,6 +80,7 @@ function SearchClassList() {
                   1,
                   1
                 ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
               };
               var newTue0arr = [...myTueClassArray, addTue0Arr];
               setMyTueClassArray(newTue0arr);
@@ -107,6 +110,7 @@ function SearchClassList() {
                   1,
                   1
                 ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
               };
               var newWen0arr = [...myWenClassArray, addWen0Arr];
               setMyWenClassArray(newWen0arr);
@@ -136,6 +140,7 @@ function SearchClassList() {
                   1,
                   1
                 ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
               };
               var newThu0arr = [...myThuClassArray, addThu0Arr];
               setMyThuClassArray(newThu0arr);
@@ -165,6 +170,7 @@ function SearchClassList() {
                   1,
                   1
                 ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
               };
               var newFri0arr = [...myFriClassArray, addFri0Arr];
               setMyFriClassArray(newFri0arr);
@@ -203,6 +209,7 @@ function SearchClassList() {
                   1,
                   1
                 ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
               };
               var newMon1arr = [...myMonClassArray, addMon1data];
               setMyMonClassArray(newMon1arr);
@@ -232,6 +239,7 @@ function SearchClassList() {
                   1,
                   1
                 ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
               };
               var newTue1arr = [...myTueClassArray, addTue1Arr];
               setMyTueClassArray(newTue1arr);
@@ -261,6 +269,7 @@ function SearchClassList() {
                   1,
                   1
                 ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
               };
               var newWen1arr = [...myWenClassArray, addWen1Arr];
               setMyWenClassArray(newWen1arr);
@@ -290,6 +299,7 @@ function SearchClassList() {
                   1,
                   1
                 ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
               };
               var newThu1arr = [...myThuClassArray, addThu1Arr];
               setMyThuClassArray(newThu1arr);
@@ -319,6 +329,7 @@ function SearchClassList() {
                   1,
                   1
                 ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
               };
               var newFri1arr = [...myFriClassArray, addFri1Arr];
               setMyFriClassArray(newFri1arr);
@@ -357,6 +368,7 @@ function SearchClassList() {
                   1,
                   1
                 ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
               };
               var newMon2arr = [...myMonClassArray, addMon2data];
               setMyMonClassArray(newMon2arr);
@@ -386,6 +398,7 @@ function SearchClassList() {
                   1,
                   1
                 ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
               };
               var newTue2arr = [...myTueClassArray, addTue2Arr];
               setMyTueClassArray(newTue2arr);
@@ -415,6 +428,7 @@ function SearchClassList() {
                   1,
                   1
                 ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
               };
               var newWen2arr = [...myWenClassArray, addWen2Arr];
               setMyWenClassArray(newWen2arr);
@@ -444,6 +458,7 @@ function SearchClassList() {
                   1,
                   1
                 ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
               };
               var newThu2arr = [...myThuClassArray, addThu2Arr];
               setMyThuClassArray(newThu2arr);
@@ -473,6 +488,7 @@ function SearchClassList() {
                   1,
                   1
                 ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
               };
               var newFri2arr = [...myFriClassArray, addFri2Arr];
               setMyFriClassArray(newFri2arr);
@@ -491,6 +507,9 @@ function SearchClassList() {
   // 최종 배열. 이걸 요일별로 나눌 예정
   const [finalClassIds, setFinalClassIds] = useState([]);
   // 사용중인 클래스 아이디s
+
+  const [numberOfPresses, setNumberOfPresses] =
+    useRecoilState(numberOfPressesAtom);
 
   //const [myMonClassArray, setMyMonClassArray] = useState([]);
   const [myMonClassArray, setMyMonClassArray] = useRecoilState(MonClassArray);
@@ -594,6 +613,9 @@ function SearchClassList() {
                   className="grid__contents__columns"
                   key={data.classId}
                   onClick={() => {
+                    // 누른 번호매기기 :: atom값 +1
+                    setNumberOfPresses((prev) => prev + 1);
+
                     // 클릭한 수업의 data 복사.
                     var clickedClass = {
                       classId: data.classId,
@@ -604,6 +626,7 @@ function SearchClassList() {
                       Classification: data.Classification,
                       Grades: data.Grades,
                       continuity: data.continuity,
+                      numberOfPresses: numberOfPresses,
                     };
                     if (finalClassArr.length === 0) {
                       // finalClassArr가 비었다면,( = 첫클릭, 중복체크 필요x)
@@ -617,7 +640,8 @@ function SearchClassList() {
                       if (finalClassIds.indexOf(data.classId) === -1) {
                         let newFinalClassArr = [...finalClassArr, clickedClass];
                         setFinalClassArr(newFinalClassArr);
-                        console.log('finalClassIds', finalClassIds);
+
+                        console.log('newFinalClassArr', newFinalClassArr);
                       }
 
                       // 클릭한 수업의 아이디(data.classId)가

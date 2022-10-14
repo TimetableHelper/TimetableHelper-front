@@ -162,6 +162,16 @@ export const exServerData = [
     Grades: 3,
     continuity: 2,
   },
+  {
+    classId: 17,
+    className: '영어22',
+    Professor: 'Bora Kim',
+    ClassTime: '월234,목12',
+    lectureRoom: 'R426',
+    Classification: '교양필수',
+    Grades: 3,
+    continuity: 2,
+  },
 ];
 export default function ClassList({ width, height, position, left, top }) {
   /* 
