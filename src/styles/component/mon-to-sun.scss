@@ -81,11 +81,30 @@
   padding-left: 8px;
   padding-top: 8px;
 
-  > span {
+  > span:not(.xBtn) {
     font-family: 'Noto Sans KR';
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 18px;
+    text-overflow: ellipsis;
+
+    width: 90px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    text-align: start;
+  }
+  .xBtn {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 18px;
+
+    width: 100px;
+    text-align: end;
+    color: red;
   }
 }

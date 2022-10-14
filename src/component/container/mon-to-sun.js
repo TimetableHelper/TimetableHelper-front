@@ -9,7 +9,13 @@ import {
   WenClassArray,
   ThuClassArray,
   FriClassArray,
+  xBtnOnMonday,
 } from '../../atoms';
+
+import {
+  defineColor,
+  defineHeight,
+} from '../../utils/component/container/monToSun';
 
 /* 클릭 이벤트 구현 
 
@@ -29,22 +35,7 @@ export function Timetable() {
   const myThuClassArray = useRecoilValue(ThuClassArray);
   const myFriClassArray = useRecoilValue(FriClassArray);
 
-  function defineColor(num) {
-    if (num % 10 === 1) return '#768FFF';
-    if (num % 10 === 2) return '#B47CFF';
-    if (num % 10 === 3) return '#8F9BFF';
-    if (num % 10 === 4) return '#64C1FF';
-    if (num % 10 === 5) return '#62EBFF';
-    if (num % 10 === 6) return '#9FFFE0';
-    if (num % 10 === 7) return '#FFE5B5';
-    if (num % 10 === 8) return '#FFD0B0';
-    if (num % 10 === 9) return '#FFBCAF';
-    if (num % 10 === 0) return '#FFB2DD';
-  }
-  function defineHeight(num) {
-    return num * 48 + 24;
-  }
-
+  console.log('xBtnOnMonday', xBtnOnMonday[0]);
   return (
     <div className="timetable">
       <ul className="list-group col-2" id="mon">
@@ -66,6 +57,11 @@ export function Timetable() {
               <span>{data.className}</span>
               <span>{data.Professor}</span>
               <span>{data.lectureRoom}</span>
+              {xBtnOnMonday[data.firstClassNum - 1] && (
+                <span className="xBtn" style={{ zIndex: 999 }}>
+                  X
+                </span>
+              )}
             </div>
           );
         })}

@@ -55,3 +55,13 @@ export const numberOfPressesAtom = atom({
   key: 'numberOfPresses',
   default: 1,
 });
+
+//
+export const isUseOnMonday = atom({
+  key: 'isUseOnMonday',
+  default: [],
+});
+export const xBtnOnMonday = atom({
+  key: 'xBtnOnMonday',
+  default: [],
+});
