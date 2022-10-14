@@ -4,6 +4,20 @@ import { exServerData } from '../../component/select-class-schedule.js';
 import { BsSearch } from 'react-icons/bs';
 import { useEffect, useState } from 'react';
 
+import { useRecoilState } from 'recoil';
+import {
+  MonClassArray,
+  MonClassIds,
+  TueClassArray,
+  TueClassIds,
+  WenClassArray,
+  WenClassIds,
+  ThuClassArray,
+  ThuClassIds,
+  FriClassArray,
+  FriClassIds,
+} from '../../atoms';
+
 function SearchClassList() {
   const addToMonToFriArray = () => {
     for (var i = 0; i < finalClassArr.length; i++) {
@@ -478,17 +492,21 @@ function SearchClassList() {
   const [finalClassIds, setFinalClassIds] = useState([]);
   // 사용중인 클래스 아이디s
 
-  const [myMonClassArray, setMyMonClassArray] = useState([]);
-  const [myMonClassIds, setMyMonClassIds] = useState([]);
+  //const [myMonClassArray, setMyMonClassArray] = useState([]);
+  const [myMonClassArray, setMyMonClassArray] = useRecoilState(MonClassArray);
+  const [myMonClassIds, setMyMonClassIds] = useRecoilState(MonClassIds);
 
-  const [myTueClassArray, setMyTueClassArray] = useState([]);
-  const [myTueClassIds, setMyTueClassIds] = useState([]);
-  const [myWenClassArray, setMyWenClassArray] = useState([]);
-  const [myWenClassIds, setMyWenClassIds] = useState([]);
-  const [myThuClassArray, setMyThuClassArray] = useState([]);
-  const [myThuClassIds, setMyThuClassIds] = useState([]);
-  const [myFriClassArray, setMyFriClassArray] = useState([]);
-  const [myFriClassIds, setMyFriClassIds] = useState([]);
+  const [myTueClassArray, setMyTueClassArray] = useRecoilState(TueClassArray);
+  const [myTueClassIds, setMyTueClassIds] = useRecoilState(TueClassIds);
+
+  const [myWenClassArray, setMyWenClassArray] = useRecoilState(WenClassArray);
+  const [myWenClassIds, setMyWenClassIds] = useRecoilState(WenClassIds);
+
+  const [myThuClassArray, setMyThuClassArray] = useRecoilState(ThuClassArray);
+  const [myThuClassIds, setMyThuClassIds] = useRecoilState(ThuClassIds);
+
+  const [myFriClassArray, setMyFriClassArray] = useRecoilState(FriClassArray);
+  const [myFriClassIds, setMyFriClassIds] = useRecoilState(FriClassIds);
 
   useEffect(() => {
     addToMonToFriArray();
