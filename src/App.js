@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import './custom.css';
+import Router from './Router';
 
 import Header from './component/Header';
 import Login from './component/Login';
@@ -8,8 +9,9 @@ import Login from './component/Login';
 function App() {
   return (
     <>
-      <Header name="props.test" />
-      <Login />
+      <Router />
+      {/* <Header name="props.test" />
+      <Login /> */}
     </>
   );
 }

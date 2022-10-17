@@ -6,9 +6,17 @@ import BlueBtn from '../component/bluebutton';
 import Header from '../component/Header';
 import ClassList from '../component/select-class-schedule';
 
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 export default function Article() {
   return (
     <>
+      <HelmetProvider>
+        <Helmet>
+          <title>필수수강선택</title>
+        </Helmet>
+      </HelmetProvider>
+
       <Header />
       <h1 className="article__title">
         이번 학기에 수강할 필수 과목들을 선택해주세요

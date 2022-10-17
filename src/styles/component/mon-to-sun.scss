@@ -11,8 +11,8 @@
   grid-template-columns: repeat(5, 1fr);
 
   > ul {
-    display: grid;
-    grid-template-rows: 20px repeat(11, 1fr);
+    //  display: grid;
+    //  grid-template-rows: 20px repeat(11, 1fr);
 
     width: 116.5px;
     height: 532px;
@@ -71,4 +71,40 @@
 }
 .focused-classtime-t-11 {
   background-color: #63e6be;
+}
+
+.timetable-list-day-div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding-left: 8px;
+  padding-top: 8px;
+
+  > span:not(.xBtn) {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    text-overflow: ellipsis;
+
+    width: 90px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    text-align: start;
+  }
+  .xBtn {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 18px;
+
+    width: 100px;
+    text-align: end;
+    color: red;
+  }
 }
