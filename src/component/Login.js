@@ -2,10 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Header from './Header';
-
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 function Login(props) {
   return (
     <>
+      <HelmetProvider>
+        <Helmet>
+          <title>로그인</title>
+        </Helmet>
+      </HelmetProvider>
+
       <Header name="props.test" />
       <div>
         <main className="form-signin m-auto">
