@@ -20,7 +20,7 @@ export const exServerData = [
     lectureRoom: 'Q403',
     Classification: '전공필수',
     Grades: 3,
-    continuity: 2,
+    continuity: 3,
   },
   {
     classId: 3,

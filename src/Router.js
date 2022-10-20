@@ -6,9 +6,9 @@ import SelectInClasslist from '../src/container/select-in-classlist';
 import Article from '../src/container/article';
 
 import Header from './component/Header';
-import Login from './component/Login';
-import Signup from './component/Signup';
-import Signup2 from './component/Signup2';
+import Login from './container/Login';
+import Signup from './container/Signup';
+import Signup2 from './container/Signup2';
 
 function Router() {
   return (

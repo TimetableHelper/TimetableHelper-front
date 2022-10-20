@@ -1,6 +1,7 @@
 .timetable {
   width: 584px;
-  height: 532px;
+  //  height: 532px;
+  height: 602px;
 
   background: #ffffff;
   border: 1px solid #d5d5d5;
@@ -15,7 +16,8 @@
     //  grid-template-rows: 20px repeat(11, 1fr);
 
     width: 116.5px;
-    height: 532px;
+    //    height: 532px;
+    height: 602px;
     text-align: center;
 
     > li:first-child {
