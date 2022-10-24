@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Header from '../component/Header';
@@ -8,6 +8,17 @@ import { isLoginIn, studentID } from '../atoms';
 import { useRecoilState } from 'recoil';
 
 function Login(props) {
+  const isLoginedState = useRecoilState(isLoginIn)[0];
+  useEffect(() => {
+    //    const isLoginedState = window.localStorage.getItem('isLoginIn');
+    if (isLoginedState) {
+      // 로그인 상태라면 페이지 건너뛰기
+
+      console.log(isLoginedState);
+      document.location.href = '/class-list';
+    }
+  }, []);
+
   const [login, setLogin] = useRecoilState(isLoginIn);
   const [studentId, setStudentId] = useRecoilState(studentID);
 
@@ -67,7 +78,7 @@ function Login(props) {
     setFailModal(true);
     setTimeout(() => {
       setFailModal(false);
-    }, 3000);
+    }, 5000);
   };
 
   // 서버와 통신 전, 임시값 2개

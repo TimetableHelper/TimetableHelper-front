@@ -3,6 +3,7 @@ import '../../styles/container/gridscss.scss';
 import { exServerData } from '../../component/select-class-schedule.js';
 import { BsSearch } from 'react-icons/bs';
 import { useEffect, useState } from 'react';
+import classnames from 'classnames';
 
 import { useRecoilState } from 'recoil';
 import { isUseOnMonday, xBtnOnMonday } from '../../atoms';
@@ -121,6 +122,22 @@ function SearchClassList() {
   console.log('수', myWenClassArray);
   console.log('목', myThuClassArray);
   console.log('금', myFriClassArray);
+
+  const [BtnKeyWords, setBtnKeyWords] = useState([
+    { keywords: '가벼운 타과 전공', focus: false, key: 1 },
+    { keywords: '건강을 위한', focus: false, key: 2 },
+    { keywords: '토론이 많은', focus: false, key: 3 },
+    { keywords: '실습 위주의', focus: false, key: 4 },
+    { keywords: '다양한 지식을 쌓는', focus: false, key: 5 },
+  ]);
+
+  const buttonClick = (num, keywords) => {
+    BtnKeyWords[num].focus = !BtnKeyWords[num].focus;
+
+    var newBtns = [...BtnKeyWords];
+    setBtnKeyWords(newBtns);
+  };
+
   return (
     <>
       <div className="SearchClassList__column">
@@ -136,7 +153,24 @@ function SearchClassList() {
         </div>
         <div className="SearchClassList__contents">
           <div className="SearchClassList__recommend-keyword">
-            <button className="SearchClassList__recommend-keyword-btn">
+            {BtnKeyWords.map((keywords) => {
+              return (
+                <button
+                  className={classnames(
+                    'SearchClassList__recommend-keyword-btn',
+                    {
+                      'SearchClassList__recommend-keyword-btn-active':
+                        keywords.focus,
+                    }
+                  )}
+                  key={keywords.key}
+                  onClick={() => buttonClick(keywords.key - 1, keywords)}
+                >
+                  {keywords.keywords}
+                </button>
+              );
+            })}
+            {/*   <button className="SearchClassList__recommend-keyword-btn">
               가벼운 타과 전공
             </button>
             <button className="SearchClassList__recommend-keyword-btn">
@@ -150,7 +184,7 @@ function SearchClassList() {
             </button>
             <button className="SearchClassList__recommend-keyword-btn">
               다양한 지식을 쌓는
-            </button>
+            </button> */}
           </div>
           <div
             className="grid__contents"

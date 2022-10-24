@@ -7,7 +7,10 @@ import { isLoginIn, studentID } from '../atoms';
 
 function Header(props) {
   const [islogin, setlogin] = useRecoilState(isLoginIn);
-  const studentId = useRecoilValue(studentID);
+  //  const studentId = useRecoilValue(studentID);
+
+  // 아이콘 클릭시 사용할
+  const isLoginedState = useRecoilState(isLoginIn)[0];
 
   const gohome = () => {
     document.location.href = '/';
@@ -40,7 +43,10 @@ function Header(props) {
                 </nav> */}
         <nav className="navbar navbar-expand-lg">
           <div className="container-fluid">
-            <Link to="/" className="navbar-brand">
+            <Link
+              to={isLoginedState ? `/class-list` : `/`}
+              className="navbar-brand"
+            >
               <img src={logo} className="App-logo" alt="logo" />
             </Link>
             <p className="p-p p-nav">대학생을 위한 시간표 도우미</p>
