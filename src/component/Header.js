@@ -2,17 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from './logo.svg';
 
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { isLoginIn, studentID } from '../atoms';
+import { useRecoilState } from 'recoil';
+import { isLoginIn } from '../atoms';
+
+import '../styles/component/Header.scss';
 
 function Header(props) {
   const [islogin, setlogin] = useRecoilState(isLoginIn);
-  //  const studentId = useRecoilValue(studentID);
 
-  // 아이콘 클릭시 사용할
+  // "시도" 아이콘 클릭시 이동할 위치를 정하기 위해...
   const isLoginedState = useRecoilState(isLoginIn)[0];
 
-  const gohome = () => {
+  const logoutFn = () => {
+    setlogin(false);
     document.location.href = '/';
     window.localStorage.removeItem('recoil-persist');
   };
@@ -80,11 +82,12 @@ function Header(props) {
                 </Link>
                 {islogin && (
                   <button
+                    id="Header__logoutBtn"
                     onClick={() => {
-                      gohome();
+                      logoutFn();
                     }}
                   >
-                    setlogin
+                    로그아웃
                   </button>
                 )}
               </div>

@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import '../styles/container/article.scss';
 // import classInfoList from './class-info-list';
 import BlueBtn from '../component/bluebutton';
@@ -6,24 +7,51 @@ import BlueBtn from '../component/bluebutton';
 import Header from '../component/Header';
 import ClassList from '../component/select-class-schedule';
 
-import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useRecoilValue } from 'recoil';
 import { isLoginIn } from '../atoms';
 
+import { Ring } from '@uiball/loaders'; // 로딩 이미지
+
 export default function Article() {
   const islogin = useRecoilValue(isLoginIn);
+  const [showModal, setshowModal] = useState(true);
 
+  useEffect(() => {
+    if (!islogin) {
+      setshowModal(true);
+    } else if (islogin) {
+      setshowModal(false);
+    }
+  }, []);
   return (
     <>
+      {showModal && (
+        <div className="alertModalDiv">
+          <div
+            style={{
+              width: '100%',
+              height: '20px',
+              backgroundColor: '#91a7ff',
+            }}
+          ></div>
+          <h4>로그인이 필요한 페이지입니다.</h4>
+          <button
+            onClick={() => {
+              document.location.href = '/';
+            }}
+          >
+            확인
+          </button>
+        </div>
+      )}
+
       <HelmetProvider>
         <Helmet>
           <title>필수수강선택</title>
         </Helmet>
       </HelmetProvider>
-
       <Header />
-
       {islogin ? (
         <>
           <h1 className="article__title">
@@ -42,7 +70,9 @@ export default function Article() {
           <BlueBtn text="시간표 짜러가기" link="/my-timetable" />
         </>
       ) : (
-        <span>로그인 아닌데 이 페이지에 접근했을때 어떻게 할지 ?</span>
+        <div className="loadingImg">
+          <Ring size={50} lineWeight={5} speed={2} color="#4c6ef5" />
+        </div>
       )}
     </>
   );

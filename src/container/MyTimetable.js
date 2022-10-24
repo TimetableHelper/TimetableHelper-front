@@ -1,27 +1,60 @@
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { useRecoilValue } from 'recoil';
+import { isLoginIn } from '../atoms';
+
 import MontoSun from '../component/container/mon-to-sun';
 import ClassList from '../component/select-class-schedule';
 import SearchClassList from '../component/container/search-class-list';
 import Header from '../component/Header';
 
-import { Helmet, HelmetProvider } from 'react-helmet-async';
-
-import { useRecoilValue } from 'recoil';
-import { isLoginIn } from '../atoms';
-
 import '../styles/container/select-in-classlist.scss';
-import { Link } from 'react-router-dom';
+import { Ring } from '@uiball/loaders'; // 로딩 이미지
+import 'animate.css';
 
 function MyTimetable() {
   const islogin = useRecoilValue(isLoginIn);
+  const [showModal, setshowModal] = useState(true);
+
+  useEffect(() => {
+    if (!islogin) {
+      setshowModal(true);
+      //  alert('로그인이 필요한 페이지입니다.');
+      //      document.location.href = '/';
+    } else if (islogin) {
+      setshowModal(false);
+    }
+  }, []);
 
   return (
     <>
+      {showModal && (
+        <div className="alertModalDiv">
+          <div
+            style={{
+              width: '100%',
+              height: '20px',
+              backgroundColor: '#91a7ff',
+            }}
+          ></div>
+          <h4>로그인이 필요한 페이지입니다.</h4>
+          <button
+            onClick={() => {
+              document.location.href = '/';
+            }}
+          >
+            확인
+          </button>
+        </div>
+      )}
+
       <HelmetProvider>
         <Helmet>
           <title>강의 정보</title>
         </Helmet>
-        <Header />
       </HelmetProvider>
+      <Header />
 
       {islogin ? (
         <>
@@ -52,7 +85,16 @@ function MyTimetable() {
           </Link>
         </>
       ) : (
-        <span>로그인 아닌데 이 페이지에 접근했을때 어떻게 할지 ?</span>
+        <>
+          <div className="loadingImg">
+            <Ring size={50} lineWeight={5} speed={2} color="#4c6ef5" />
+          </div>
+
+          {/* <div class="ring">
+            Loading
+            <span></span>
+          </div> */}
+        </>
       )}
     </>
   );

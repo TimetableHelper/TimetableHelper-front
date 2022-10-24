@@ -77,8 +77,9 @@ function Login(props) {
   const failLogin = () => {
     setFailModal(true);
     setTimeout(() => {
+      // N초후에 로그인 에러 경고메세지 사라지게
       setFailModal(false);
-    }, 5000);
+    }, 7500);
   };
 
   // 서버와 통신 전, 임시값 2개
@@ -135,6 +136,10 @@ function Login(props) {
       <HelmetProvider>
         <Helmet>
           <title>로그인</title>
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+          />
         </Helmet>
       </HelmetProvider>
 
@@ -173,7 +178,7 @@ function Login(props) {
             </div>
             {failModal && (
               <div
-                className="login-iscorrect"
+                className="animate__animated animate__headShake"
                 style={{ position: 'absolute', color: 'red' }}
               >
                 로그인 정보가 일치하지 않습니다.
