@@ -9,8 +9,9 @@ import { useRecoilValue } from 'recoil';
 import { isLoginIn } from '../atoms';
 
 import '../styles/container/select-in-classlist.scss';
+import { Link } from 'react-router-dom';
 
-function SelectInClasslist() {
+function MyTimetable() {
   const islogin = useRecoilValue(isLoginIn);
 
   return (
@@ -24,19 +25,31 @@ function SelectInClasslist() {
 
       {islogin ? (
         <>
-          <div className="SelectInClasslist__column">
-            <div className="SelectInClasslist__left">
+          <div className="__column">
+            <div className="__left">
               <MontoSun />
             </div>
-            <div className="SelectInClasslist__right">
-              <div className="SelectInClasslist__right__one">
+            <div className="__right">
+              <div className="__right__one">
                 <ClassList width="610px" height="310px" />
               </div>
-              <div className="SelectInClasslist__right__two">
+              <div className="__right__two">
                 <SearchClassList />
               </div>
             </div>
           </div>
+          <Link to="/timetable-board">
+            <div
+              style={{
+                display: 'flex',
+                fontSize: '50px',
+                justifyContent: 'center',
+                marginTop: '150px',
+              }}
+            >
+              페이지이동 임시버튼
+            </div>
+          </Link>
         </>
       ) : (
         <span>로그인 아닌데 이 페이지에 접근했을때 어떻게 할지 ?</span>
@@ -44,4 +57,4 @@ function SelectInClasslist() {
     </>
   );
 }
-export default SelectInClasslist;
+export default MyTimetable;

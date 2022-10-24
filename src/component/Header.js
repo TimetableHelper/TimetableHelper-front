@@ -44,7 +44,7 @@ function Header(props) {
         <nav className="navbar navbar-expand-lg">
           <div className="container-fluid">
             <Link
-              to={isLoginedState ? `/class-list` : `/`}
+              to={isLoginedState ? `/make-newtimetable` : `/`}
               className="navbar-brand"
             >
               <img src={logo} className="App-logo" alt="logo" />

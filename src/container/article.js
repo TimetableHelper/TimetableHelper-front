@@ -39,7 +39,7 @@ export default function Article() {
             /*left="370px"*/
             top="20px"
           />
-          <BlueBtn text="시간표 짜러가기" link="/select-class" />
+          <BlueBtn text="시간표 짜러가기" link="/my-timetable" />
         </>
       ) : (
         <span>로그인 아닌데 이 페이지에 접근했을때 어떻게 할지 ?</span>

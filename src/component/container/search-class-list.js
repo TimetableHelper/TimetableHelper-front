@@ -7,7 +7,6 @@ import classnames from 'classnames';
 
 import { useRecoilState } from 'recoil';
 import { isUseOnMonday, xBtnOnMonday } from '../../atoms';
-
 import {
   MonClassArray,
   MonClassIds,

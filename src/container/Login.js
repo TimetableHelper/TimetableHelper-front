@@ -15,7 +15,7 @@ function Login(props) {
       // 로그인 상태라면 페이지 건너뛰기
 
       console.log(isLoginedState);
-      document.location.href = '/class-list';
+      document.location.href = '/make-newtimetable';
     }
   }, []);
 
@@ -48,7 +48,7 @@ function Login(props) {
     setStudentId(id);
     console.log('login', login);
     //   e.preventDefault();
-    document.location.href = '/class-list';
+    document.location.href = '/make-newtimetable';
 
     /*
  axios
@@ -191,8 +191,6 @@ function Login(props) {
             >
               로그인
             </div>
-            {/* <Link to={'/class-list'}>
-            </Link> */}
             <button onClick={() => setloginok(true)}>로그인 성공 예시</button>
             <button onClick={() => setloginok(false)}>로그인 실패 예시</button>
           </form>
