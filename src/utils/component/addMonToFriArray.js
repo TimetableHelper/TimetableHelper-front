@@ -20,14 +20,8 @@ export default function addToMonToFriArray({
   myWenClassArray,
   setMyWenClassIds,
   myFriClassArray,
-  isUsedOnMonday,
-  setIsUsedOnMonday,
-  xBtnOnMonday,
 }) {
-  console.log('isUsedOnMonday', isUsedOnMonday);
-
   for (var i = 0; i < finalClassArr.length; i++) {
-    console.log('전체', finalClassArr[i].ClassTime);
     if (finalClassArr[i].ClassTime) {
       // 위 if문은 유효성 검사 (별 의미 x)
       if (finalClassArr[i].ClassTime.split(',')[0]) {

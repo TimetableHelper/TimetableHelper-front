@@ -2,14 +2,20 @@ import React, { useState } from 'react';
 import '../../styles/component/mon-to-sun.scss';
 import classnames from 'classnames';
 
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useRecoilState } from 'recoil';
 import {
+  finalClassArray,
+  finalClassIdsAtom,
   MonClassArray,
   TueClassArray,
   WenClassArray,
   ThuClassArray,
   FriClassArray,
-  xBtnOnMonday,
+  MonClassIds,
+  TueClassIds,
+  WenClassIds,
+  ThuClassIds,
+  FriClassIds,
 } from '../../atoms';
 
 import {
@@ -17,25 +23,70 @@ import {
   defineHeight,
 } from '../../utils/component/container/monToSun';
 
-/* 클릭 이벤트 구현 
-
-1. 클릭이벤트로 클래스명 추가해서 배경화면 & 텍스트 채우기
-
-2. useState([ ]) 로  수업들을 담을 빈 배열을 만들고,
-수업목록에서 클릭하면 ->  배열에 추가하며 리렌더링
-
-*/
-
 export function Timetable() {
-  const [focus, setFocus] = useState(false);
+  const [finalClassArr, setFinalClassArr] = useRecoilState(finalClassArray);
+  const [finalClassIds, setFinalClassIds] = useRecoilState(finalClassIdsAtom);
 
-  const myMonClassArray = useRecoilValue(MonClassArray);
-  const myTueClassArray = useRecoilValue(TueClassArray);
-  const myWenClassArray = useRecoilValue(WenClassArray);
-  const myThuClassArray = useRecoilValue(ThuClassArray);
-  const myFriClassArray = useRecoilValue(FriClassArray);
+  const [myMonClassArray, setMyMonClassArray] = useRecoilState(MonClassArray);
+  const [myMonClassIds, setMyMonClassIds] = useRecoilState(MonClassIds);
 
-  console.log('xBtnOnMonday', xBtnOnMonday[0]);
+  const [myTueClassArray, setMyTueClassArray] = useRecoilState(TueClassArray);
+  const [myTueClassIds, setMyTueClassIds] = useRecoilState(TueClassIds);
+
+  const [myWenClassArray, setMyWenClassArray] = useRecoilState(WenClassArray);
+  const [myWenClassIds, setMyWenClassIds] = useRecoilState(WenClassIds);
+
+  const [myThuClassArray, setMyThuClassArray] = useRecoilState(ThuClassArray);
+  const [myThuClassIds, setMyThuClassIds] = useRecoilState(ThuClassIds);
+
+  const [myFriClassArray, setMyFriClassArray] = useRecoilState(FriClassArray);
+  const [myFriClassIds, setMyFriClassIds] = useRecoilState(FriClassIds);
+
+  const onDelete = (wantDeleteID) => {
+    var newFinalList = [...finalClassArr];
+    setFinalClassArr(
+      newFinalList.filter((data) => data.classId !== wantDeleteID)
+    );
+    var newFinalIDs = [...finalClassIds];
+    setFinalClassIds(newFinalIDs.filter((data) => data !== wantDeleteID));
+    //
+    var newMonList = [...myMonClassArray];
+    setMyMonClassArray(
+      newMonList.filter((data) => data.classId !== wantDeleteID)
+    );
+    var newMonIDs = [...myMonClassIds];
+    setMyMonClassIds(newMonIDs.filter((data) => data !== wantDeleteID));
+    //
+    var newTueList = [...myTueClassArray];
+    setMyTueClassArray(
+      newTueList.filter((data) => data.classId !== wantDeleteID)
+    );
+    var newTueIDs = [...myTueClassIds];
+    setMyTueClassIds(newTueIDs.filter((data) => data !== wantDeleteID));
+    //
+    var newWendayList = [...myWenClassArray];
+    setMyWenClassArray(
+      newWendayList.filter((data) => data.classId !== wantDeleteID)
+    );
+    var newWendayIDs = [...myWenClassIds];
+    setMyWenClassIds(newWendayIDs.filter((data) => data !== wantDeleteID));
+    //
+    var newThudayList = [...myThuClassArray];
+    setMyThuClassArray(
+      newThudayList.filter((data) => data.classId !== wantDeleteID)
+    );
+    var newThudayIDs = [...myThuClassIds];
+    setMyThuClassIds(newThudayIDs.filter((data) => data !== wantDeleteID));
+
+    //
+    var newFridayList = [...myFriClassArray];
+    setMyFriClassArray(
+      newFridayList.filter((data) => data.classId !== wantDeleteID)
+    );
+    var newFridayIDs = [...myFriClassIds];
+    setMyFriClassIds(newFridayIDs.filter((data) => data !== wantDeleteID));
+  };
+
   return (
     <div className="timetable">
       <ul className="list-group col-2" id="mon">
@@ -57,11 +108,7 @@ export function Timetable() {
               <span>{data.className}</span>
               <span>{data.Professor}</span>
               <span>{data.lectureRoom}</span>
-              {xBtnOnMonday[data.firstClassNum - 1] && (
-                <span className="xBtn" style={{ zIndex: 999 }}>
-                  X
-                </span>
-              )}
+              <button onClick={() => onDelete(data.classId)}>X</button>
             </div>
           );
         })}
@@ -85,6 +132,7 @@ export function Timetable() {
               <span>{data.className}</span>
               <span>{data.Professor}</span>
               <span>{data.lectureRoom}</span>
+              <button onClick={() => onDelete(data.classId)}>X</button>
             </div>
           );
         })}
@@ -108,6 +156,7 @@ export function Timetable() {
               <span>{data.className}</span>
               <span>{data.Professor}</span>
               <span>{data.lectureRoom}</span>
+              <button onClick={() => onDelete(data.classId)}>X</button>
             </div>
           );
         })}
@@ -131,6 +180,7 @@ export function Timetable() {
               <span>{data.className}</span>
               <span>{data.Professor}</span>
               <span>{data.lectureRoom}</span>
+              <button onClick={() => onDelete(data.classId)}>X</button>
             </div>
           );
         })}
@@ -154,6 +204,7 @@ export function Timetable() {
               <span>{data.className}</span>
               <span>{data.Professor}</span>
               <span>{data.lectureRoom}</span>
+              <button onClick={() => onDelete(data.classId)}>X</button>
             </div>
           );
         })}

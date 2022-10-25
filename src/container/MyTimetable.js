@@ -4,7 +4,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useRecoilValue } from 'recoil';
 import { isLoginIn } from '../atoms';
 
-import MontoSun from '../component/container/mon-to-sun';
+import Timetable from '../component/container/mon-to-sun';
 import ClassList from '../component/select-class-schedule';
 import SearchClassList from '../component/container/search-class-list';
 import Header from '../component/Header';
@@ -60,7 +60,7 @@ function MyTimetable() {
         <>
           <div className="__column">
             <div className="__left">
-              <MontoSun />
+              <Timetable />
             </div>
             <div className="__right">
               <div className="__right__one">

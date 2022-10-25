@@ -14,6 +14,16 @@ export const studentID = atom({
   effects_UNSTABLE: [persistAtom],
 });
 
+//
+export const finalClassArray = atom({
+  key: `finalClassArr/${v1()}`,
+  default: [],
+});
+export const finalClassIdsAtom = atom({
+  key: `finalClassIds/${v1()}`,
+  default: [],
+});
+
 export const MonClassArray = atom({
   key: `MonClassArray/${v1()}`,
   default: [],
