@@ -1,5 +1,28 @@
 import { atom } from 'recoil';
 import { v1 } from 'uuid';
+import { recoilPersist } from 'recoil-persist';
+const { persistAtom } = recoilPersist();
+
+export const isLoginIn = atom({
+  key: 'isLoginIn',
+  default: false,
+  effects_UNSTABLE: [persistAtom],
+});
+export const studentID = atom({
+  key: 'studentID',
+  default: '',
+  effects_UNSTABLE: [persistAtom],
+});
+
+//
+export const finalClassArray = atom({
+  key: `finalClassArr/${v1()}`,
+  default: [],
+});
+export const finalClassIdsAtom = atom({
+  key: `finalClassIds/${v1()}`,
+  default: [],
+});
 
 export const MonClassArray = atom({
   key: `MonClassArray/${v1()}`,

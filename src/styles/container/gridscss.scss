@@ -6,9 +6,9 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 
-  padding-left: 40px;
-
   > div {
+    padding-left: 40px;
+
     display: grid;
     grid-template-columns: 2.3fr 1.2fr 1fr 1fr 1fr 1.2fr;
     grid-template-rows: auto;

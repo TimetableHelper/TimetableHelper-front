@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Header from './Header';
+import Header from '../component/Header';
 
 function Signup2(props) {
   return (

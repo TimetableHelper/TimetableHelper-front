@@ -1,10 +1,14 @@
-.SelectInClasslist__column {
+.__column {
   display: flex;
 }
-.SelectInClasslist__left {
+.__left {
   margin-right: 38px;
 }
 
-.SelectInClasslist__right__one {
+.__right__one {
   margin-bottom: 20px;
+}
+
+.__right__two {
+  overflow: hidden;
 }

@@ -2,13 +2,14 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import App from './App';
-import SelectInClasslist from '../src/container/select-in-classlist';
+import MyTimetable from './container/MyTimetable';
 import Article from '../src/container/article';
 
 import Header from './component/Header';
-import Login from './component/Login';
-import Signup from './component/Signup';
-import Signup2 from './component/Signup2';
+import Login from './container/Login';
+import Signup from './container/Signup';
+import Signup2 from './container/Signup2';
+import TimetableBoard from './container/TimetableBoard';
 
 function Router() {
   return (
@@ -17,8 +18,9 @@ function Router() {
         <Route path="/" element={<Login />}></Route>
         <Route path="/sign-up" element={<Signup />}></Route>
         <Route path="/sign-up2" element={<Signup2 />}></Route>
-        <Route path="/class-list" element={<Article />}></Route>
-        <Route path="/select-class" element={<SelectInClasslist />}></Route>
+        <Route path="/make-newtimetable" element={<Article />}></Route>
+        <Route path="/my-timetable" element={<MyTimetable />}></Route>
+        <Route path="/timetable-board" element={<TimetableBoard />}></Route>
       </Routes>
     </BrowserRouter>
   );

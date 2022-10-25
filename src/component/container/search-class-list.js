@@ -3,11 +3,13 @@ import '../../styles/container/gridscss.scss';
 import { exServerData } from '../../component/select-class-schedule.js';
 import { BsSearch } from 'react-icons/bs';
 import { useEffect, useState } from 'react';
+import classnames from 'classnames';
 
 import { useRecoilState } from 'recoil';
 import { isUseOnMonday, xBtnOnMonday } from '../../atoms';
-
 import {
+  finalClassArray,
+  finalClassIdsAtom,
   MonClassArray,
   MonClassIds,
   TueClassArray,
@@ -24,9 +26,10 @@ import {
 import addToMonToFriArray from '../../utils/component/addMonToFriArray';
 
 function SearchClassList() {
-  const [finalClassArr, setFinalClassArr] = useState([]);
+  const [finalClassArr, setFinalClassArr] = useRecoilState(finalClassArray);
   // 최종 배열. 이걸 요일별로 나눌 예정
-  const [finalClassIds, setFinalClassIds] = useState([]);
+
+  const [finalClassIds, setFinalClassIds] = useRecoilState(finalClassIdsAtom);
   // 사용중인 클래스 아이디s
 
   const [numberOfPresses, setNumberOfPresses] =
@@ -74,9 +77,6 @@ function SearchClassList() {
       myWenClassArray,
       setMyWenClassIds,
       myFriClassArray,
-      isUsedOnMonday,
-      setIsUsedOnMonday,
-      xBtnOnMonday,
     });
 
     // finalClassArr의 ClassId들을 중복없이 finalClassIds 에 담기.
@@ -121,6 +121,22 @@ function SearchClassList() {
   console.log('수', myWenClassArray);
   console.log('목', myThuClassArray);
   console.log('금', myFriClassArray);
+
+  const [BtnKeyWords, setBtnKeyWords] = useState([
+    { keywords: '가벼운 타과 전공', focus: false, key: 1 },
+    { keywords: '건강을 위한', focus: false, key: 2 },
+    { keywords: '토론이 많은', focus: false, key: 3 },
+    { keywords: '실습 위주의', focus: false, key: 4 },
+    { keywords: '다양한 지식을 쌓는', focus: false, key: 5 },
+  ]);
+
+  const buttonClick = (num, keywords) => {
+    BtnKeyWords[num].focus = !BtnKeyWords[num].focus;
+
+    var newBtns = [...BtnKeyWords];
+    setBtnKeyWords(newBtns);
+  };
+
   return (
     <>
       <div className="SearchClassList__column">
@@ -136,7 +152,24 @@ function SearchClassList() {
         </div>
         <div className="SearchClassList__contents">
           <div className="SearchClassList__recommend-keyword">
-            <button className="SearchClassList__recommend-keyword-btn">
+            {BtnKeyWords.map((keywords) => {
+              return (
+                <button
+                  className={classnames(
+                    'SearchClassList__recommend-keyword-btn',
+                    {
+                      'SearchClassList__recommend-keyword-btn-active':
+                        keywords.focus,
+                    }
+                  )}
+                  key={keywords.key}
+                  onClick={() => buttonClick(keywords.key - 1, keywords)}
+                >
+                  {keywords.keywords}
+                </button>
+              );
+            })}
+            {/*   <button className="SearchClassList__recommend-keyword-btn">
               가벼운 타과 전공
             </button>
             <button className="SearchClassList__recommend-keyword-btn">
@@ -150,7 +183,7 @@ function SearchClassList() {
             </button>
             <button className="SearchClassList__recommend-keyword-btn">
               다양한 지식을 쌓는
-            </button>
+            </button> */}
           </div>
           <div
             className="grid__contents"
@@ -186,11 +219,10 @@ function SearchClassList() {
                       setFinalClassIds(newfinalClassIds);
                     } else {
                       //== finalClassArr 가 비어있지 않다면
+                      // 클릭한 수업의 classId가 finalClassIds에 있는지 확인 == 있다면 이미 들어있는 수업
                       if (finalClassIds.indexOf(data.classId) === -1) {
                         let newFinalClassArr = [...finalClassArr, clickedClass];
                         setFinalClassArr(newFinalClassArr);
-
-                        console.log('newFinalClassArr', newFinalClassArr);
                       }
 
                       // 클릭한 수업의 아이디(data.classId)가

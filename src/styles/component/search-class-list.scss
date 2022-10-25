@@ -77,7 +77,9 @@
 }
 
 .SearchClassList__contents {
-  padding-left: 32px;
+  > div {
+    padding-left: 32px;
+  }
 }
 
 .SearchClassList__recommend-keyword {
@@ -107,5 +109,9 @@
 
     color: #505050;
     background-color: #ffffff;
+  }
+  > .SearchClassList__recommend-keyword-btn-active {
+    background-color: #2962ff;
+    color: #ffffff;
   }
 }
