@@ -45,10 +45,7 @@ function Header(props) {
                 </nav> */}
         <nav className="navbar navbar-expand-lg">
           <div className="container-fluid">
-            <Link
-              to={isLoginedState ? `/make-newtimetable` : `/`}
-              className="navbar-brand"
-            >
+            <Link to={isLoginedState ? `/main` : `/`} className="navbar-brand">
               <img src={logo} className="App-logo" alt="logo" />
             </Link>
             <p className="p-p p-nav">대학생을 위한 시간표 도우미</p>

@@ -10,6 +10,7 @@ import Login from './container/Login';
 import Signup from './container/Signup';
 import Signup2 from './container/Signup2';
 import TimetableBoard from './container/TimetableBoard';
+import Main from './container/Main';
 
 function Router() {
   return (
@@ -21,6 +22,7 @@ function Router() {
         <Route path="/make-newtimetable" element={<Article />}></Route>
         <Route path="/my-timetable" element={<MyTimetable />}></Route>
         <Route path="/timetable-board" element={<TimetableBoard />}></Route>
+        <Route path="/main" element={<Main />}></Route>
       </Routes>
     </BrowserRouter>
   );

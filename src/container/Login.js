@@ -48,7 +48,7 @@ function Login(props) {
     setStudentId(id);
     console.log('login', login);
     //   e.preventDefault();
-    document.location.href = '/make-newtimetable';
+    document.location.href = '/main';
 
     /*
  axios

@@ -16,61 +16,73 @@ export const studentID = atom({
 
 //
 export const finalClassArray = atom({
-  key: `finalClassArr/${v1()}`,
+  key: `finalClassArr`,
   default: [],
+  effects_UNSTABLE: [persistAtom],
 });
 export const finalClassIdsAtom = atom({
-  key: `finalClassIds/${v1()}`,
+  key: `finalClassIds`,
   default: [],
+  effects_UNSTABLE: [persistAtom],
 });
 
 export const MonClassArray = atom({
-  key: `MonClassArray/${v1()}`,
+  key: `MonClassArray`,
   default: [],
+  effects_UNSTABLE: [persistAtom],
 });
 export const MonClassIds = atom({
-  key: `MonClassIds/${v1()}`,
+  key: `MonClassIds`,
   default: [],
+  effects_UNSTABLE: [persistAtom],
 });
 
 //
 export const TueClassArray = atom({
-  key: `TueClassArray/${v1()}`,
+  key: `TueClassArray`,
   default: [],
+  effects_UNSTABLE: [persistAtom],
 });
 export const TueClassIds = atom({
-  key: `MonClassIds/${v1()}`,
+  key: `TueClassIds`,
   default: [],
+  effects_UNSTABLE: [persistAtom],
 });
 
 //
 export const WenClassArray = atom({
-  key: `TueClassArray/${v1()}`,
+  key: `WenClassArray`,
   default: [],
+  effects_UNSTABLE: [persistAtom],
 });
 export const WenClassIds = atom({
-  key: `MonClassIds/${v1()}`,
+  key: `WenClassIds`,
   default: [],
+  effects_UNSTABLE: [persistAtom],
 });
 
 //
 export const ThuClassArray = atom({
-  key: `TueClassArray/${v1()}`,
+  key: `ThuClassArray`,
   default: [],
+  effects_UNSTABLE: [persistAtom],
 });
 export const ThuClassIds = atom({
-  key: `MonClassIds/${v1()}`,
+  key: `ThuClassIds`,
   default: [],
+  effects_UNSTABLE: [persistAtom],
 });
 
 //
 export const FriClassArray = atom({
-  key: `TueClassArray/${v1()}`,
+  key: `FriClassArray`,
   default: [],
+  effects_UNSTABLE: [persistAtom],
 });
 export const FriClassIds = atom({
-  key: `MonClassIds/${v1()}`,
+  key: `FriClassIds`,
   default: [],
+  effects_UNSTABLE: [persistAtom],
 });
 
 //
