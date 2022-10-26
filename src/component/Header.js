@@ -16,7 +16,10 @@ function Header(props) {
   const logoutFn = () => {
     setlogin(false);
     document.location.href = '/';
-    window.localStorage.removeItem('recoil-persist');
+    // 유저 정보 삭제
+    window.localStorage.removeItem('userData');
+    // 시간표 정보 삭제
+    window.localStorage.removeItem('tableInfo');
   };
 
   return (

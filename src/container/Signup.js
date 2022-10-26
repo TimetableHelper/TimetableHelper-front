@@ -7,9 +7,9 @@ function Signup(props) {
   const [grade, setGrade] = useState();
   const [studentID, setStudentID] = useState('');
   const [password, setPassword] = useState();
-  console.log(
-    `major: ${major}, ${grade}:grade, ${studentID}:studentID, $${password}:password `
-  );
+  //  console.log(
+  //   `major: ${major}, ${grade}:grade, ${studentID}:studentID, $${password}:password `
+  // );
 
   return (
     <>

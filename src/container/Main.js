@@ -31,6 +31,12 @@ const exNewIssueData = [
     updateDay: '2022-11-11',
     detailLink: '/main',
   },
+  {
+    key: 4,
+    description: '3개씩 짜를거니까 나오면 안되는 공지.',
+    updateDay: '2022-11-11',
+    detailLink: '/main',
+  },
 ];
 
 function Main() {
@@ -129,9 +135,12 @@ function Main() {
                 새로운 소식
               </div>
               <div className="Main__NewIssue__contents">
-                {exNewIssueData.map((data) => {
+                {exNewIssueData.slice(0, 3).map((data) => {
                   return (
-                    <div className="Main__NewIssue__contents__div">
+                    <div
+                      className="Main__NewIssue__contents__div"
+                      key={data.key}
+                    >
                       <span>
                         <Link to={data.detailLink}>{data.description}</Link>
                       </span>

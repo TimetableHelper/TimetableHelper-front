@@ -91,36 +91,13 @@ function SearchClassList() {
     }
   }, [finalClassArr]);
 
-  /* 
-  useEffect(() => {
-    var newMonArr = [...myMonClassArray];
-    newMonArr.sort((a, b) => a.ClassTime.substr(1) - b.ClassTime.substr(1));
-    setMyMonClassArray(newMonArr);
-    var newTueArr = [...myTueClassArray];
-    newTueArr.sort((a, b) => a.ClassTime.substr(1) - b.ClassTime.substr(1));
-    setMyTueClassArray(newTueArr);
-    var newWenArr = [...myWenClassArray];
-    newWenArr.sort((a, b) => a.ClassTime.substr(1) - b.ClassTime.substr(1));
-    setMyWenClassArray(newWenArr);
-    var newThuArr = [...myThuClassArray];
-    newThuArr.sort((a, b) => a.ClassTime.substr(1) - b.ClassTime.substr(1));
-    setMyThuClassArray(newThuArr);
-    var newFriArr = [...myFriClassArray];
-    newFriArr.sort((a, b) => a.ClassTime.substr(1) - b.ClassTime.substr(1));
-    setMyFriClassArray(newFriArr);
-  }, [
-    myMonClassIds,
-    myTueClassIds,
-    myWenClassIds,
-    myThuClassIds,
-    myFriClassIds,
-  ]); */
-
+  /*
   console.log('월', myMonClassArray);
   console.log('화', myTueClassArray);
   console.log('수', myWenClassArray);
   console.log('목', myThuClassArray);
   console.log('금', myFriClassArray);
+*/
 
   const [BtnKeyWords, setBtnKeyWords] = useState([
     { keywords: '가벼운 타과 전공', focus: false, key: 1 },
