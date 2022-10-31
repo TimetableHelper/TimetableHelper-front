@@ -1,6 +1,25 @@
+import React, { useEffect } from 'react';
+import { useRecoilState } from 'recoil';
 import '../styles/container/gridscss.scss';
 import '../styles/container/mainVy.scss';
-// import ShowClassList from '../component/show-class-list';
+import {
+  finalClassArray,
+  finalClassIdsAtom,
+  MonClassArray,
+  MonClassIds,
+  TueClassArray,
+  TueClassIds,
+  WenClassArray,
+  WenClassIds,
+  ThuClassArray,
+  ThuClassIds,
+  FriClassArray,
+  FriClassIds,
+  numberOfPressesAtom,
+} from '../atoms';
+
+import addToMonToFriArray from '../utils/component/addMonToFriArray';
+
 export const exServerData = [
   {
     classId: 1,
@@ -183,11 +202,70 @@ export const exServerData = [
     continuity: 2,
   },
 ];
+
 export default function ClassList({ width, height, position, left, top }) {
-  /* 
-  var newheight = height.slice(0, 3);
-  var newnew = Number(newheight) - 20;
-  var newnewnew = newnew + 'px'; */
+  const [finalClassArr, setFinalClassArr] = useRecoilState(finalClassArray);
+  // 최종 배열. 이걸 요일별로 나눌 예정
+
+  const [finalClassIds, setFinalClassIds] = useRecoilState(finalClassIdsAtom);
+  // 사용중인 클래스 아이디s
+
+  const [numberOfPresses, setNumberOfPresses] =
+    useRecoilState(numberOfPressesAtom);
+
+  //const [myMonClassArray, setMyMonClassArray] = useState([]);
+  const [myMonClassArray, setMyMonClassArray] = useRecoilState(MonClassArray);
+  const [myMonClassIds, setMyMonClassIds] = useRecoilState(MonClassIds);
+
+  const [myTueClassArray, setMyTueClassArray] = useRecoilState(TueClassArray);
+  const [myTueClassIds, setMyTueClassIds] = useRecoilState(TueClassIds);
+
+  const [myWenClassArray, setMyWenClassArray] = useRecoilState(WenClassArray);
+  const [myWenClassIds, setMyWenClassIds] = useRecoilState(WenClassIds);
+
+  const [myThuClassArray, setMyThuClassArray] = useRecoilState(ThuClassArray);
+  const [myThuClassIds, setMyThuClassIds] = useRecoilState(ThuClassIds);
+
+  const [myFriClassArray, setMyFriClassArray] = useRecoilState(FriClassArray);
+  const [myFriClassIds, setMyFriClassIds] = useRecoilState(FriClassIds);
+
+  useEffect(() => {
+    addToMonToFriArray({
+      finalClassArr,
+      myMonClassIds,
+      myMonClassArray,
+      setMyMonClassArray,
+      setMyMonClassIds,
+      myTueClassIds,
+      myTueClassArray,
+      setMyTueClassArray,
+      setMyTueClassIds,
+      myWenClassIds,
+      setMyWenClassArray,
+      myThuClassIds,
+      myThuClassArray,
+      setMyThuClassArray,
+      setMyThuClassIds,
+      myFriClassIds,
+      setMyFriClassArray,
+      setMyFriClassIds,
+      myWenClassArray,
+      setMyWenClassIds,
+      myFriClassArray,
+    });
+
+    // finalClassArr의 ClassId들을 중복없이 finalClassIds 에 담기.
+    for (var m = 0; m < finalClassArr.length; m++) {
+      if (
+        finalClassArr[m].classId &&
+        finalClassIds.indexOf(finalClassArr[m].classId) === -1
+      ) {
+        var newfinalClassIds = [...finalClassIds, finalClassArr[m].classId];
+        setFinalClassIds(newfinalClassIds);
+      }
+    }
+  }, [finalClassArr]);
+
   var newheight = Number(height.slice(0, 3)) - 20 + 'px';
   return (
     <div
@@ -212,7 +290,45 @@ export default function ClassList({ width, height, position, left, top }) {
         {/*<ShowClassList classArray={exServerData} /> */}
         {exServerData.map((data) => {
           return (
-            <div className="grid__contents__columns" key={data.classId}>
+            <div
+              className="grid__contents__columns"
+              key={data.classId}
+              onClick={() => {
+                // 누른 번호매기기 :: atom값 +1
+                setNumberOfPresses((prev) => prev + 1);
+
+                // 클릭한 수업의 data 복사.
+                var clickedClass = {
+                  classId: data.classId,
+                  className: data.className,
+                  Professor: data.Professor,
+                  ClassTime: data.ClassTime,
+                  lectureRoom: data.lectureRoom,
+                  Classification: data.Classification,
+                  Grades: data.Grades,
+                  continuity: data.continuity,
+                  numberOfPresses: numberOfPresses,
+                };
+                if (finalClassArr.length === 0) {
+                  // finalClassArr가 비었다면,( = 첫클릭, 중복체크 필요x)
+                  // 바로 클릭한 수업을 arr2에넣기 , classId를 arr4에 넣기
+                  let newFinalClassArr = [...finalClassArr, clickedClass];
+                  setFinalClassArr(newFinalClassArr);
+                  let newfinalClassIds = [...finalClassIds, data.classId];
+                  setFinalClassIds(newfinalClassIds);
+                } else {
+                  //== finalClassArr 가 비어있지 않다면
+                  // 클릭한 수업의 classId가 finalClassIds에 있는지 확인 == 있다면 이미 들어있는 수업
+                  if (finalClassIds.indexOf(data.classId) === -1) {
+                    let newFinalClassArr = [...finalClassArr, clickedClass];
+                    setFinalClassArr(newFinalClassArr);
+                  }
+
+                  // 클릭한 수업의 아이디(data.classId)가
+                  // finalClassArr[i].classid에 없다면 ..
+                }
+              }}
+            >
               <span className="grid__contents__className">
                 {data.className}
               </span>

@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 import classnames from 'classnames';
 
 import { useRecoilState } from 'recoil';
-import { isUseOnMonday, xBtnOnMonday } from '../../atoms';
 import {
   finalClassArray,
   finalClassIdsAtom,
@@ -51,8 +50,10 @@ function SearchClassList() {
   const [myFriClassArray, setMyFriClassArray] = useRecoilState(FriClassArray);
   const [myFriClassIds, setMyFriClassIds] = useRecoilState(FriClassIds);
 
+  /*
   // 중복 체크용 boolean array
   const [isUsedOnMonday, setIsUsedOnMonday] = useRecoilState(isUseOnMonday);
+  */
 
   useEffect(() => {
     addToMonToFriArray({
