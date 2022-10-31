@@ -90,6 +90,11 @@ function Signup2(props) {
 
   console.log('userDataToSendServer', userDataToSendServer);
 
+  const axiosPost = () => {
+    // 서버로 데이터 보내기
+    console.log('서버로 데이터 보내기');
+  };
+
   return (
     <>
       <Header />
@@ -311,7 +316,13 @@ function Signup2(props) {
             </div>
 
             <Link to="/">
-              <button className="btn btn-primary btn-sido" type="submit">
+              <button
+                className="btn btn-primary btn-sido"
+                type="submit"
+                onClick={() => {
+                  axiosPost();
+                }}
+              >
                 회원가입
               </button>
             </Link>

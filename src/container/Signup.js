@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../component/Header';
+import '../styles/container/Login.scss';
 
 function Signup() {
   const [major, setMajor] = useState('');
@@ -24,10 +25,20 @@ function Signup() {
   }, [grade, major, password, studentID]);
 
   const blinkAlert = () => {
+    if (!studentID) {
+      alert('아이디');
+    }
+    if (!password) {
+      alert('비번');
+    }
     if (!major) {
-      alert('빈칸');
+      alert('전공');
+    }
+    if (!grade) {
+      alert('학년');
     }
   };
+
   return (
     <>
       <Header />
@@ -146,11 +157,12 @@ function Signup() {
               </Link>
             ) : (
               <div
-                className="btn btn-outline-primary w-100"
+                className="btn w-100 signup__nextBtn__disabled"
                 type="submit"
                 onClick={() => {
                   blinkAlert();
                 }}
+                disabled
               >
                 다음 False
               </div>

@@ -1,0 +1,10 @@
+.signup__nextBtn__disabled {
+  border-color: red;
+  color: red;
+  opacity: 0.5;
+  &:hover {
+    border-color: red !important;
+    color: red !important;
+    opacity: 0.5 !important;
+  }
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from './logo.svg';
 
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { isLoginIn } from '../atoms';
 
 import '../styles/component/Header.scss';
@@ -12,6 +12,7 @@ function Header(props) {
 
   // "시도" 아이콘 클릭시 이동할 위치를 정하기 위해...
   const isLoginedState = useRecoilState(isLoginIn)[0];
+  console.log('isLoginedState', isLoginedState);
 
   const logoutFn = () => {
     setlogin(false);
@@ -68,18 +69,29 @@ function Header(props) {
               id="navbarNavAltMarkup"
             >
               <div className="navbar-nav">
-                <Link to="/" className="nav-link active" aria-current="page">
+                <Link
+                  to={isLoginedState ? '/main' : '/'}
+                  className="nav-link active"
+                  aria-current="page"
+                >
                   이용안내
                 </Link>
-                <Link to="/" className="nav-link">
-                  회원가입
-                </Link>
-                <Link to="/" className="nav-link disabled">
-                  내시간표
-                </Link>
-                <Link to="/" className="nav-link disabled">
-                  게시판
-                </Link>
+
+                {!isLoginedState && (
+                  <Link to="/sign-up" className="nav-link">
+                    회원가입
+                  </Link>
+                )}
+                {isLoginedState && (
+                  <Link to="/my-timetable" className="nav-link">
+                    내시간표
+                  </Link>
+                )}
+                {isLoginedState && (
+                  <Link to="/timetable-board" className="nav-link">
+                    게시판
+                  </Link>
+                )}
                 {islogin && (
                   <button
                     id="Header__logoutBtn"
