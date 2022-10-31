@@ -16,7 +16,10 @@ function Header(props) {
   const logoutFn = () => {
     setlogin(false);
     document.location.href = '/';
-    window.localStorage.removeItem('recoil-persist');
+    // 유저 정보 삭제
+    window.localStorage.removeItem('userData');
+    // 시간표 정보 삭제
+    window.localStorage.removeItem('tableInfo');
   };
 
   return (
@@ -45,10 +48,7 @@ function Header(props) {
                 </nav> */}
         <nav className="navbar navbar-expand-lg">
           <div className="container-fluid">
-            <Link
-              to={isLoginedState ? `/make-newtimetable` : `/`}
-              className="navbar-brand"
-            >
+            <Link to={isLoginedState ? `/main` : `/`} className="navbar-brand">
               <img src={logo} className="App-logo" alt="logo" />
             </Link>
             <p className="p-p p-nav">대학생을 위한 시간표 도우미</p>

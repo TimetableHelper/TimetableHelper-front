@@ -13,9 +13,7 @@ function Login(props) {
     //    const isLoginedState = window.localStorage.getItem('isLoginIn');
     if (isLoginedState) {
       // 로그인 상태라면 페이지 건너뛰기
-
-      console.log(isLoginedState);
-      document.location.href = '/make-newtimetable';
+      document.location.href = '/main';
     }
   }, []);
 
@@ -46,9 +44,8 @@ function Login(props) {
   const axiosCheck = (e) => {
     setLogin(true);
     setStudentId(id);
-    console.log('login', login);
     //   e.preventDefault();
-    document.location.href = '/make-newtimetable';
+    document.location.href = '/main';
 
     /*
  axios
@@ -76,10 +73,10 @@ function Login(props) {
   };
   const failLogin = () => {
     setFailModal(true);
-    setTimeout(() => {
-      // N초후에 로그인 에러 경고메세지 사라지게
-      setFailModal(false);
-    }, 7500);
+    //   setTimeout(() => {
+    // N초후에 로그인 에러 경고메세지 사라지게
+    //      setFailModal(false);
+    //   }, 7500);
   };
 
   // 서버와 통신 전, 임시값 2개

@@ -71,18 +71,6 @@ function MyTimetable() {
               </div>
             </div>
           </div>
-          <Link to="/timetable-board">
-            <div
-              style={{
-                display: 'flex',
-                fontSize: '50px',
-                justifyContent: 'center',
-                marginTop: '150px',
-              }}
-            >
-              페이지이동 임시버튼
-            </div>
-          </Link>
         </>
       ) : (
         <>
