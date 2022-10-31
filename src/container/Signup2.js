@@ -18,36 +18,77 @@ function Signup2(props) {
     },
   ];
 
+  // 아래 데이터를 서버로 보내면 됨.
   const [userDataToSendServer, setUserDataToSendServer] = useState([
     { essentialCultureClass: [], mainCultureClass: [] },
   ]);
 
-  const datagogo = (data) => {
-    var temporaryCopySendDataData = [
-      {
-        ...userDataToSendServer,
-        essentialCultureClass: [
-          ...userDataToSendServer[0].essentialCultureClass,
-          data,
-        ],
-        mainCultureClass: [...userDataToSendServer[0].mainCultureClass],
-      },
-    ];
-    setUserDataToSendServer(temporaryCopySendDataData);
+  const addEssentialCultureClass = (data) => {
+    const checkbox = document.getElementById(`signUp2__checkbox__${data}`);
+    const is_checked = checkbox.checked;
+
+    if (is_checked) {
+      // 데이터가 안들어 있을경우 => userData에 담기,
+      var temporaryCopySendDataData = [
+        {
+          essentialCultureClass: [
+            ...userDataToSendServer[0].essentialCultureClass,
+            data,
+          ],
+          mainCultureClass: [...userDataToSendServer[0].mainCultureClass],
+        },
+      ];
+      setUserDataToSendServer(temporaryCopySendDataData);
+    } else {
+      // 데이터가 들어 있을경우 = 토글기능 => 담기X ,data삭제,
+      var copyTemp = userDataToSendServer[0].essentialCultureClass.filter(
+        (className) => className !== data
+      );
+
+      var deleteCopySendDataData = [
+        {
+          essentialCultureClass: copyTemp,
+          mainCultureClass: [...userDataToSendServer[0].mainCultureClass],
+        },
+      ];
+      setUserDataToSendServer(deleteCopySendDataData);
+    }
   };
 
-  const mainculturegogo = (data) => {
-    var temporaryCopySendDataData = [
-      {
-        ...userDataToSendServer,
-        essentialCultureClass: [
-          ...userDataToSendServer[0].essentialCultureClass,
-        ],
-        mainCultureClass: [...userDataToSendServer[0].mainCultureClass, data],
-      },
-    ];
-    setUserDataToSendServer(temporaryCopySendDataData);
+  const addMainCultureClass = (data) => {
+    const checkbox = document.getElementById(`signUp2__checkbox__${data}`);
+    const is_checked = checkbox.checked;
+
+    if (is_checked) {
+      // 데이터가 안들어 있을경우 => userData에 담기,
+      var temporaryCopySendDataData = [
+        {
+          essentialCultureClass: [
+            ...userDataToSendServer[0].essentialCultureClass,
+          ],
+          mainCultureClass: [...userDataToSendServer[0].mainCultureClass, data],
+        },
+      ];
+      setUserDataToSendServer(temporaryCopySendDataData);
+    } else {
+      // 데이터가 들어 있을경우 = 토글기능 => 담기X ,data삭제,
+      var copyTemp = userDataToSendServer[0].mainCultureClass.filter(
+        (className) => className !== data
+      );
+
+      var deleteCopySendDataData = [
+        {
+          essentialCultureClass: [
+            ...userDataToSendServer[0].essentialCultureClass,
+          ],
+          mainCultureClass: copyTemp,
+        },
+      ];
+      setUserDataToSendServer(deleteCopySendDataData);
+    }
   };
+
+  console.log('userDataToSendServer', userDataToSendServer);
 
   return (
     <>
@@ -75,16 +116,13 @@ function Signup2(props) {
                             value=""
                             id={`signUp2__checkbox__${data}`}
                             onChange={(e) => {
-                              datagogo(data);
+                              addEssentialCultureClass(data);
                             }}
                           />
                           <label
                             className="form-check-label"
                             key={`essential-label-key-${data}`}
                             htmlFor={`signUp2__checkbox__${data}`}
-                            onChange={(e) => {
-                              console.log('label e', e);
-                            }}
                           >
                             {data}
                           </label>
@@ -157,7 +195,7 @@ function Signup2(props) {
                           value=""
                           id={`signUp2__checkbox__${data}`}
                           onChange={() => {
-                            mainculturegogo(data);
+                            addMainCultureClass(data);
                           }}
                         />
                         <label
