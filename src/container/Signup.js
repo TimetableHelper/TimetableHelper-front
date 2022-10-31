@@ -1,16 +1,33 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../component/Header';
 
-function Signup(props) {
+function Signup() {
   const [major, setMajor] = useState('');
   const [grade, setGrade] = useState();
   const [studentID, setStudentID] = useState('');
-  const [password, setPassword] = useState();
-  //  console.log(
-  //   `major: ${major}, ${grade}:grade, ${studentID}:studentID, $${password}:password `
-  // );
+  const [password, setPassword] = useState('');
+  console.log(
+    `major: ${major}, grade:${grade}, studentID:${studentID}, password:${password} `
+  );
 
+  const [okGO2, setOkGo2] = useState(false);
+
+  useEffect(() => {
+    // 4개의 인풋이 다 채워졌다면 = > setOkGo2(true)
+    if (major && grade && studentID && password) {
+      setOkGo2(true);
+    } else if (major || grade || studentID || password) {
+      setOkGo2(false);
+    }
+    // 다 채워진 이후에, 4개의 인풋중에 빈칸이 생긴다면= > setOkGo2(false)
+  }, [grade, major, password, studentID]);
+
+  const blinkAlert = () => {
+    if (!major) {
+      alert('빈칸');
+    }
+  };
   return (
     <>
       <Header />
@@ -56,7 +73,9 @@ function Signup(props) {
                     setMajor(e.target.value);
                   }}
                 >
-                  <option value="DEFAULT">전공</option>
+                  <option value="DEFAULT" disabled>
+                    전공
+                  </option>
                   <option value="전자전기공학부">전자전기공학부</option>
                   <option value="컴퓨터공학과">컴퓨터공학과</option>
                   <option value="산업 데이터공학과">산업 데이터공학과</option>
@@ -108,7 +127,9 @@ function Signup(props) {
                     setGrade(e.target.value);
                   }}
                 >
-                  <option value="DEFAULT">학년</option>
+                  <option value="DEFAULT" disabled>
+                    학년
+                  </option>
                   <option value="1">1학년</option>
                   <option value="2">2학년</option>
                   <option value="3">3학년</option>
@@ -117,11 +138,23 @@ function Signup(props) {
               </div>
             </div>
 
-            <Link to="/sign-up2">
-              <button className="btn btn-outline-primary w-100" type="submit">
-                다음
-              </button>
-            </Link>
+            {okGO2 ? (
+              <Link to="/sign-up2">
+                <button className="btn btn-outline-primary w-100" type="submit">
+                  다음 True
+                </button>
+              </Link>
+            ) : (
+              <div
+                className="btn btn-outline-primary w-100"
+                type="submit"
+                onClick={() => {
+                  blinkAlert();
+                }}
+              >
+                다음 False
+              </div>
+            )}
           </form>
         </main>
       </div>
