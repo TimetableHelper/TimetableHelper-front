@@ -123,7 +123,9 @@ function SearchClassList() {
       <div className="SearchClassList__column">
         <div className="SearchClassList__search-input">
           <select>
-            <option>선택</option>
+            <option selected disabled>
+              선택
+            </option>
             <option>1</option>
             <option>2</option>
             <option>3</option>

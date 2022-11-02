@@ -99,8 +99,8 @@ export function Timetable() {
               style={{
                 position: 'absolute',
                 top: defineHeight(data.firstClassNum),
-                left: 0,
-                width: '116.5px',
+                left: 100,
+                width: '136.5px',
                 backgroundColor: defineColor(data.numberOfPresses),
                 height: `${data.continuity * 48}px`,
               }}
@@ -123,8 +123,8 @@ export function Timetable() {
               style={{
                 position: 'absolute',
                 top: defineHeight(data.firstClassNum),
-                left: 117,
-                width: '116.5px',
+                left: 100 + 137,
+                width: '136.5px',
                 backgroundColor: defineColor(data.numberOfPresses),
                 height: `${data.continuity * 48}px`,
               }}
@@ -147,8 +147,8 @@ export function Timetable() {
               style={{
                 position: 'absolute',
                 top: defineHeight(data.firstClassNum),
-                left: 117 * 2,
-                width: '116.5px',
+                left: 100 + 137 * 2,
+                width: '136.5px',
                 backgroundColor: defineColor(data.numberOfPresses),
                 height: `${data.continuity * 48}px`,
               }}
@@ -171,8 +171,8 @@ export function Timetable() {
               style={{
                 position: 'absolute',
                 top: defineHeight(data.firstClassNum),
-                left: 117 * 3,
-                width: '116.5px',
+                left: 100 + 137 * 3,
+                width: '136.5px',
                 backgroundColor: defineColor(data.numberOfPresses),
                 height: `${data.continuity * 48}px`,
               }}
@@ -195,8 +195,8 @@ export function Timetable() {
               style={{
                 position: 'absolute',
                 top: defineHeight(data.firstClassNum),
-                left: 117 * 4,
-                width: '116.5px',
+                left: 100 + 137 * 4,
+                width: '136.5px',
                 backgroundColor: defineColor(data.numberOfPresses),
                 height: `${data.continuity * 48}px`,
               }}

@@ -51,7 +51,9 @@ function Header(props) {
             <Link to={isLoginedState ? `/main` : `/`} className="navbar-brand">
               <img src={logo} className="App-logo" alt="logo" />
             </Link>
-            <p className="p-p p-nav">대학생을 위한 시간표 도우미</p>
+            <p className="p-p p-nav" style={{ whiteSpace: 'nowrap' }}>
+              대학생을 위한 시간표 도우미
+            </p>
             <button
               className="navbar-toggler"
               type="button"
