@@ -1,12 +1,14 @@
-// import { useState } from 'react';
-// import Article from './article';
-// import Login from './Login';
+import { useState } from 'react';
+import Login from './Login';
 
-// function Home() {
-//   const [TorF, set] = useState(true);
-//   setTimeout(() => set((prev) => !prev), 1000);
+import { useRecoilValue } from 'recoil';
+import { isLoginIn } from '../atoms';
+import Main from './Main';
 
-//   return <>{TorF ? <Login /> : <Article />}</>;
-// }
+function Home() {
+  const islogin = useRecoilValue(isLoginIn);
 
-// export default Home;
+  return <>{islogin ? <Main /> : <Login />}</>;
+}
+
+export default Home;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../component/Header';
-import '../styles/container/Login.scss';
+import '../styles/container/SignUp.scss';
 
 function Signup() {
   const [major, setMajor] = useState('');

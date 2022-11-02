@@ -115,12 +115,17 @@ function SearchClassList() {
     setBtnKeyWords(newBtns);
   };
 
+  console.log('finalClassIds', finalClassIds);
+  console.log('myMonClassArray', myMonClassArray);
+
   return (
     <>
       <div className="SearchClassList__column">
         <div className="SearchClassList__search-input">
           <select>
-            <option>선택</option>
+            <option selected disabled>
+              선택
+            </option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -147,21 +152,6 @@ function SearchClassList() {
                 </button>
               );
             })}
-            {/*   <button className="SearchClassList__recommend-keyword-btn">
-              가벼운 타과 전공
-            </button>
-            <button className="SearchClassList__recommend-keyword-btn">
-              건강을 위한
-            </button>
-            <button className="SearchClassList__recommend-keyword-btn">
-              토론이 많은
-            </button>
-            <button className="SearchClassList__recommend-keyword-btn">
-              실습 위주의
-            </button>
-            <button className="SearchClassList__recommend-keyword-btn">
-              다양한 지식을 쌓는
-            </button> */}
           </div>
           <div
             className="grid__contents"
@@ -170,7 +160,10 @@ function SearchClassList() {
             {exServerData.map((data) => {
               return (
                 <div
-                  className="grid__contents__columns"
+                  className={classnames('grid__contents__columns', {
+                    'grid__contents__columns-active':
+                      finalClassIds.indexOf(data.classId) !== -1,
+                  })}
                   key={data.classId}
                   onClick={() => {
                     // 누른 번호매기기 :: atom값 +1
@@ -187,6 +180,7 @@ function SearchClassList() {
                       Grades: data.Grades,
                       continuity: data.continuity,
                       numberOfPresses: numberOfPresses,
+                      isInSchedule: true,
                     };
                     if (finalClassArr.length === 0) {
                       // finalClassArr가 비었다면,( = 첫클릭, 중복체크 필요x)

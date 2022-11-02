@@ -7,6 +7,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useRecoilValue } from 'recoil';
 import { isLoginIn } from '../atoms';
 import { Ring } from '@uiball/loaders'; // 로딩 이미지
+import AlertModalShow from '../component/alertNotLoginModalShow';
 
 export default function TimetableBoard() {
   const islogin = useRecoilValue(isLoginIn);
@@ -51,25 +52,7 @@ export default function TimetableBoard() {
 
   return (
     <>
-      {showModal && (
-        <div className="alertModalDiv">
-          <div
-            style={{
-              width: '100%',
-              height: '20px',
-              backgroundColor: '#91a7ff',
-            }}
-          ></div>
-          <h4>로그인이 필요한 페이지입니다.</h4>
-          <button
-            onClick={() => {
-              document.location.href = '/';
-            }}
-          >
-            확인
-          </button>
-        </div>
-      )}
+      {showModal && <AlertModalShow />}
 
       <HelmetProvider>
         <Helmet>

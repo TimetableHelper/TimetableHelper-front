@@ -1,14 +1,16 @@
-.__column {
+.MyTimetable__column {
   display: flex;
+  margin-left: 100px;
+  margin-top: 50px;
 }
-.__left {
+.MyTimetable__left {
   margin-right: 38px;
 }
 
-.__right__one {
+.MyTimetable__right__one {
   margin-bottom: 20px;
 }
 
-.__right__two {
+.MyTimetable__right__two {
   overflow: hidden;
 }

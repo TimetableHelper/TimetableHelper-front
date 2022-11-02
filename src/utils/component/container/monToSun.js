@@ -11,5 +11,5 @@ export function defineColor(num) {
   if (num % 10 === 0) return '#FFB2DD';
 }
 export function defineHeight(num) {
-  return num * 48 + 24;
+  return num * 48 + 74;
 }
