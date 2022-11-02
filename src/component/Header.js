@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from './logo.svg';
 
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { isLoginIn } from '../atoms';
 
 import '../styles/component/Header.scss';
@@ -12,7 +12,6 @@ function Header(props) {
 
   // "시도" 아이콘 클릭시 이동할 위치를 정하기 위해...
   const isLoginedState = useRecoilState(isLoginIn)[0];
-  console.log('isLoginedState', isLoginedState);
 
   const logoutFn = () => {
     setlogin(false);

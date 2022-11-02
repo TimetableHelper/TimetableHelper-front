@@ -11,6 +11,7 @@ import { Ring } from '@uiball/loaders'; // 로딩 이미지
 import 'animate.css';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { HiOutlineSpeakerphone } from 'react-icons/hi';
+import AlertModalShow from '../component/alertNotLoginModalShow';
 
 const exNewIssueData = [
   {
@@ -55,25 +56,7 @@ function Main() {
 
   return (
     <>
-      {showModal && (
-        <div className="alertModalDiv">
-          <div
-            style={{
-              width: '100%',
-              height: '20px',
-              backgroundColor: '#91a7ff',
-            }}
-          ></div>
-          <h4>로그인이 필요한 페이지입니다.</h4>
-          <button
-            onClick={() => {
-              document.location.href = '/';
-            }}
-          >
-            확인
-          </button>
-        </div>
-      )}
+      {showModal && <AlertModalShow />}
 
       <HelmetProvider>
         <Helmet>

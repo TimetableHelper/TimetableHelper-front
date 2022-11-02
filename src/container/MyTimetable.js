@@ -12,6 +12,7 @@ import Header from '../component/Header';
 import '../styles/container/select-in-classlist.scss';
 import { Ring } from '@uiball/loaders'; // 로딩 이미지
 import 'animate.css';
+import AlertModalShow from '../component/alertNotLoginModalShow';
 
 function MyTimetable() {
   const islogin = useRecoilValue(isLoginIn);
@@ -29,25 +30,7 @@ function MyTimetable() {
 
   return (
     <>
-      {showModal && (
-        <div className="alertModalDiv">
-          <div
-            style={{
-              width: '100%',
-              height: '20px',
-              backgroundColor: '#91a7ff',
-            }}
-          ></div>
-          <h4>로그인이 필요한 페이지입니다.</h4>
-          <button
-            onClick={() => {
-              document.location.href = '/';
-            }}
-          >
-            확인
-          </button>
-        </div>
-      )}
+      {showModal && <AlertModalShow />}
 
       <HelmetProvider>
         <Helmet>
@@ -58,15 +41,15 @@ function MyTimetable() {
 
       {islogin ? (
         <>
-          <div className="__column">
-            <div className="__left">
+          <div className="MyTimetable__column">
+            <div className="MyTimetable__left">
               <Timetable />
             </div>
-            <div className="__right">
-              <div className="__right__one">
+            <div className="MyTimetable__right">
+              <div className="MyTimetable__right__one">
                 <ClassList width="610px" height="310px" />
               </div>
-              <div className="__right__two">
+              <div className="MyTimetable__right__two">
                 <SearchClassList />
               </div>
             </div>

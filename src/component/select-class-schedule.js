@@ -17,6 +17,7 @@ import {
   FriClassIds,
   numberOfPressesAtom,
 } from '../atoms';
+import classnames from 'classnames';
 
 import addToMonToFriArray from '../utils/component/addMonToFriArray';
 
@@ -291,7 +292,10 @@ export default function ClassList({ width, height, position, left, top }) {
         {exServerData.map((data) => {
           return (
             <div
-              className="grid__contents__columns"
+              className={classnames('grid__contents__columns', {
+                'grid__contents__columns-active':
+                  finalClassIds.indexOf(data.classId) !== -1,
+              })}
               key={data.classId}
               onClick={() => {
                 // 누른 번호매기기 :: atom값 +1
