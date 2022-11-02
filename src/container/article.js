@@ -12,7 +12,7 @@ import { useRecoilValue } from 'recoil';
 import { isLoginIn } from '../atoms';
 
 import { Ring } from '@uiball/loaders'; // 로딩 이미지
-import AlertModalShow from '../component/alertNotLoginModalShow';
+import AlertModalShow from '../component/alertNotLoginModalShow.js';
 
 export default function Article() {
   const islogin = useRecoilValue(isLoginIn);
