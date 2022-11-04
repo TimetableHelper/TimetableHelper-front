@@ -30,7 +30,7 @@ export const exServerData = [
     lectureRoom: 'R426',
     Classification: '교양필수',
     Grades: 3,
-    continuity: 2,
+    continuity: [2, 1],
     keyWords: ['가벼운 타과 전공', '건강을 위한'],
   },
   {
@@ -41,7 +41,7 @@ export const exServerData = [
     lectureRoom: 'Q403',
     Classification: '전공필수',
     Grades: 3,
-    continuity: 3,
+    continuity: [3],
     keyWords: ['건강을 위한', '토론이 많은'],
   },
   {
@@ -52,7 +52,7 @@ export const exServerData = [
     lectureRoom: 'C720',
     Classification: '교양필수',
     Grades: 3,
-    continuity: 2,
+    continuity: [2, 2],
     keyWords: ['토론이 많은', '실습 위주의'],
   },
   {
@@ -63,7 +63,7 @@ export const exServerData = [
     lectureRoom: 'C717',
     Classification: '교양필수',
     Grades: 3,
-    continuity: 2,
+    continuity: [2, 2],
     keyWords: ['실습 위주의', '토론이 많은'],
   },
   {
@@ -74,7 +74,7 @@ export const exServerData = [
     lectureRoom: 'C718',
     Classification: '교양필수',
     Grades: 3,
-    continuity: 2,
+    continuity: [2, 2],
     keyWords: ['다양한 지식을 쌓는', '가벼운 타과 전공'],
   },
   {
@@ -85,7 +85,7 @@ export const exServerData = [
     lectureRoom: 'C709',
     Classification: '교양필수',
     Grades: 3,
-    continuity: 2,
+    continuity: [2, 2],
     keyWords: ['건강을 위한', '실습 위주의'],
   },
   {
@@ -96,7 +96,7 @@ export const exServerData = [
     lectureRoom: 'C715',
     Classification: '교양필수',
     Grades: 3,
-    continuity: 2,
+    continuity: [2, 2],
     keyWords: ['가벼운 타과 전공', '다양한 지식을 쌓는'],
   },
   {
@@ -107,7 +107,7 @@ export const exServerData = [
     lectureRoom: 'T503,T606',
     Classification: '전공필수',
     Grades: 3,
-    continuity: 1,
+    continuity: [1, 1, 1],
     keyWords: ['토론이 많은', '실습 위주의'],
   },
   {
@@ -129,7 +129,7 @@ export const exServerData = [
     lectureRoom: 'DA705',
     Classification: '전공선택',
     Grades: 3,
-    continuity: 3,
+    continuity: [3],
     keyWords: ['다양한 지식을 쌓는', '건강을 위한'],
   },
   {
@@ -140,7 +140,7 @@ export const exServerData = [
     lectureRoom: 'T014',
     Classification: '교양선택',
     Grades: 3,
-    continuity: 2,
+    continuity: [2],
     keyWords: ['가벼운 타과 전공', '실습 위주의'],
   },
   {
@@ -151,7 +151,7 @@ export const exServerData = [
     lectureRoom: 'T014',
     Classification: '교양선택',
     Grades: 2,
-    continuity: 2,
+    continuity: [2],
     keyWords: ['건강을 위한', '가벼운 타과 전공'],
   },
   {
@@ -162,7 +162,7 @@ export const exServerData = [
     lectureRoom: 'R616-2',
     Classification: '교양선택(법과생활)',
     Grades: 3,
-    continuity: 3,
+    continuity: [3],
     keyWords: ['토론이 많은', '다양한 지식을 쌓는'],
   },
   {
@@ -173,7 +173,7 @@ export const exServerData = [
     lectureRoom: 'R420-1',
     Classification: '교양선택(언어와철학)',
     Grades: 3,
-    continuity: 2,
+    continuity: [3],
     keyWords: ['실습 위주의', '가벼운 타과 전공'],
   },
   {
@@ -184,7 +184,7 @@ export const exServerData = [
     lectureRoom: 'T602',
     Classification: '교양선택(과학과컴퓨터)',
     Grades: 3,
-    continuity: 2,
+    continuity: [1, 2],
     keyWords: ['다양한 지식을 쌓는', '건강을 위한'],
   },
   {
@@ -195,7 +195,7 @@ export const exServerData = [
     lectureRoom: 'R420-2',
     Classification: '교양선택(예술과디자인)',
     Grades: 3,
-    continuity: 2,
+    continuity: [3],
     keyWords: ['가벼운 타과 전공', '다양한 지식을 쌓는'],
   },
   {
@@ -206,7 +206,7 @@ export const exServerData = [
     lectureRoom: 'R910',
     Classification: '교양선택',
     Grades: 3,
-    continuity: 3,
+    continuity: [3],
     keyWords: ['건강을 위한', '가벼운 타과 전공'],
   },
   {
@@ -217,7 +217,7 @@ export const exServerData = [
     lectureRoom: 'C820',
     Classification: '교양선택',
     Grades: 3,
-    continuity: 2,
+    continuity: [3],
     keyWords: ['토론이 많은', '실습 위주의'],
   },
   {
@@ -228,7 +228,7 @@ export const exServerData = [
     lectureRoom: 'R419',
     Classification: '교양선택',
     Grades: 3,
-    continuity: 3,
+    continuity: [3],
     keyWords: ['실습 위주의', '토론이 많은'],
   },
 ];
