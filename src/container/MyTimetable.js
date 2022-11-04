@@ -47,7 +47,7 @@ function MyTimetable() {
             </div>
             <div className="MyTimetable__right">
               <div className="MyTimetable__right__one">
-                <ClassList width="610px" height="310px" />
+                <ClassList width="610px" height="350px" />
               </div>
               <div className="MyTimetable__right__two">
                 <SearchClassList />

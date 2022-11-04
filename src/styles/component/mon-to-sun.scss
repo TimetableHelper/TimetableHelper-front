@@ -1,7 +1,7 @@
 .timetable {
   width: 684px;
   //  height: 532px;
-  height: 602px;
+  height: 702px;
 
   background: #ffffff;
   border: 1px solid #d5d5d5;
@@ -17,7 +17,7 @@
 
     width: 136.5px;
     //    height: 532px;
-    height: 602px;
+    height: 702px;
     text-align: center;
 
     > li:first-child {
@@ -83,7 +83,7 @@
   padding-left: 8px;
   padding-top: 8px;
 
-  > span:not(.xBtn) {
+  > span {
     font-family: 'Noto Sans KR';
     font-style: normal;
     font-weight: 500;
@@ -98,15 +98,16 @@
 
     text-align: start;
   }
-  .xBtn {
-    font-family: 'Noto Sans KR';
-    font-style: normal;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 18px;
-
-    width: 100px;
-    text-align: end;
-    color: red;
+  > button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border: none;
+    border-radius: 5px;
+    &:hover {
+      width: 18px;
+      height: 18px;
+      color: #868e96;
+    }
   }
 }

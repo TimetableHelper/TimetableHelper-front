@@ -108,15 +108,60 @@ function SearchClassList() {
     { keywords: '다양한 지식을 쌓는', focus: false, key: 5 },
   ]);
 
-  const buttonClick = (num, keywords) => {
+  // keyword클릭시 수업 정렬
+  const [printClassData, setPrintClassData] = useState([]);
+  useEffect(() => {
+    var serverdata = [...exServerData];
+    setPrintClassData(serverdata);
+  }, []);
+
+  const buttonClick = (num, keywords, BtnKeyWordsBoolean) => {
+    // 버튼 초기화
+    var resetKeywordBoolean = [...BtnKeyWords];
+    for (var i = 0; i < BtnKeyWords.length; i++) {
+      resetKeywordBoolean[i].focus = false;
+      setBtnKeyWords(resetKeywordBoolean);
+    }
+
+    // 버튼 색 넣기
     BtnKeyWords[num].focus = !BtnKeyWords[num].focus;
 
     var newBtns = [...BtnKeyWords];
     setBtnKeyWords(newBtns);
-  };
 
-  console.log('finalClassIds', finalClassIds);
-  console.log('myMonClassArray', myMonClassArray);
+    // 클릭한 키워드 수업으로 변경
+
+    var copy = [...exServerData];
+    if (keywords && !BtnKeyWordsBoolean) {
+      setPrintClassData(
+        copy.filter((data) => data.keyWords.indexOf(keywords) !== -1)
+      );
+    }
+
+    /* if (keywords === '가벼운 타과 전공' && !BtnKeyWordsBoolean) {
+      setPrintClassData(
+        copy.filter((data) => data.keyWords.indexOf(keywords) !== -1)
+      );
+    }
+    if (keywords === '건강을 위한' && !BtnKeyWordsBoolean) {
+      setPrintClassData(
+        copy.filter((data) => data.keyWords.indexOf(keywords) !== -1)
+      );
+    }
+    if (keywords === '토론이 많은' && !BtnKeyWordsBoolean) {
+      console.log('토론');
+    }
+    if (keywords === '실습 위주의' && !BtnKeyWordsBoolean) {
+      console.log('실습');
+    }
+    if (keywords === '다양한 지식을 쌓는' && !BtnKeyWordsBoolean) {
+      console.log('다양한');
+    } */
+    if (BtnKeyWordsBoolean) {
+      var resetData = [...exServerData];
+      setPrintClassData(resetData);
+    }
+  };
 
   return (
     <>
@@ -146,7 +191,13 @@ function SearchClassList() {
                     }
                   )}
                   key={keywords.key}
-                  onClick={() => buttonClick(keywords.key - 1, keywords)}
+                  onClick={() =>
+                    buttonClick(
+                      keywords.key - 1,
+                      keywords.keywords,
+                      keywords.focus
+                    )
+                  }
                 >
                   {keywords.keywords}
                 </button>
@@ -155,9 +206,9 @@ function SearchClassList() {
           </div>
           <div
             className="grid__contents"
-            style={{ height: '180px', paddingLeft: '0' }}
+            style={{ height: '258px', paddingLeft: '0' }}
           >
-            {exServerData.map((data) => {
+            {printClassData.map((data) => {
               return (
                 <div
                   className={classnames('grid__contents__columns', {

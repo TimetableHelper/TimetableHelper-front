@@ -114,7 +114,7 @@ function Main() {
                     height: '30px',
                     paddingBottom: '5px',
                   }}
-                />{' '}
+                />
                 새로운 소식
               </div>
               <div className="Main__NewIssue__contents">
