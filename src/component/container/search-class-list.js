@@ -116,8 +116,6 @@ function SearchClassList() {
   }, []);
 
   const buttonClick = (num, keywords, BtnKeyWordsBoolean) => {
-    console.log('BtnKeyWordsBoolean', BtnKeyWordsBoolean);
-
     // 버튼 focus 초기화
     var resetKeywordBoolean = [...BtnKeyWords];
     for (var i = 0; i < BtnKeyWords.length; i++) {
@@ -141,8 +139,6 @@ function SearchClassList() {
       setPrintClassData(
         copy.filter((data) => data.keyWords.indexOf(keywords) !== -1)
       );
-      console.log('BtnKeyWords1', BtnKeyWords[num].focus);
-      console.log('BtnKeyWords1', BtnKeyWords);
     }
     // 2번 클릭시
     if (BtnKeyWordsBoolean) {
@@ -152,8 +148,6 @@ function SearchClassList() {
 
       var resetData = [...exServerData];
       setPrintClassData(resetData);
-      console.log('BtnKeyWords2', BtnKeyWords[num].focus);
-      console.log('BtnKeyWords2', BtnKeyWords);
     }
   };
 
@@ -161,8 +155,8 @@ function SearchClassList() {
     <>
       <div className="SearchClassList__column">
         <div className="SearchClassList__search-input">
-          <select>
-            <option selected disabled>
+          <select defaultValue={`DEFAULT`}>
+            <option value="DEFAULT" disabled>
               선택
             </option>
             <option>1</option>
