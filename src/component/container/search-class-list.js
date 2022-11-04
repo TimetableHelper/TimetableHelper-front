@@ -116,50 +116,44 @@ function SearchClassList() {
   }, []);
 
   const buttonClick = (num, keywords, BtnKeyWordsBoolean) => {
-    // 버튼 초기화
+    console.log('BtnKeyWordsBoolean', BtnKeyWordsBoolean);
+
+    // 버튼 focus 초기화
     var resetKeywordBoolean = [...BtnKeyWords];
     for (var i = 0; i < BtnKeyWords.length; i++) {
       resetKeywordBoolean[i].focus = false;
       setBtnKeyWords(resetKeywordBoolean);
     }
 
-    // 버튼 색 넣기
+    // 클릭한 버튼 색 넣기
     BtnKeyWords[num].focus = !BtnKeyWords[num].focus;
 
     var newBtns = [...BtnKeyWords];
     setBtnKeyWords(newBtns);
 
     // 클릭한 키워드 수업으로 변경
-
     var copy = [...exServerData];
     if (keywords && !BtnKeyWordsBoolean) {
-      setPrintClassData(
-        copy.filter((data) => data.keyWords.indexOf(keywords) !== -1)
-      );
-    }
+      BtnKeyWords[num].focus = true;
 
-    /* if (keywords === '가벼운 타과 전공' && !BtnKeyWordsBoolean) {
+      var newOnBtns = [...BtnKeyWords];
+      setBtnKeyWords(newOnBtns);
       setPrintClassData(
         copy.filter((data) => data.keyWords.indexOf(keywords) !== -1)
       );
+      console.log('BtnKeyWords1', BtnKeyWords[num].focus);
+      console.log('BtnKeyWords1', BtnKeyWords);
     }
-    if (keywords === '건강을 위한' && !BtnKeyWordsBoolean) {
-      setPrintClassData(
-        copy.filter((data) => data.keyWords.indexOf(keywords) !== -1)
-      );
-    }
-    if (keywords === '토론이 많은' && !BtnKeyWordsBoolean) {
-      console.log('토론');
-    }
-    if (keywords === '실습 위주의' && !BtnKeyWordsBoolean) {
-      console.log('실습');
-    }
-    if (keywords === '다양한 지식을 쌓는' && !BtnKeyWordsBoolean) {
-      console.log('다양한');
-    } */
+    // 2번 클릭시
     if (BtnKeyWordsBoolean) {
+      BtnKeyWords[num].focus = false;
+      var newOffBtns = [...BtnKeyWords];
+      setBtnKeyWords(newOffBtns);
+
       var resetData = [...exServerData];
       setPrintClassData(resetData);
+      console.log('BtnKeyWords2', BtnKeyWords[num].focus);
+      console.log('BtnKeyWords2', BtnKeyWords);
     }
   };
 
