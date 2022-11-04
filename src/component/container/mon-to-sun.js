@@ -87,6 +87,8 @@ export function Timetable() {
     setMyFriClassIds(newFridayIDs.filter((data) => data !== wantDeleteID));
   };
 
+  console.log('myThuClassArray', myThuClassArray);
+
   return (
     <div className="timetable">
       <ul className="list-group col-2" id="mon">

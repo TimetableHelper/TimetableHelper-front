@@ -1,0 +1,16 @@
+.LoadingPage-Circle {
+  border: 1px solid black;
+  width: 200px;
+  height: 100px;
+  position: absolute;
+  right: 45%;
+  top: 200px;
+
+  border-radius: 50px;
+}
+
+.LoadingPageSvg {
+  position: relative;
+  top: -20px;
+  left: 20px;
+}

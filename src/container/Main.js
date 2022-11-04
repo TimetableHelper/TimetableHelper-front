@@ -12,6 +12,7 @@ import 'animate.css';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { HiOutlineSpeakerphone } from 'react-icons/hi';
 import AlertModalShow from '../component/alertNotLoginModalShow';
+import LoadingPage from '../component/LoadingPage';
 
 const exNewIssueData = [
   {
@@ -54,9 +55,18 @@ function Main() {
     }
   }, []);
 
+  const [isLoading, setIsLodaing] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLodaing(false);
+    }, 4000);
+  }, []);
+
   return (
     <>
-      {showModal && <AlertModalShow />}
+      {isLoading && <LoadingPage />}
+
+      {/* {showModal && <AlertModalShow />} */}
 
       <HelmetProvider>
         <Helmet>
@@ -65,7 +75,7 @@ function Main() {
       </HelmetProvider>
       <Header />
 
-      {islogin ? (
+      {islogin && !isLoading && (
         <>
           <main className="Main__Home">
             <div className="Main__LinkColumn">
@@ -142,22 +152,11 @@ function Main() {
                     height: '25px',
                     paddingBottom: '5px',
                   }}
-                />{' '}
+                />
                 이용안내
               </div>
             </div>
           </main>
-        </>
-      ) : (
-        <>
-          <div className="loadingImg">
-            <Ring size={50} lineWeight={5} speed={2} color="#4c6ef5" />
-          </div>
-
-          {/* <div class="ring">
-            Loading
-            <span></span>
-          </div> */}
         </>
       )}
     </>

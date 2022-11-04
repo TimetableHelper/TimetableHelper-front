@@ -31,7 +31,7 @@ export const exServerData = [
     Classification: '교양필수',
     Grades: 3,
     continuity: [2, 1],
-    keyWords: ['가벼운 타과 전공', '건강을 위한'],
+    keyWords: ['건강을 위한', '실습 위주의'],
   },
   {
     classId: 2,
@@ -118,7 +118,7 @@ export const exServerData = [
     lectureRoom: 'T502',
     Classification: '전공필수',
     Grades: 3,
-    continuity: 1,
+    continuity: [1, 1, 1],
     keyWords: ['실습 위주의', '토론이 많은'],
   },
   {
