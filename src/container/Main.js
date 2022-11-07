@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { useRecoilValue } from 'recoil';
-import { isLoginIn } from '../atoms';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { isLoginIn, firstAccess } from '../atoms';
 
 import Header from '../component/Header';
 
@@ -12,6 +12,7 @@ import 'animate.css';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { HiOutlineSpeakerphone } from 'react-icons/hi';
 import AlertModalShow from '../component/alertNotLoginModalShow';
+import LoadingPage from '../component/LoadingPage';
 
 const exNewIssueData = [
   {
@@ -42,21 +43,34 @@ const exNewIssueData = [
 
 function Main() {
   const islogin = useRecoilValue(isLoginIn);
+  const [FirstAccess, setFirstAccess] = useRecoilState(firstAccess);
   const [showModal, setshowModal] = useState(true);
 
   useEffect(() => {
     if (!islogin) {
       setshowModal(true);
-      //  alert('로그인이 필요한 페이지입니다.');
-      //      document.location.href = '/';
     } else if (islogin) {
       setshowModal(false);
     }
   }, []);
 
+  //임시 로딩 코드 :: 나중에 실제 api 로딩으로 변경해야 함.
+  const [isLoading, setIsLodaing] = useState(true);
+  useEffect(() => {
+    // 첫 메인접근 => 로고 // 이후 => 로고 x
+    if (FirstAccess) {
+      setTimeout(() => {
+        setIsLodaing(false);
+        setFirstAccess(false);
+      }, 3000);
+    } else {
+      setIsLodaing(false);
+    }
+  }, []);
+
   return (
     <>
-      {showModal && <AlertModalShow />}
+      {isLoading && FirstAccess && <LoadingPage />}
 
       <HelmetProvider>
         <Helmet>
@@ -65,7 +79,7 @@ function Main() {
       </HelmetProvider>
       <Header />
 
-      {islogin ? (
+      {islogin && !isLoading && (
         <>
           <main className="Main__Home">
             <div className="Main__LinkColumn">
@@ -114,7 +128,7 @@ function Main() {
                     height: '30px',
                     paddingBottom: '5px',
                   }}
-                />{' '}
+                />
                 새로운 소식
               </div>
               <div className="Main__NewIssue__contents">
@@ -142,22 +156,11 @@ function Main() {
                     height: '25px',
                     paddingBottom: '5px',
                   }}
-                />{' '}
+                />
                 이용안내
               </div>
             </div>
           </main>
-        </>
-      ) : (
-        <>
-          <div className="loadingImg">
-            <Ring size={50} lineWeight={5} speed={2} color="#4c6ef5" />
-          </div>
-
-          {/* <div class="ring">
-            Loading
-            <span></span>
-          </div> */}
         </>
       )}
     </>

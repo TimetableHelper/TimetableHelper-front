@@ -30,8 +30,6 @@ function MyTimetable() {
 
   return (
     <>
-      {showModal && <AlertModalShow />}
-
       <HelmetProvider>
         <Helmet>
           <title>강의 정보</title>
@@ -39,7 +37,7 @@ function MyTimetable() {
       </HelmetProvider>
       <Header />
 
-      {islogin ? (
+      {islogin && !showModal && (
         <>
           <div className="MyTimetable__column">
             <div className="MyTimetable__left">
@@ -47,24 +45,13 @@ function MyTimetable() {
             </div>
             <div className="MyTimetable__right">
               <div className="MyTimetable__right__one">
-                <ClassList width="610px" height="310px" />
+                <ClassList width="610px" height="350px" />
               </div>
               <div className="MyTimetable__right__two">
                 <SearchClassList />
               </div>
             </div>
           </div>
-        </>
-      ) : (
-        <>
-          <div className="loadingImg">
-            <Ring size={50} lineWeight={5} speed={2} color="#4c6ef5" />
-          </div>
-
-          {/* <div class="ring">
-            Loading
-            <span></span>
-          </div> */}
         </>
       )}
     </>

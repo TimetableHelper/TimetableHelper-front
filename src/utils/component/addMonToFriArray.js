@@ -50,7 +50,7 @@ export default function addToMonToFriArray({
               lectureRoom: finalClassArr[i].lectureRoom,
               Classification: finalClassArr[i].Classification,
               Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity,
+              continuity: finalClassArr[i].continuity[0],
               firstClassNum: finalClassArr[i].ClassTime.split(',')[0].substr(
                 1,
                 1
@@ -88,7 +88,7 @@ export default function addToMonToFriArray({
               lectureRoom: finalClassArr[i].lectureRoom,
               Classification: finalClassArr[i].Classification,
               Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity,
+              continuity: finalClassArr[i].continuity[0],
               firstClassNum: finalClassArr[i].ClassTime.split(',')[0].substr(
                 1,
                 1
@@ -115,7 +115,7 @@ export default function addToMonToFriArray({
               lectureRoom: finalClassArr[i].lectureRoom,
               Classification: finalClassArr[i].Classification,
               Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity,
+              continuity: finalClassArr[i].continuity[0],
               firstClassNum: finalClassArr[i].ClassTime.split(',')[0].substr(
                 1,
                 1
@@ -142,7 +142,7 @@ export default function addToMonToFriArray({
               lectureRoom: finalClassArr[i].lectureRoom,
               Classification: finalClassArr[i].Classification,
               Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity,
+              continuity: finalClassArr[i].continuity[0],
               firstClassNum: finalClassArr[i].ClassTime.split(',')[0].substr(
                 1,
                 1
@@ -169,7 +169,7 @@ export default function addToMonToFriArray({
               lectureRoom: finalClassArr[i].lectureRoom,
               Classification: finalClassArr[i].Classification,
               Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity,
+              continuity: finalClassArr[i].continuity[0],
               firstClassNum: finalClassArr[i].ClassTime.split(',')[0].substr(
                 1,
                 1
@@ -205,7 +205,7 @@ export default function addToMonToFriArray({
               lectureRoom: finalClassArr[i].lectureRoom,
               Classification: finalClassArr[i].Classification,
               Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity,
+              continuity: finalClassArr[i].continuity[1],
               firstClassNum: finalClassArr[i].ClassTime.split(',')[1].substr(
                 1,
                 1
@@ -232,7 +232,7 @@ export default function addToMonToFriArray({
               lectureRoom: finalClassArr[i].lectureRoom,
               Classification: finalClassArr[i].Classification,
               Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity,
+              continuity: finalClassArr[i].continuity[1],
               firstClassNum: finalClassArr[i].ClassTime.split(',')[1].substr(
                 1,
                 1
@@ -259,7 +259,7 @@ export default function addToMonToFriArray({
               lectureRoom: finalClassArr[i].lectureRoom,
               Classification: finalClassArr[i].Classification,
               Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity,
+              continuity: finalClassArr[i].continuity[1],
               firstClassNum: finalClassArr[i].ClassTime.split(',')[1].substr(
                 1,
                 1
@@ -286,7 +286,7 @@ export default function addToMonToFriArray({
               lectureRoom: finalClassArr[i].lectureRoom,
               Classification: finalClassArr[i].Classification,
               Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity,
+              continuity: finalClassArr[i].continuity[1],
               firstClassNum: finalClassArr[i].ClassTime.split(',')[1].substr(
                 1,
                 1
@@ -313,7 +313,7 @@ export default function addToMonToFriArray({
               lectureRoom: finalClassArr[i].lectureRoom,
               Classification: finalClassArr[i].Classification,
               Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity,
+              continuity: finalClassArr[i].continuity[1],
               firstClassNum: finalClassArr[i].ClassTime.split(',')[1].substr(
                 1,
                 1
@@ -349,7 +349,7 @@ export default function addToMonToFriArray({
               lectureRoom: finalClassArr[i].lectureRoom,
               Classification: finalClassArr[i].Classification,
               Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity,
+              continuity: finalClassArr[i].continuity[2],
               firstClassNum: finalClassArr[i].ClassTime.split(',')[2].substr(
                 1,
                 1
@@ -376,7 +376,7 @@ export default function addToMonToFriArray({
               lectureRoom: finalClassArr[i].lectureRoom,
               Classification: finalClassArr[i].Classification,
               Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity,
+              continuity: finalClassArr[i].continuity[2],
               firstClassNum: finalClassArr[i].ClassTime.split(',')[2].substr(
                 1,
                 1
@@ -403,7 +403,7 @@ export default function addToMonToFriArray({
               lectureRoom: finalClassArr[i].lectureRoom,
               Classification: finalClassArr[i].Classification,
               Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity,
+              continuity: finalClassArr[i].continuity[2],
               firstClassNum: finalClassArr[i].ClassTime.split(',')[2].substr(
                 1,
                 1
@@ -430,7 +430,7 @@ export default function addToMonToFriArray({
               lectureRoom: finalClassArr[i].lectureRoom,
               Classification: finalClassArr[i].Classification,
               Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity,
+              continuity: finalClassArr[i].continuity[2],
               firstClassNum: finalClassArr[i].ClassTime.split(',')[2].substr(
                 1,
                 1
@@ -457,7 +457,7 @@ export default function addToMonToFriArray({
               lectureRoom: finalClassArr[i].lectureRoom,
               Classification: finalClassArr[i].Classification,
               Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity,
+              continuity: finalClassArr[i].continuity[2],
               firstClassNum: finalClassArr[i].ClassTime.split(',')[2].substr(
                 1,
                 1

@@ -87,6 +87,8 @@ export function Timetable() {
     setMyFriClassIds(newFridayIDs.filter((data) => data !== wantDeleteID));
   };
 
+  console.log('myThuClassArray', myThuClassArray);
+
   return (
     <div className="timetable">
       <ul className="list-group col-2" id="mon">
@@ -102,7 +104,7 @@ export function Timetable() {
                 left: 100,
                 width: '136.5px',
                 backgroundColor: defineColor(data.numberOfPresses),
-                height: `${data.continuity * 48}px`,
+                height: `${data.continuity * 75}px`,
               }}
             >
               <span>{data.className}</span>
@@ -126,7 +128,7 @@ export function Timetable() {
                 left: 100 + 137,
                 width: '136.5px',
                 backgroundColor: defineColor(data.numberOfPresses),
-                height: `${data.continuity * 48}px`,
+                height: `${data.continuity * 75}px`,
               }}
             >
               <span>{data.className}</span>
@@ -150,7 +152,7 @@ export function Timetable() {
                 left: 100 + 137 * 2,
                 width: '136.5px',
                 backgroundColor: defineColor(data.numberOfPresses),
-                height: `${data.continuity * 48}px`,
+                height: `${data.continuity * 75}px`,
               }}
             >
               <span>{data.className}</span>
@@ -171,10 +173,10 @@ export function Timetable() {
               style={{
                 position: 'absolute',
                 top: defineHeight(data.firstClassNum),
-                left: 100 + 137 * 3,
+                left: 100 + 137 * 3 - 1,
                 width: '136.5px',
                 backgroundColor: defineColor(data.numberOfPresses),
-                height: `${data.continuity * 48}px`,
+                height: `${data.continuity * 75}px`,
               }}
             >
               <span>{data.className}</span>
@@ -195,10 +197,10 @@ export function Timetable() {
               style={{
                 position: 'absolute',
                 top: defineHeight(data.firstClassNum),
-                left: 100 + 137 * 4,
+                left: 100 + 137 * 4 - 1,
                 width: '136.5px',
                 backgroundColor: defineColor(data.numberOfPresses),
-                height: `${data.continuity * 48}px`,
+                height: `${data.continuity * 75}px`,
               }}
             >
               <span>{data.className}</span>

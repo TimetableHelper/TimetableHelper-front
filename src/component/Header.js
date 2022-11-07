@@ -14,7 +14,6 @@ function Header(props) {
   const isLoginedState = useRecoilState(isLoginIn)[0];
 
   const logoutFn = () => {
-    setlogin(false);
     document.location.href = '/';
     // 유저 정보 삭제
     window.localStorage.removeItem('userData');

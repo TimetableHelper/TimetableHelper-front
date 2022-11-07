@@ -108,22 +108,55 @@ function SearchClassList() {
     { keywords: '다양한 지식을 쌓는', focus: false, key: 5 },
   ]);
 
-  const buttonClick = (num, keywords) => {
+  // keyword클릭시 수업 정렬
+  const [printClassData, setPrintClassData] = useState([]);
+  useEffect(() => {
+    var serverdata = [...exServerData];
+    setPrintClassData(serverdata);
+  }, []);
+
+  const buttonClick = (num, keywords, BtnKeyWordsBoolean) => {
+    // 버튼 focus 초기화
+    var resetKeywordBoolean = [...BtnKeyWords];
+    for (var i = 0; i < BtnKeyWords.length; i++) {
+      resetKeywordBoolean[i].focus = false;
+      setBtnKeyWords(resetKeywordBoolean);
+    }
+
+    // 클릭한 버튼 색 넣기
     BtnKeyWords[num].focus = !BtnKeyWords[num].focus;
 
     var newBtns = [...BtnKeyWords];
     setBtnKeyWords(newBtns);
-  };
 
-  console.log('finalClassIds', finalClassIds);
-  console.log('myMonClassArray', myMonClassArray);
+    // 클릭한 키워드 수업으로 변경
+    var copy = [...exServerData];
+    if (keywords && !BtnKeyWordsBoolean) {
+      BtnKeyWords[num].focus = true;
+
+      var newOnBtns = [...BtnKeyWords];
+      setBtnKeyWords(newOnBtns);
+      setPrintClassData(
+        copy.filter((data) => data.keyWords.indexOf(keywords) !== -1)
+      );
+    }
+    // 2번 클릭시
+    if (BtnKeyWordsBoolean) {
+      BtnKeyWords[num].focus = false;
+      var newOffBtns = [...BtnKeyWords];
+      setBtnKeyWords(newOffBtns);
+
+      var resetData = [...exServerData];
+      setPrintClassData(resetData);
+    }
+  };
 
   return (
     <>
       <div className="SearchClassList__column">
         <div className="SearchClassList__search-input">
-          <select>
-            <option selected disabled>
+          <select defaultValue={`DEFAULT`}>
+            <option value="DEFAULT" disabled>
               선택
             </option>
             <option>1</option>
@@ -146,7 +179,13 @@ function SearchClassList() {
                     }
                   )}
                   key={keywords.key}
-                  onClick={() => buttonClick(keywords.key - 1, keywords)}
+                  onClick={() =>
+                    buttonClick(
+                      keywords.key - 1,
+                      keywords.keywords,
+                      keywords.focus
+                    )
+                  }
                 >
                   {keywords.keywords}
                 </button>
@@ -155,9 +194,9 @@ function SearchClassList() {
           </div>
           <div
             className="grid__contents"
-            style={{ height: '180px', paddingLeft: '0' }}
+            style={{ height: '258px', paddingLeft: '0' }}
           >
-            {exServerData.map((data) => {
+            {printClassData.map((data) => {
               return (
                 <div
                   className={classnames('grid__contents__columns', {

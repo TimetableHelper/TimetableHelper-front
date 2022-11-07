@@ -16,6 +16,12 @@ export const isLoginIn = atom({
   default: false,
   effects_UNSTABLE: [persistAtom],
 });
+export const firstAccess = atom({
+  key: 'firstAccess',
+  default: true,
+  effects_UNSTABLE: [persistAtom],
+});
+
 export const studentID = atom({
   key: 'studentID',
   default: '',
