@@ -42,12 +42,6 @@ export default function Article() {
       </HelmetProvider>
       <Header />
       <>
-        {!islogin && showModal && (
-          <>
-            <AlertModalShow className="AlertModalShow" />
-          </>
-        )}
-
         {islogin && !showModal && (
           <>
             <h1 className="article__title">

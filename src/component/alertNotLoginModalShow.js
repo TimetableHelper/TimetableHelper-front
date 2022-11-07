@@ -1,9 +1,26 @@
 import { Ring } from '@uiball/loaders'; // 로딩 이미지
+import { motion } from 'framer-motion';
+import Header from './Header';
+
+const alertVariants = {
+  start: {
+    x: -170,
+    y: 50,
+  },
+  end: { x: -170, y: -90 },
+};
 
 function AlertModalShow() {
   return (
     <>
-      <div className="alertModalDiv">
+      <Header />
+
+      <motion.div
+        className="alertModalDiv"
+        variants={alertVariants}
+        initial="start"
+        animate="end"
+      >
         <div
           style={{
             width: '100%',
@@ -19,7 +36,7 @@ function AlertModalShow() {
         >
           확인
         </button>
-      </div>
+      </motion.div>
       <div className="loadingImg">
         <Ring size={50} lineWeight={5} speed={2} color="#4c6ef5" />
       </div>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { useRecoilValue } from 'recoil';
-import { isLoginIn } from '../atoms';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { isLoginIn, firstAccess } from '../atoms';
 
 import Header from '../component/Header';
 
@@ -43,30 +43,34 @@ const exNewIssueData = [
 
 function Main() {
   const islogin = useRecoilValue(isLoginIn);
+  const [FirstAccess, setFirstAccess] = useRecoilState(firstAccess);
   const [showModal, setshowModal] = useState(true);
 
   useEffect(() => {
     if (!islogin) {
       setshowModal(true);
-      //  alert('로그인이 필요한 페이지입니다.');
-      //      document.location.href = '/';
     } else if (islogin) {
       setshowModal(false);
     }
   }, []);
 
+  //임시 로딩 코드 :: 나중에 실제 api 로딩으로 변경해야 함.
   const [isLoading, setIsLodaing] = useState(true);
   useEffect(() => {
-    setTimeout(() => {
+    // 첫 메인접근 => 로고 // 이후 => 로고 x
+    if (FirstAccess) {
+      setTimeout(() => {
+        setIsLodaing(false);
+        setFirstAccess(false);
+      }, 3000);
+    } else {
       setIsLodaing(false);
-    }, 4000);
+    }
   }, []);
 
   return (
     <>
-      {isLoading && <LoadingPage />}
-
-      {/* {showModal && <AlertModalShow />} */}
+      {isLoading && FirstAccess && <LoadingPage />}
 
       <HelmetProvider>
         <Helmet>

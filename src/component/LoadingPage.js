@@ -55,9 +55,9 @@ function LoadingPage() {
             animate="end"
             transition={{
               default: {
-                duration: 2,
+                duration: 1,
               },
-              fill: { duration: 2, delay: 2 },
+              fill: { duration: 2, delay: 1 },
             }}
             stroke="black"
             strokeWidth="2"
@@ -69,9 +69,9 @@ function LoadingPage() {
               animate="end"
               transition={{
                 default: {
-                  duration: 2,
+                  duration: 1,
                 },
-                fill: { duration: 2, delay: 2 },
+                fill: { duration: 2, delay: 1 },
               }}
               stroke="black"
               strokeWidth="2"
@@ -87,9 +87,9 @@ function LoadingPage() {
               animate="end"
               transition={{
                 default: {
-                  duration: 2,
+                  duration: 1,
                 },
-                fill: { duration: 2, delay: 2 },
+                fill: { duration: 2, delay: 1 },
               }}
               stroke="black"
               strokeWidth="2"
@@ -103,9 +103,9 @@ function LoadingPage() {
               animate="end"
               transition={{
                 default: {
-                  duration: 2,
+                  duration: 1,
                 },
-                fill: { duration: 2, delay: 2 },
+                fill: { duration: 2, delay: 1 },
               }}
               stroke="black"
               strokeWidth="2"
@@ -120,9 +120,9 @@ function LoadingPage() {
               animate="end"
               transition={{
                 default: {
-                  duration: 2,
+                  duration: 1,
                 },
-                fill: { duration: 2, delay: 2 },
+                fill: { duration: 2, delay: 1 },
               }}
               stroke="black"
               strokeWidth="2"
