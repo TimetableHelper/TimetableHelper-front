@@ -8,7 +8,8 @@ import { isLoginIn, studentID } from '../atoms';
 import { useRecoilState } from 'recoil';
 
 function Login(props) {
-  const isLoginedState = useRecoilState(isLoginIn)[0];
+  const [isLoginedState, setisLoginedState] = useRecoilState(isLoginIn);
+  console.log('Main', isLoginedState);
   useEffect(() => {
     //    const isLoginedState = window.localStorage.getItem('isLoginIn');
     if (isLoginedState) {
@@ -45,7 +46,7 @@ function Login(props) {
     setLogin(true);
     setStudentId(id);
     //   e.preventDefault();
-    document.location.href = '/main';
+    //    document.location.href = '/main';
 
     /*
  axios
@@ -106,6 +107,7 @@ function Login(props) {
       if (loginok) {
         // 로그인 성공
         axiosCheck();
+        setisLoginedState(true);
       } else if (!loginok) {
         // 로그인 실패
         failLogin();

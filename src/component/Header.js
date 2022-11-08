@@ -47,7 +47,7 @@ function Header(props) {
                 </nav> */}
         <nav className="navbar navbar-expand-lg">
           <div className="container-fluid">
-            <Link to={isLoginedState ? `/main` : `/`} className="navbar-brand">
+            <Link to={`/`} className="navbar-brand">
               <img src={logo} className="App-logo" alt="logo" />
             </Link>
             <p className="p-p p-nav" style={{ whiteSpace: 'nowrap' }}>
@@ -69,11 +69,7 @@ function Header(props) {
               id="navbarNavAltMarkup"
             >
               <div className="navbar-nav">
-                <Link
-                  to={isLoginedState ? '/main' : '/'}
-                  className="nav-link active"
-                  aria-current="page"
-                >
+                <Link to={'/'} className="nav-link active" aria-current="page">
                   이용안내
                 </Link>
 

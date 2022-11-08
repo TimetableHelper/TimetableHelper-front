@@ -19,25 +19,25 @@ const exNewIssueData = [
     key: 1,
     description: '2022년도 1학기 강의가 업데이트 되었습니다.',
     updateDay: '2022-11-11',
-    detailLink: '/main',
+    detailLink: '/',
   },
   {
     key: 2,
     description: '이용안내 페이지가 업데이트 되었습니다.',
     updateDay: '2022-11-11',
-    detailLink: '/main',
+    detailLink: '/',
   },
   {
     key: 3,
     description: '강의 정보에 대한 제보를 받습니다.',
     updateDay: '2022-11-11',
-    detailLink: '/main',
+    detailLink: '/',
   },
   {
     key: 4,
     description: '3개씩 짜를거니까 나오면 안되는 공지.',
     updateDay: '2022-11-11',
-    detailLink: '/main',
+    detailLink: '/',
   },
 ];
 

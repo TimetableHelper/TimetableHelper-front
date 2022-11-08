@@ -23,7 +23,7 @@ function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />}></Route>
+        <Route path="/" element={!islogin ? <Login /> : <Main />}></Route>
         <Route path="/sign-up" element={<Signup />}></Route>
         <Route path="/sign-up2" element={<Signup2 />}></Route>
         <Route
@@ -38,10 +38,10 @@ function Router() {
           path="/timetable-board"
           element={!islogin ? <AlertModalShow /> : <TimetableBoard />}
         ></Route>
-        <Route
+        {/*         <Route
           path="/main"
           element={!islogin ? <AlertModalShow /> : <Main />}
-        ></Route>
+         ></Route>*/}
       </Routes>
     </BrowserRouter>
   );
