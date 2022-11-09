@@ -16,6 +16,8 @@ import {
   FriClassArray,
   FriClassIds,
   numberOfPressesAtom,
+  nowClickClassData,
+  nowClickClassDataArray,
 } from '../atoms';
 import classnames from 'classnames';
 
@@ -234,6 +236,9 @@ export const exServerData = [
 ];
 
 export default function ClassList({ width, height, position, left, top }) {
+  // 마지막으로 클릭한 수업의 데이터
+  const [nowClickClass, setNowClickClass] = useRecoilState(nowClickClassData);
+
   const [finalClassArr, setFinalClassArr] = useRecoilState(finalClassArray);
   // 최종 배열. 이걸 요일별로 나눌 예정
 
@@ -297,6 +302,12 @@ export default function ClassList({ width, height, position, left, top }) {
   }, [finalClassArr]);
 
   var newheight = Number(height.slice(0, 3)) - 20 + 'px';
+
+  // 마지막 클릭한 수업 데이터
+  const [nowClickClassArray, setNowClickClassArray] = useRecoilState(
+    nowClickClassDataArray
+  );
+
   return (
     <div
       className="mainVy__grid m-auto"
@@ -327,6 +338,8 @@ export default function ClassList({ width, height, position, left, top }) {
               })}
               key={data.classId}
               onClick={() => {
+                setNowClickClassArray([]);
+
                 // 누른 번호매기기 :: atom값 +1
                 setNumberOfPresses((prev) => prev + 1);
 
@@ -342,6 +355,8 @@ export default function ClassList({ width, height, position, left, top }) {
                   continuity: data.continuity,
                   numberOfPresses: numberOfPresses,
                 };
+                setNowClickClass(clickedClass);
+
                 if (finalClassArr.length === 0) {
                   // finalClassArr가 비었다면,( = 첫클릭, 중복체크 필요x)
                   // 바로 클릭한 수업을 arr2에넣기 , classId를 arr4에 넣기
