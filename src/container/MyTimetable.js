@@ -30,6 +30,8 @@ import {
   nowClickClassDataArray,
 } from '../atoms';
 
+import '../styles/container/OverlapModal.scss';
+
 function MyTimetable() {
   ///////// 로그인 체크
   const islogin = useRecoilValue(isLoginIn);
@@ -45,17 +47,42 @@ function MyTimetable() {
   }, []);
 
   //////// 수업 겹침 경고문 코드
-
   const [finalClassArr, setFinalClassArr] = useRecoilState(finalClassArray);
   const [myMonClassArray, setMyMonClassArray] = useRecoilState(MonClassArray);
-  console.log('finalClassArr', finalClassArr);
+  const [myTueClassArray, setMyTueClassArray] = useRecoilState(TueClassArray);
+  const [myWenClassArray, setMyWenClassArray] = useRecoilState(WenClassArray);
+  const [myThuClassArray, setMyThuClassArray] = useRecoilState(ThuClassArray);
+  const [myFriClassArray, setMyFriClassArray] = useRecoilState(FriClassArray);
+
   // 마지막으로 클릭한 수업의 데이터
   const [nowClickClass, setNowClickClass] = useRecoilState(nowClickClassData);
   const [nowClickClassArray, setNowClickClassArray] = useRecoilState(
     nowClickClassDataArray
   );
 
-  console.log('nowClickClass', nowClickClass);
+  const [mondayClassList, setMondayClassList] = useState([]);
+  const [tuedayClassList, setTuedayClassList] = useState([]);
+  const [wendayClassList, setWendayClassList] = useState([]);
+  const [thudayClassList, setThudayClassList] = useState([]);
+  const [fridayClassList, setFridayClassList] = useState([]);
+
+  //  console.log('nowClickClass', nowClickClass);
+
+  //  현재 클릭한 수업의 데이터를
+  // nowClickClassDataArray에 담음.
+
+  const [showOverlapModal, setShowOverlapModal] = useState(false);
+
+  const [existingclass, setExistingClass1] = useState('');
+  const [newAddclass, setNewAddClass] = useState('');
+
+  const viewOverlapModal = (exist, newAdd) => {
+    setExistingClass1(exist);
+    setNewAddClass(newAdd);
+
+    setShowOverlapModal(true);
+  };
+
   useEffect(() => {
     // 임시 저장용 array
     var forSetClassArray = [];
@@ -254,8 +281,215 @@ function MyTimetable() {
     // 담은 이후에 초기화
     forSetClassArray = [];
   }, [nowClickClass]);
+  //  console.log('nowClickClassArray', nowClickClassArray);
 
-  console.log('nowClickClassArray', nowClickClassArray);
+  // 경고문 활성화 코드
+  useEffect(() => {
+    let forMon = [];
+    let forTue = [];
+    let forWen = [];
+    let forThu = [];
+    let forFri = [];
+
+    for (var m = 0; m < myMonClassArray.length; m++) {
+      if (myMonClassArray[m]) {
+        if (myMonClassArray[m].firstClassNum) {
+          for (
+            var i = +myMonClassArray[m].firstClassNum;
+            i <
+            +myMonClassArray[m].firstClassNum + myMonClassArray[m].continuity;
+            i++
+          ) {
+            if (mondayClassList.findIndex((x) => x.ClassTime === i) === -1) {
+              forMon.push({
+                ClassTime: i,
+                ClassName: myMonClassArray[m].className,
+              });
+            } else if (
+              mondayClassList.findIndex((x) => x.ClassTime === i) !== -1
+            ) {
+              viewOverlapModal(
+                myMonClassArray[m].className,
+                nowClickClass.className
+              );
+
+              forMon.push({
+                ClassTime: i,
+                ClassName: myMonClassArray[m].className,
+              });
+            }
+          }
+        }
+      }
+    }
+    for (var t = 0; t < myTueClassArray.length; t++) {
+      if (myTueClassArray[t]) {
+        if (myTueClassArray[t].firstClassNum) {
+          for (
+            var u = +myTueClassArray[t].firstClassNum;
+            u <
+            +myTueClassArray[t].firstClassNum + myTueClassArray[t].continuity;
+            u++
+          ) {
+            if (tuedayClassList.findIndex((x) => x.ClassTime === u) === -1) {
+              forTue.push({
+                ClassTime: u,
+                ClassName: myTueClassArray[t].className,
+              });
+            } else if (
+              myTueClassArray.findIndex((x) => x.ClassTime === u) !== -1
+            ) {
+              viewOverlapModal(
+                myTueClassArray[t].className,
+                nowClickClass.className
+              );
+
+              forTue.push({
+                ClassTime: u,
+                ClassName: myTueClassArray[t].className,
+              });
+            }
+          }
+        }
+      }
+    }
+
+    for (var w = 0; w < myWenClassArray.length; w++) {
+      if (myWenClassArray[w]) {
+        if (myWenClassArray[w].firstClassNum) {
+          for (
+            var y = +myWenClassArray[w].firstClassNum;
+            y <
+            +myWenClassArray[w].firstClassNum + myWenClassArray[w].continuity;
+            y++
+          ) {
+            if (wendayClassList.findIndex((x) => x.ClassTime === y) === -1) {
+              forTue.push({
+                ClassTime: y,
+                ClassName: myWenClassArray[w].className,
+              });
+            } else if (
+              wendayClassList.findIndex((x) => x.ClassTime === y) !== -1
+            ) {
+              viewOverlapModal(
+                myWenClassArray[m].className,
+                nowClickClass.className
+              );
+
+              forWen.push({
+                ClassTime: y,
+                ClassName: myWenClassArray[w].className,
+              });
+            }
+          }
+        }
+      }
+    }
+    for (var h = 0; h < myThuClassArray.length; h++) {
+      if (myThuClassArray[h]) {
+        if (myThuClassArray[h].firstClassNum) {
+          for (
+            var r = +myThuClassArray[h].firstClassNum;
+            r <
+            +myThuClassArray[h].firstClassNum + myThuClassArray[h].continuity;
+            r++
+          ) {
+            if (thudayClassList.findIndex((x) => x.ClassTime === r) === -1) {
+              forThu.push({
+                ClassTime: r,
+                ClassName: myThuClassArray[h].className,
+              });
+            } else if (
+              thudayClassList.findIndex((x) => x.ClassTime === r) !== -1
+            ) {
+              viewOverlapModal(
+                myThuClassArray[h].className,
+                nowClickClass.className
+              );
+
+              forThu.push({
+                ClassTime: r,
+                ClassName: myThuClassArray[h].className,
+              });
+            }
+          }
+        }
+      }
+    }
+    for (var f = 0; f < myFriClassArray.length; f++) {
+      if (myFriClassArray[f]) {
+        if (myFriClassArray[f].firstClassNum) {
+          for (
+            var e = +myFriClassArray[f].firstClassNum;
+            e <
+            +myFriClassArray[f].firstClassNum + myFriClassArray[f].continuity;
+            e++
+          ) {
+            if (fridayClassList.findIndex((x) => x.ClassTime === e) === -1) {
+              forFri.push({
+                ClassTime: e,
+                ClassName: myFriClassArray[f].className,
+              });
+            } else if (
+              fridayClassList.findIndex((x) => x.ClassTime === e) !== -1
+            ) {
+              viewOverlapModal(
+                myFriClassArray[m].className,
+                nowClickClass.className
+              );
+
+              forFri.push({
+                ClassTime: e,
+                ClassName: myFriClassArray[f].className,
+              });
+            }
+          }
+        }
+      }
+    }
+
+    setMondayClassList(forMon);
+    setTuedayClassList(forTue);
+    setWendayClassList(forWen);
+    setThudayClassList(forThu);
+    setFridayClassList(forFri);
+
+    // 위에 코드완성하면
+    // 이후에
+
+    //조건문 만약 넣으려는 수업시간의 값이 이미 존재한다면,
+    // 바꿀것인지 경고문을 띄워라 !!
+
+    // for (
+    //   var i = row.firstClassNum;
+    //   i < row.firstClassNum + row.continuity;
+    //   i++
+    // ) {
+    //   myMonClassArray.map((row) => forMon.push({ classTime: row.ClassTime }));
+    // }
+
+    // console.log('forMon', forMon);
+  }, [
+    myFriClassArray,
+    myMonClassArray,
+    myThuClassArray,
+    myTueClassArray,
+    myWenClassArray,
+  ]);
+
+  // 경고문 "네" 버튼
+  const changeOverlapClassListFn = (exist, newAdd) => {
+    console.log(`지울 수업 ${exist}, 남길 수업 ${newAdd}`);
+
+    setShowOverlapModal(false);
+  };
+
+  // 경고문 "아니요" 버튼
+  const existClassListFn = (exist, newAdd) => {
+    console.log(`지울 수업 ::${newAdd}, /// 남길 수업 ::: ${exist}`);
+
+    setShowOverlapModal(false);
+  };
 
   return (
     <>
@@ -265,6 +499,22 @@ function MyTimetable() {
         </Helmet>
       </HelmetProvider>
       <Header />
+
+      {showOverlapModal && (
+        <div className="OverlapModal">
+          <h2>
+            {`"${existingclass}" 수업을 "${newAddclass}" 수업으로 바꿀래?`}
+          </h2>
+          <button
+            onClick={() => changeOverlapClassListFn(existingclass, newAddclass)}
+          >
+            네
+          </button>
+          <button onClick={() => existClassListFn(existingclass, newAddclass)}>
+            아니요
+          </button>
+        </div>
+      )}
 
       {islogin && !showModal && (
         <>
