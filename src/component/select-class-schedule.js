@@ -235,7 +235,14 @@ export const exServerData = [
   },
 ];
 
-export default function ClassList({ width, height, position, left, top }) {
+export default function ClassList({
+  width,
+  height,
+  position,
+  left,
+  top,
+  ekarl,
+}) {
   // 마지막으로 클릭한 수업의 데이터
   const [nowClickClass, setNowClickClass] = useRecoilState(nowClickClassData);
 
@@ -338,8 +345,6 @@ export default function ClassList({ width, height, position, left, top }) {
               })}
               key={data.classId}
               onClick={() => {
-                setNowClickClassArray([]);
-
                 // 누른 번호매기기 :: atom값 +1
                 setNumberOfPresses((prev) => prev + 1);
 
@@ -358,6 +363,7 @@ export default function ClassList({ width, height, position, left, top }) {
 
                 if (finalClassIds.indexOf(data.classId) === -1) {
                   setNowClickClass(clickedClass);
+                  ekarl();
                 }
 
                 if (finalClassArr.length === 0) {

@@ -26,7 +26,7 @@ import {
 
 import addToMonToFriArray from '../../utils/component/addMonToFriArray';
 
-function SearchClassList() {
+function SearchClassList({ ekarl }) {
   // 마지막으로 클릭한 수업의 데이터
   const [nowClickClass, setNowClickClass] = useRecoilState(nowClickClassData);
 
@@ -215,7 +215,6 @@ function SearchClassList() {
                   })}
                   key={data.classId}
                   onClick={() => {
-                    setNowClickClassArray([]);
                     // 누른 번호매기기 :: atom값 +1
                     setNumberOfPresses((prev) => prev + 1);
 
@@ -231,8 +230,10 @@ function SearchClassList() {
                       continuity: data.continuity,
                       numberOfPresses: numberOfPresses,
                     };
+
                     if (finalClassIds.indexOf(data.classId) !== -1) {
                       setNowClickClass(clickedClass);
+                      ekarl();
                     }
 
                     if (finalClassArr.length === 0) {

@@ -42,21 +42,71 @@ export default function addToMonToFriArray({
               ] === false
             ) { */
             // 그 수업의 데이터를 add Arr에 담고, 월요일 배열에 추가.
-            var addMon0data = {
-              classId: finalClassArr[i].classId,
-              className: finalClassArr[i].className,
-              Professor: finalClassArr[i].Professor,
-              ClassTime: finalClassArr[i].ClassTime.split(',')[0],
-              lectureRoom: finalClassArr[i].lectureRoom,
-              Classification: finalClassArr[i].Classification,
-              Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity[0],
-              firstClassNum: finalClassArr[i].ClassTime.split(',')[0].substr(
-                1,
-                1
-              ),
-              numberOfPresses: finalClassArr[i].numberOfPresses,
-            };
+
+            if (finalClassArr[i].continuity[0] == 1) {
+              var addMon0data = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[0],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[0],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[0].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[0] == 2) {
+              var addMon0data = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[0],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[0],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[0].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 1,
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[0] == 3) {
+              var addMon0data = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[0],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[0],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[0].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 1,
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 2,
+                ],
+              };
+            }
+
             var newMon0arr = [...myMonClassArray, addMon0data];
             setMyMonClassArray(newMon0arr);
             var newMon0ClassIds = [...myMonClassIds, finalClassArr[i].classId];
@@ -80,26 +130,77 @@ export default function addToMonToFriArray({
             myTueClassIds.indexOf(finalClassArr[i].classId) === -1
           ) {
             // 그 수업의 데이터를 add Arr에 담고, 화요일 배열에 추가.
-            var addTue0Arr = {
-              classId: finalClassArr[i].classId,
-              className: finalClassArr[i].className,
-              Professor: finalClassArr[i].Professor,
-              ClassTime: finalClassArr[i].ClassTime.split(',')[0],
-              lectureRoom: finalClassArr[i].lectureRoom,
-              Classification: finalClassArr[i].Classification,
-              Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity[0],
-              firstClassNum: finalClassArr[i].ClassTime.split(',')[0].substr(
-                1,
-                1
-              ),
-              numberOfPresses: finalClassArr[i].numberOfPresses,
-            };
+
+            if (finalClassArr[i].continuity[0] == 1) {
+              var addTue0Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[0],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[0],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[0].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[0] == 2) {
+              var addTue0Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[0],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[0],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[0].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 1,
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[0] == 3) {
+              var addTue0Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[0],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[0],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[0].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 1,
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 2,
+                ],
+              };
+            }
+
             var newTue0arr = [...myTueClassArray, addTue0Arr];
             setMyTueClassArray(newTue0arr);
             var newTue0ClassIds = [...myTueClassIds, finalClassArr[i].classId];
             setMyTueClassIds(newTue0ClassIds);
           }
+
           if (
             // 수업 요일의 첫째날이 수요일이라면
             finalClassArr[i].ClassTime.split(',')[0].substr(0, 1) === '수' &&
@@ -107,26 +208,77 @@ export default function addToMonToFriArray({
             myWenClassIds.indexOf(finalClassArr[i].classId) === -1
           ) {
             // 그 수업의 데이터를 add Arr에 담고, 수요일 배열에 추가.
-            var addWen0Arr = {
-              classId: finalClassArr[i].classId,
-              className: finalClassArr[i].className,
-              Professor: finalClassArr[i].Professor,
-              ClassTime: finalClassArr[i].ClassTime.split(',')[0],
-              lectureRoom: finalClassArr[i].lectureRoom,
-              Classification: finalClassArr[i].Classification,
-              Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity[0],
-              firstClassNum: finalClassArr[i].ClassTime.split(',')[0].substr(
-                1,
-                1
-              ),
-              numberOfPresses: finalClassArr[i].numberOfPresses,
-            };
+
+            if (finalClassArr[i].continuity[0] == 1) {
+              var addWen0Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[0],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[0],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[0].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[0] == 2) {
+              var addWen0Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[0],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[0],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[0].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 1,
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[0] == 3) {
+              var addWen0Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[0],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[0],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[0].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 1,
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 2,
+                ],
+              };
+            }
+
             var newWen0arr = [...myWenClassArray, addWen0Arr];
             setMyWenClassArray(newWen0arr);
             var newWen0ClassIds = [...myWenClassIds, finalClassArr[i].classId];
             setMyWenClassIds(newWen0ClassIds);
           }
+
           if (
             // 수업 요일의 첫째날이 목요일이라면
             finalClassArr[i].ClassTime.split(',')[0].substr(0, 1) === '목' &&
@@ -134,21 +286,71 @@ export default function addToMonToFriArray({
             myThuClassIds.indexOf(finalClassArr[i].classId) === -1
           ) {
             // 그 수업의 데이터를 add Arr에 담고, 목요일 배열에 추가.
-            var addThu0Arr = {
-              classId: finalClassArr[i].classId,
-              className: finalClassArr[i].className,
-              Professor: finalClassArr[i].Professor,
-              ClassTime: finalClassArr[i].ClassTime.split(',')[0],
-              lectureRoom: finalClassArr[i].lectureRoom,
-              Classification: finalClassArr[i].Classification,
-              Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity[0],
-              firstClassNum: finalClassArr[i].ClassTime.split(',')[0].substr(
-                1,
-                1
-              ),
-              numberOfPresses: finalClassArr[i].numberOfPresses,
-            };
+
+            if (finalClassArr[i].continuity[0] == 1) {
+              var addThu0Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[0],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[0],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[0].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[0] == 2) {
+              var addThu0Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[0],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[0],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[0].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 1,
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[0] == 3) {
+              var addThu0Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[0],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[0],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[0].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 1,
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 2,
+                ],
+              };
+            }
+
             var newThu0arr = [...myThuClassArray, addThu0Arr];
             setMyThuClassArray(newThu0arr);
             var newThu0ClassIds = [...myThuClassIds, finalClassArr[i].classId];
@@ -161,21 +363,71 @@ export default function addToMonToFriArray({
             myFriClassIds.indexOf(finalClassArr[i].classId) === -1
           ) {
             // 그 수업의 데이터를 add Arr에 담고, 목요일 배열에 추가.
-            var addFri0Arr = {
-              classId: finalClassArr[i].classId,
-              className: finalClassArr[i].className,
-              Professor: finalClassArr[i].Professor,
-              ClassTime: finalClassArr[i].ClassTime.split(',')[0],
-              lectureRoom: finalClassArr[i].lectureRoom,
-              Classification: finalClassArr[i].Classification,
-              Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity[0],
-              firstClassNum: finalClassArr[i].ClassTime.split(',')[0].substr(
-                1,
-                1
-              ),
-              numberOfPresses: finalClassArr[i].numberOfPresses,
-            };
+
+            if (finalClassArr[i].continuity[0] == 1) {
+              var addFri0Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[0],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[0],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[0].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[0] == 2) {
+              var addFri0Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[0],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[0],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[0].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 1,
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[0] == 3) {
+              var addFri0Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[0],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[0],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[0].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 1,
+                  +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 2,
+                ],
+              };
+            }
+
             var newFri0arr = [...myFriClassArray, addFri0Arr];
             setMyFriClassArray(newFri0arr);
             var newFri0ClassIds = [...myFriClassIds, finalClassArr[i].classId];
@@ -197,21 +449,71 @@ export default function addToMonToFriArray({
             myMonClassIds.indexOf(finalClassArr[i].classId) === -1
           ) {
             // 그 수업의 데이터를 add Arr에 담고, 월요일 배열에 추가.
-            var addMon1data = {
-              classId: finalClassArr[i].classId,
-              className: finalClassArr[i].className,
-              Professor: finalClassArr[i].Professor,
-              ClassTime: finalClassArr[i].ClassTime.split(',')[1],
-              lectureRoom: finalClassArr[i].lectureRoom,
-              Classification: finalClassArr[i].Classification,
-              Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity[1],
-              firstClassNum: finalClassArr[i].ClassTime.split(',')[1].substr(
-                1,
-                1
-              ),
-              numberOfPresses: finalClassArr[i].numberOfPresses,
-            };
+
+            if (finalClassArr[i].continuity[1] == 1) {
+              var addMon1data = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[1],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[1],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[1].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[1] == 2) {
+              var addMon1data = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[1],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[1],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[1].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 1,
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[1] == 3) {
+              var addMon1data = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[1],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[1],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[1].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 1,
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 2,
+                ],
+              };
+            }
+
             var newMon1arr = [...myMonClassArray, addMon1data];
             setMyMonClassArray(newMon1arr);
             var newMon1ClassIds = [...myMonClassIds, finalClassArr[i].classId];
@@ -224,21 +526,72 @@ export default function addToMonToFriArray({
             myTueClassIds.indexOf(finalClassArr[i].classId) === -1
           ) {
             // 그 수업의 데이터를 add Arr에 담고, 화요일 배열에 추가.
-            var addTue1Arr = {
-              classId: finalClassArr[i].classId,
-              className: finalClassArr[i].className,
-              Professor: finalClassArr[i].Professor,
-              ClassTime: finalClassArr[i].ClassTime.split(',')[1],
-              lectureRoom: finalClassArr[i].lectureRoom,
-              Classification: finalClassArr[i].Classification,
-              Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity[1],
-              firstClassNum: finalClassArr[i].ClassTime.split(',')[1].substr(
-                1,
-                1
-              ),
-              numberOfPresses: finalClassArr[i].numberOfPresses,
-            };
+
+            ///
+            if (finalClassArr[i].continuity[1] == 1) {
+              var addTue1Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[1],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[1],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[1].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[1] == 2) {
+              var addTue1Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[1],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[1],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[1].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 1,
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[1] == 3) {
+              var addTue1Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[1],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[1],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[1].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 1,
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 2,
+                ],
+              };
+            }
+
             var newTue1arr = [...myTueClassArray, addTue1Arr];
             setMyTueClassArray(newTue1arr);
             var newTue1ClassIds = [...myTueClassIds, finalClassArr[i].classId];
@@ -251,21 +604,71 @@ export default function addToMonToFriArray({
             myWenClassIds.indexOf(finalClassArr[i].classId) === -1
           ) {
             // 그 수업의 데이터를 add Arr에 담고, 수요일 배열에 추가.
-            var addWen1Arr = {
-              classId: finalClassArr[i].classId,
-              className: finalClassArr[i].className,
-              Professor: finalClassArr[i].Professor,
-              ClassTime: finalClassArr[i].ClassTime.split(',')[1],
-              lectureRoom: finalClassArr[i].lectureRoom,
-              Classification: finalClassArr[i].Classification,
-              Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity[1],
-              firstClassNum: finalClassArr[i].ClassTime.split(',')[1].substr(
-                1,
-                1
-              ),
-              numberOfPresses: finalClassArr[i].numberOfPresses,
-            };
+
+            if (finalClassArr[i].continuity[1] == 1) {
+              var addWen1Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[1],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[1],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[1].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[1] == 2) {
+              var addWen1Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[1],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[1],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[1].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 1,
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[1] == 3) {
+              var addWen1Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[1],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[1],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[1].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 1,
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 2,
+                ],
+              };
+            }
+
             var newWen1arr = [...myWenClassArray, addWen1Arr];
             setMyWenClassArray(newWen1arr);
             var newWen1ClassIds = [...myWenClassIds, finalClassArr[i].classId];
@@ -278,21 +681,71 @@ export default function addToMonToFriArray({
             myThuClassIds.indexOf(finalClassArr[i].classId) === -1
           ) {
             // 그 수업의 데이터를 add Arr에 담고, 목요일 배열에 추가.
-            var addThu1Arr = {
-              classId: finalClassArr[i].classId,
-              className: finalClassArr[i].className,
-              Professor: finalClassArr[i].Professor,
-              ClassTime: finalClassArr[i].ClassTime.split(',')[1],
-              lectureRoom: finalClassArr[i].lectureRoom,
-              Classification: finalClassArr[i].Classification,
-              Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity[1],
-              firstClassNum: finalClassArr[i].ClassTime.split(',')[1].substr(
-                1,
-                1
-              ),
-              numberOfPresses: finalClassArr[i].numberOfPresses,
-            };
+
+            if (finalClassArr[i].continuity[1] == 1) {
+              var addThu1Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[1],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[1],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[1].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[1] == 2) {
+              var addThu1Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[1],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[1],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[1].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 1,
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[1] == 3) {
+              var addThu1Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[1],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[1],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[1].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 1,
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 2,
+                ],
+              };
+            }
+
             var newThu1arr = [...myThuClassArray, addThu1Arr];
             setMyThuClassArray(newThu1arr);
             var newThu1ClassIds = [...myThuClassIds, finalClassArr[i].classId];
@@ -305,21 +758,71 @@ export default function addToMonToFriArray({
             myFriClassIds.indexOf(finalClassArr[i].classId) === -1
           ) {
             // 그 수업의 데이터를 add Arr에 담고, 목요일 배열에 추가.
-            var addFri1Arr = {
-              classId: finalClassArr[i].classId,
-              className: finalClassArr[i].className,
-              Professor: finalClassArr[i].Professor,
-              ClassTime: finalClassArr[i].ClassTime.split(',')[1],
-              lectureRoom: finalClassArr[i].lectureRoom,
-              Classification: finalClassArr[i].Classification,
-              Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity[1],
-              firstClassNum: finalClassArr[i].ClassTime.split(',')[1].substr(
-                1,
-                1
-              ),
-              numberOfPresses: finalClassArr[i].numberOfPresses,
-            };
+
+            if (finalClassArr[i].continuity[1] == 1) {
+              var addFri1Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[1],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[1],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[1].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[1] == 2) {
+              var addFri1Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[1],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[1],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[1].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 1,
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[1] == 3) {
+              var addFri1Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[1],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[1],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[1].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 1,
+                  +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 2,
+                ],
+              };
+            }
+
             var newFri1arr = [...myFriClassArray, addFri1Arr];
             setMyFriClassArray(newFri1arr);
             var newFri1ClassIds = [...myFriClassIds, finalClassArr[i].classId];
@@ -341,21 +844,71 @@ export default function addToMonToFriArray({
             myMonClassIds.indexOf(finalClassArr[i].classId) === -1
           ) {
             // 그 수업의 데이터를 add Arr에 담고, 월요일 배열에 추가.
-            var addMon2data = {
-              classId: finalClassArr[i].classId,
-              className: finalClassArr[i].className,
-              Professor: finalClassArr[i].Professor,
-              ClassTime: finalClassArr[i].ClassTime.split(',')[2],
-              lectureRoom: finalClassArr[i].lectureRoom,
-              Classification: finalClassArr[i].Classification,
-              Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity[2],
-              firstClassNum: finalClassArr[i].ClassTime.split(',')[2].substr(
-                1,
-                1
-              ),
-              numberOfPresses: finalClassArr[i].numberOfPresses,
-            };
+
+            if (finalClassArr[i].continuity[2] == 1) {
+              var addMon2data = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[2],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[2],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[2].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[2] == 2) {
+              var addMon2data = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[2],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[2],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[2].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 1,
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[2] == 3) {
+              var addMon2data = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[2],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[2],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[2].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 1,
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 2,
+                ],
+              };
+            }
+
             var newMon2arr = [...myMonClassArray, addMon2data];
             setMyMonClassArray(newMon2arr);
             var newMon2ClassIds = [...myMonClassIds, finalClassArr[i].classId];
@@ -368,21 +921,71 @@ export default function addToMonToFriArray({
             myTueClassIds.indexOf(finalClassArr[i].classId) === -1
           ) {
             // 그 수업의 데이터를 add Arr에 담고, 화요일 배열에 추가.
-            var addTue2Arr = {
-              classId: finalClassArr[i].classId,
-              className: finalClassArr[i].className,
-              Professor: finalClassArr[i].Professor,
-              ClassTime: finalClassArr[i].ClassTime.split(',')[2],
-              lectureRoom: finalClassArr[i].lectureRoom,
-              Classification: finalClassArr[i].Classification,
-              Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity[2],
-              firstClassNum: finalClassArr[i].ClassTime.split(',')[2].substr(
-                1,
-                1
-              ),
-              numberOfPresses: finalClassArr[i].numberOfPresses,
-            };
+
+            if (finalClassArr[i].continuity[2] == 1) {
+              var addTue2Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[2],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[2],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[2].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[2] == 2) {
+              var addTue2Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[2],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[2],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[2].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 1,
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[2] == 3) {
+              var addTue2Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[2],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[2],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[2].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 1,
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 2,
+                ],
+              };
+            }
+
             var newTue2arr = [...myTueClassArray, addTue2Arr];
             setMyTueClassArray(newTue2arr);
             var newTue2ClassIds = [...myTueClassIds, finalClassArr[i].classId];
@@ -394,22 +997,72 @@ export default function addToMonToFriArray({
             // && 수업데이터가 들어있지 않다면(동일 체크)
             myWenClassIds.indexOf(finalClassArr[i].classId) === -1
           ) {
+            if (finalClassArr[i].continuity[2] == 1) {
+              var addWen2Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[2],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[2],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[2].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[2] == 2) {
+              var addWen2Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[2],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[2],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[2].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 1,
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[2] == 3) {
+              var addWen2Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[2],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[2],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[2].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 1,
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 2,
+                ],
+              };
+            }
+
             // 그 수업의 데이터를 add Arr에 담고, 수요일 배열에 추가.
-            var addWen2Arr = {
-              classId: finalClassArr[i].classId,
-              className: finalClassArr[i].className,
-              Professor: finalClassArr[i].Professor,
-              ClassTime: finalClassArr[i].ClassTime.split(',')[2],
-              lectureRoom: finalClassArr[i].lectureRoom,
-              Classification: finalClassArr[i].Classification,
-              Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity[2],
-              firstClassNum: finalClassArr[i].ClassTime.split(',')[2].substr(
-                1,
-                1
-              ),
-              numberOfPresses: finalClassArr[i].numberOfPresses,
-            };
+
             var newWen2arr = [...myWenClassArray, addWen2Arr];
             setMyWenClassArray(newWen2arr);
             var newWen2ClassIds = [...myWenClassIds, finalClassArr[i].classId];
@@ -422,21 +1075,71 @@ export default function addToMonToFriArray({
             myThuClassIds.indexOf(finalClassArr[i].classId) === -1
           ) {
             // 그 수업의 데이터를 add Arr에 담고, 목요일 배열에 추가.
-            var addThu2Arr = {
-              classId: finalClassArr[i].classId,
-              className: finalClassArr[i].className,
-              Professor: finalClassArr[i].Professor,
-              ClassTime: finalClassArr[i].ClassTime.split(',')[2],
-              lectureRoom: finalClassArr[i].lectureRoom,
-              Classification: finalClassArr[i].Classification,
-              Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity[2],
-              firstClassNum: finalClassArr[i].ClassTime.split(',')[2].substr(
-                1,
-                1
-              ),
-              numberOfPresses: finalClassArr[i].numberOfPresses,
-            };
+
+            if (finalClassArr[i].continuity[2] == 1) {
+              var addThu2Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[2],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[2],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[2].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[2] == 2) {
+              var addThu2Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[2],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[2],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[2].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 1,
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[2] == 3) {
+              var addThu2Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[2],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[2],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[2].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 1,
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 2,
+                ],
+              };
+            }
+
             var newThu2arr = [...myThuClassArray, addThu2Arr];
             setMyThuClassArray(newThu2arr);
             var newThu2ClassIds = [...myThuClassIds, finalClassArr[i].classId];
@@ -449,21 +1152,71 @@ export default function addToMonToFriArray({
             myFriClassIds.indexOf(finalClassArr[i].classId) === -1
           ) {
             // 그 수업의 데이터를 add Arr에 담고, 목요일 배열에 추가.
-            var addFri2Arr = {
-              classId: finalClassArr[i].classId,
-              className: finalClassArr[i].className,
-              Professor: finalClassArr[i].Professor,
-              ClassTime: finalClassArr[i].ClassTime.split(',')[2],
-              lectureRoom: finalClassArr[i].lectureRoom,
-              Classification: finalClassArr[i].Classification,
-              Grades: finalClassArr[i].Grades,
-              continuity: finalClassArr[i].continuity[2],
-              firstClassNum: finalClassArr[i].ClassTime.split(',')[2].substr(
-                1,
-                1
-              ),
-              numberOfPresses: finalClassArr[i].numberOfPresses,
-            };
+
+            if (finalClassArr[i].continuity[2] == 1) {
+              var addFri2Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[2],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[2],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[2].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[2] == 2) {
+              var addFri2Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[2],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[2],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[2].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 1,
+                ],
+              };
+            }
+            if (finalClassArr[i].continuity[2] == 3) {
+              var addFri2Arr = {
+                classId: finalClassArr[i].classId,
+                className: finalClassArr[i].className,
+                Professor: finalClassArr[i].Professor,
+                ClassTime: finalClassArr[i].ClassTime.split(',')[2],
+                lectureRoom: finalClassArr[i].lectureRoom,
+                Classification: finalClassArr[i].Classification,
+                Grades: finalClassArr[i].Grades,
+                continuity: finalClassArr[i].continuity[2],
+                firstClassNum: finalClassArr[i].ClassTime.split(',')[2].substr(
+                  1,
+                  1
+                ),
+                numberOfPresses: finalClassArr[i].numberOfPresses,
+                totalClass: [
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 1,
+                  +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 2,
+                ],
+              };
+            }
+
             var newFri2arr = [...myFriClassArray, addFri2Arr];
             setMyFriClassArray(newFri2arr);
             var newFri2ClassIds = [...myFriClassIds, finalClassArr[i].classId];
