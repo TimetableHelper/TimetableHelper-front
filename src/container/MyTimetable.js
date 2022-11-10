@@ -28,6 +28,11 @@ import {
   numberOfPressesAtom,
   nowClickClassData,
   nowClickClassDataArray,
+  mondayClassListAtom,
+  tuedayClassListAtom,
+  wendayClassListAtom,
+  thudayClassListAtom,
+  fridayClassListAtom,
 } from '../atoms';
 
 import '../styles/container/OverlapModal.scss';
@@ -46,13 +51,24 @@ function MyTimetable() {
     }
   }, []);
 
-  //////// 수업 겹침 경고문 코드
+  //////// 수업 겹침 경고문 코드      //////////////////////
   const [finalClassArr, setFinalClassArr] = useRecoilState(finalClassArray);
+  const [finalClassIds, setFinalClassIds] = useRecoilState(finalClassIdsAtom);
+
   const [myMonClassArray, setMyMonClassArray] = useRecoilState(MonClassArray);
+  const [myMonClassIds, setMyMonClassIds] = useRecoilState(MonClassIds);
+
   const [myTueClassArray, setMyTueClassArray] = useRecoilState(TueClassArray);
+  const [myTueClassIds, setMyTueClassIds] = useRecoilState(TueClassIds);
+
   const [myWenClassArray, setMyWenClassArray] = useRecoilState(WenClassArray);
+  const [myWenClassIds, setMyWenClassIds] = useRecoilState(WenClassIds);
+
   const [myThuClassArray, setMyThuClassArray] = useRecoilState(ThuClassArray);
+  const [myThuClassIds, setMyThuClassIds] = useRecoilState(ThuClassIds);
+
   const [myFriClassArray, setMyFriClassArray] = useRecoilState(FriClassArray);
+  const [myFriClassIds, setMyFriClassIds] = useRecoilState(FriClassIds);
 
   // 마지막으로 클릭한 수업의 데이터
   const [nowClickClass, setNowClickClass] = useRecoilState(nowClickClassData);
@@ -60,11 +76,16 @@ function MyTimetable() {
     nowClickClassDataArray
   );
 
-  const [mondayClassList, setMondayClassList] = useState([]);
-  const [tuedayClassList, setTuedayClassList] = useState([]);
-  const [wendayClassList, setWendayClassList] = useState([]);
-  const [thudayClassList, setThudayClassList] = useState([]);
-  const [fridayClassList, setFridayClassList] = useState([]);
+  const [mondayClassList, setMondayClassList] =
+    useRecoilState(mondayClassListAtom);
+  const [tuedayClassList, setTuedayClassList] =
+    useRecoilState(tuedayClassListAtom);
+  const [wendayClassList, setWendayClassList] =
+    useRecoilState(wendayClassListAtom);
+  const [thudayClassList, setThudayClassList] =
+    useRecoilState(thudayClassListAtom);
+  const [fridayClassList, setFridayClassList] =
+    useRecoilState(fridayClassListAtom);
 
   //  console.log('nowClickClass', nowClickClass);
 
@@ -83,6 +104,7 @@ function MyTimetable() {
     setShowOverlapModal(true);
   };
 
+  // 현재 클릭한 수업 데이터 담기
   useEffect(() => {
     // 임시 저장용 array
     var forSetClassArray = [];
@@ -95,6 +117,7 @@ function MyTimetable() {
           console.log('월');
 
           forSetClassArray.push({
+            classId: nowClickClass.classId,
             day: '월',
             firstClassNum: nowClickClass.ClassTime.split(',')[0].substr(1, 1),
             className: nowClickClass.className,
@@ -106,6 +129,7 @@ function MyTimetable() {
           console.log('화');
 
           forSetClassArray.push({
+            classId: nowClickClass.classId,
             day: '화',
             firstClassNum: nowClickClass.ClassTime.split(',')[0].substr(1, 1),
             className: nowClickClass.className,
@@ -117,25 +141,19 @@ function MyTimetable() {
           console.log('수');
 
           forSetClassArray.push({
+            classId: nowClickClass.classId,
             day: '수',
             firstClassNum: nowClickClass.ClassTime.split(',')[0].substr(1, 1),
             className: nowClickClass.className,
             continuity: nowClickClass.continuity[0],
           });
-          console.log('nowClickClassArray수0', [
-            ...nowClickClassArray,
-            {
-              day: '수',
-              firstClassNum: nowClickClass.ClassTime.split(',')[0].substr(1, 1),
-              className: nowClickClass.className,
-            },
-          ]);
         }
         if (nowClickClass.ClassTime.split(',')[0].substr(0, 1) === '목') {
           // 목요일
           console.log('목');
 
           forSetClassArray.push({
+            classId: nowClickClass.classId,
             day: '목',
             firstClassNum: nowClickClass.ClassTime.split(',')[0].substr(1, 1),
             className: nowClickClass.className,
@@ -147,6 +165,7 @@ function MyTimetable() {
           console.log('금');
 
           forSetClassArray.push({
+            classId: nowClickClass.classId,
             day: '금',
             firstClassNum: nowClickClass.ClassTime.split(',')[0].substr(1, 1),
             className: nowClickClass.className,
@@ -162,6 +181,7 @@ function MyTimetable() {
           console.log('월2');
 
           forSetClassArray.push({
+            classId: nowClickClass.classId,
             day: '월',
             firstClassNum: nowClickClass.ClassTime.split(',')[1].substr(1, 1),
             className: nowClickClass.className,
@@ -173,6 +193,7 @@ function MyTimetable() {
           console.log('화2');
 
           forSetClassArray.push({
+            classId: nowClickClass.classId,
             day: '화',
             firstClassNum: nowClickClass.ClassTime.split(',')[1].substr(1, 1),
             className: nowClickClass.className,
@@ -184,6 +205,7 @@ function MyTimetable() {
           console.log('수2');
 
           forSetClassArray.push({
+            classId: nowClickClass.classId,
             day: '수',
             firstClassNum: nowClickClass.ClassTime.split(',')[1].substr(1, 1),
             className: nowClickClass.className,
@@ -195,6 +217,7 @@ function MyTimetable() {
           console.log('목2');
 
           forSetClassArray.push({
+            classId: nowClickClass.classId,
             day: '목',
             firstClassNum: nowClickClass.ClassTime.split(',')[1].substr(1, 1),
             className: nowClickClass.className,
@@ -204,10 +227,9 @@ function MyTimetable() {
         if (nowClickClass.ClassTime.split(',')[1].substr(0, 1) === '금') {
           // 금요일
           console.log('금2');
-          console.log('금2', nowClickClassArray);
-          console.log('금2', nowClickClassArray);
 
           forSetClassArray.push({
+            classId: nowClickClass.classId,
             day: '금',
             firstClassNum: nowClickClass.ClassTime.split(',')[1].substr(1, 1),
             className: nowClickClass.className,
@@ -223,6 +245,7 @@ function MyTimetable() {
           console.log('월3');
 
           forSetClassArray.push({
+            classId: nowClickClass.classId,
             day: '월',
             firstClassNum: nowClickClass.ClassTime.split(',')[2].substr(1, 1),
             className: nowClickClass.className,
@@ -234,6 +257,7 @@ function MyTimetable() {
           console.log('화3');
 
           forSetClassArray.push({
+            classId: nowClickClass.classId,
             day: '화',
             firstClassNum: nowClickClass.ClassTime.split(',')[2].substr(1, 1),
             className: nowClickClass.className,
@@ -245,28 +269,31 @@ function MyTimetable() {
           console.log('수3');
 
           forSetClassArray.push({
+            classId: nowClickClass.classId,
             day: '수',
             firstClassNum: nowClickClass.ClassTime.split(',')[2].substr(1, 1),
             className: nowClickClass.className,
             continuity: nowClickClass.continuity[2],
           });
         }
-        if (nowClickClass.ClassTime.split(',')[1].substr(0, 1) === '목') {
+        if (nowClickClass.ClassTime.split(',')[2].substr(0, 1) === '목') {
           // 목요일
           console.log('목3');
 
           forSetClassArray.push({
+            classId: nowClickClass.classId,
             day: '목',
             firstClassNum: nowClickClass.ClassTime.split(',')[2].substr(1, 1),
             className: nowClickClass.className,
             continuity: nowClickClass.continuity[2],
           });
         }
-        if (nowClickClass.ClassTime.split(',')[1].substr(0, 1) === '금') {
+        if (nowClickClass.ClassTime.split(',')[2].substr(0, 1) === '금') {
           // 금요일
           console.log('금3');
 
           forSetClassArray.push({
+            classId: nowClickClass.classId,
             day: '금',
             firstClassNum: nowClickClass.ClassTime.split(',')[2].substr(1, 1),
             className: nowClickClass.className,
@@ -285,11 +312,11 @@ function MyTimetable() {
 
   // 경고문 활성화 코드
   useEffect(() => {
-    let forMon = [];
-    let forTue = [];
-    let forWen = [];
-    let forThu = [];
-    let forFri = [];
+    let forMon = [...mondayClassList];
+    let forTue = [...tuedayClassList];
+    let forWen = [...wendayClassList];
+    let forThu = [...thudayClassList];
+    let forFri = [...fridayClassList];
 
     for (var m = 0; m < myMonClassArray.length; m++) {
       if (myMonClassArray[m]) {
@@ -300,21 +327,13 @@ function MyTimetable() {
             +myMonClassArray[m].firstClassNum + myMonClassArray[m].continuity;
             i++
           ) {
-            if (mondayClassList.findIndex((x) => x.ClassTime === i) === -1) {
-              forMon.push({
-                ClassTime: i,
-                ClassName: myMonClassArray[m].className,
-              });
-            } else if (
-              mondayClassList.findIndex((x) => x.ClassTime === i) !== -1
+            if (
+              mondayClassList.findIndex((x) => x.ClassTime === i) === -1
+              // 겹침이 없다면 그냥 추가
             ) {
-              viewOverlapModal(
-                myMonClassArray[m].className,
-                nowClickClass.className
-              );
-
               forMon.push({
                 ClassTime: i,
+                classId: myMonClassArray[m].classId,
                 ClassName: myMonClassArray[m].className,
               });
             }
@@ -334,18 +353,7 @@ function MyTimetable() {
             if (tuedayClassList.findIndex((x) => x.ClassTime === u) === -1) {
               forTue.push({
                 ClassTime: u,
-                ClassName: myTueClassArray[t].className,
-              });
-            } else if (
-              myTueClassArray.findIndex((x) => x.ClassTime === u) !== -1
-            ) {
-              viewOverlapModal(
-                myTueClassArray[t].className,
-                nowClickClass.className
-              );
-
-              forTue.push({
-                ClassTime: u,
+                classId: myTueClassArray[t].classId,
                 ClassName: myTueClassArray[t].className,
               });
             }
@@ -364,20 +372,9 @@ function MyTimetable() {
             y++
           ) {
             if (wendayClassList.findIndex((x) => x.ClassTime === y) === -1) {
-              forTue.push({
-                ClassTime: y,
-                ClassName: myWenClassArray[w].className,
-              });
-            } else if (
-              wendayClassList.findIndex((x) => x.ClassTime === y) !== -1
-            ) {
-              viewOverlapModal(
-                myWenClassArray[m].className,
-                nowClickClass.className
-              );
-
               forWen.push({
                 ClassTime: y,
+                classId: myWenClassArray[w].classId,
                 ClassName: myWenClassArray[w].className,
               });
             }
@@ -397,18 +394,7 @@ function MyTimetable() {
             if (thudayClassList.findIndex((x) => x.ClassTime === r) === -1) {
               forThu.push({
                 ClassTime: r,
-                ClassName: myThuClassArray[h].className,
-              });
-            } else if (
-              thudayClassList.findIndex((x) => x.ClassTime === r) !== -1
-            ) {
-              viewOverlapModal(
-                myThuClassArray[h].className,
-                nowClickClass.className
-              );
-
-              forThu.push({
-                ClassTime: r,
+                classId: myThuClassArray[h].classId,
                 ClassName: myThuClassArray[h].className,
               });
             }
@@ -428,18 +414,7 @@ function MyTimetable() {
             if (fridayClassList.findIndex((x) => x.ClassTime === e) === -1) {
               forFri.push({
                 ClassTime: e,
-                ClassName: myFriClassArray[f].className,
-              });
-            } else if (
-              fridayClassList.findIndex((x) => x.ClassTime === e) !== -1
-            ) {
-              viewOverlapModal(
-                myFriClassArray[m].className,
-                nowClickClass.className
-              );
-
-              forFri.push({
-                ClassTime: e,
+                classId: myFriClassArray[f].classId,
                 ClassName: myFriClassArray[f].className,
               });
             }
@@ -470,26 +445,169 @@ function MyTimetable() {
 
     // console.log('forMon', forMon);
   }, [
-    myFriClassArray,
     myMonClassArray,
-    myThuClassArray,
     myTueClassArray,
     myWenClassArray,
+    myThuClassArray,
+    myFriClassArray,
   ]);
+
+  // 1109 고민 메모장 구현
+  useEffect(() => {
+    console.log('nowClickClassArray', nowClickClassArray);
+
+    if (nowClickClassArray) {
+      if (nowClickClassArray[0]) {
+        if (nowClickClassArray[0].day) {
+          if (nowClickClassArray[0].day === '월') {
+            console.log('1월');
+            //            console.log('1월', mondayClassList);
+          }
+          if (nowClickClassArray[0].day === '화') {
+            console.log('1화');
+            //          console.log('1화', tuedayClassList);
+          }
+          if (nowClickClassArray[0].day === '수') {
+            console.log('1수');
+            //        console.log('1수', wendayClassList);
+          }
+          if (nowClickClassArray[0].day === '목') {
+            console.log('1목');
+            //      console.log('1목', thudayClassList);
+          }
+          if (nowClickClassArray[0].day === '금') {
+            console.log('1금');
+            //    console.log('1금', fridayClassList);
+          }
+        }
+      }
+      if (nowClickClassArray[1]) {
+        if (nowClickClassArray[1].day) {
+          if (nowClickClassArray[1].day === '월') {
+            console.log('2월');
+          }
+          if (nowClickClassArray[1].day === '화') {
+            console.log('2화');
+          }
+          if (nowClickClassArray[1].day === '수') {
+            console.log('2수');
+          }
+          if (nowClickClassArray[1].day === '목') {
+            console.log('2목');
+          }
+          if (nowClickClassArray[1].day === '금') {
+            console.log('2금');
+          }
+        }
+      }
+      if (nowClickClassArray[2]) {
+        if (nowClickClassArray[2].day) {
+          if (nowClickClassArray[2].day === '월') {
+            console.log('3월');
+          }
+          if (nowClickClassArray[2].day === '화') {
+            console.log('3화');
+          }
+          if (nowClickClassArray[2].day === '수') {
+            console.log('3수');
+          }
+          if (nowClickClassArray[2].day === '목') {
+            console.log('3목');
+          }
+          if (nowClickClassArray[2].day === '금') {
+            console.log('3금');
+          }
+        }
+      }
+    }
+  }, [nowClickClassArray]);
+
+  const deleteFn = (wantDeleteID) => {
+    var newFinalList = [...finalClassArr];
+    setFinalClassArr(
+      newFinalList.filter((data) => data.classId !== wantDeleteID)
+    );
+    var newFinalIDs = [...finalClassIds];
+    setFinalClassIds(newFinalIDs.filter((data) => data !== wantDeleteID));
+    //
+    var newMonList = [...myMonClassArray];
+    setMyMonClassArray(
+      newMonList.filter((data) => data.classId !== wantDeleteID)
+    );
+    var newMonIDs = [...myMonClassIds];
+    setMyMonClassIds(newMonIDs.filter((data) => data !== wantDeleteID));
+    //
+    var newTueList = [...myTueClassArray];
+    setMyTueClassArray(
+      newTueList.filter((data) => data.classId !== wantDeleteID)
+    );
+    var newTueIDs = [...myTueClassIds];
+    setMyTueClassIds(newTueIDs.filter((data) => data !== wantDeleteID));
+    //
+    var newWendayList = [...myWenClassArray];
+    setMyWenClassArray(
+      newWendayList.filter((data) => data.classId !== wantDeleteID)
+    );
+    var newWendayIDs = [...myWenClassIds];
+    setMyWenClassIds(newWendayIDs.filter((data) => data !== wantDeleteID));
+    //
+    var newThudayList = [...myThuClassArray];
+    setMyThuClassArray(
+      newThudayList.filter((data) => data.classId !== wantDeleteID)
+    );
+    var newThudayIDs = [...myThuClassIds];
+    setMyThuClassIds(newThudayIDs.filter((data) => data !== wantDeleteID));
+
+    //
+    var newFridayList = [...myFriClassArray];
+    setMyFriClassArray(
+      newFridayList.filter((data) => data.classId !== wantDeleteID)
+    );
+    var newFridayIDs = [...myFriClassIds];
+    setMyFriClassIds(newFridayIDs.filter((data) => data !== wantDeleteID));
+
+    //////////////////// 모달창에 쓰이는 array에서도 삭제해야함.
+    var newMonClassList = [...mondayClassList];
+    setMondayClassList(
+      newMonClassList.filter((data) => data.classId !== wantDeleteID)
+    );
+    var newTueClassList = [...tuedayClassList];
+    setTuedayClassList(
+      newTueClassList.filter((data) => data.classId !== wantDeleteID)
+    );
+    var newWenClassList = [...wendayClassList];
+    setWendayClassList(
+      newWenClassList.filter((data) => data.classId !== wantDeleteID)
+    );
+    var newThuClassList = [...thudayClassList];
+    setThudayClassList(
+      newThuClassList.filter((data) => data.classId !== wantDeleteID)
+    );
+    var newFriClassList = [...fridayClassList];
+    setFridayClassList(
+      newFriClassList.filter((data) => data.classId !== wantDeleteID)
+    );
+  };
 
   // 경고문 "네" 버튼
   const changeOverlapClassListFn = (exist, newAdd) => {
-    console.log(`지울 수업 ${exist}, 남길 수업 ${newAdd}`);
+    deleteFn(exist);
 
     setShowOverlapModal(false);
   };
 
   // 경고문 "아니요" 버튼
   const existClassListFn = (exist, newAdd) => {
-    console.log(`지울 수업 ::${newAdd}, /// 남길 수업 ::: ${exist}`);
+    deleteFn(newAdd);
 
     setShowOverlapModal(false);
   };
+
+  console.log('월 리스트', mondayClassList);
+  console.log('화 리스트', tuedayClassList);
+  console.log('수 리스트', wendayClassList);
+  console.log('목 리스트', thudayClassList);
+  console.log('금 리스트', fridayClassList);
 
   return (
     <>

@@ -231,7 +231,9 @@ function SearchClassList() {
                       continuity: data.continuity,
                       numberOfPresses: numberOfPresses,
                     };
-                    setNowClickClass(clickedClass);
+                    if (finalClassIds.indexOf(data.classId) !== -1) {
+                      setNowClickClass(clickedClass);
+                    }
 
                     if (finalClassArr.length === 0) {
                       // finalClassArr가 비었다면,( = 첫클릭, 중복체크 필요x)

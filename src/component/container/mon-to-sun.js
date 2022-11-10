@@ -16,6 +16,11 @@ import {
   WenClassIds,
   ThuClassIds,
   FriClassIds,
+  mondayClassListAtom,
+  tuedayClassListAtom,
+  wendayClassListAtom,
+  thudayClassListAtom,
+  fridayClassListAtom,
 } from '../../atoms';
 
 import {
@@ -42,49 +47,85 @@ export function Timetable() {
   const [myFriClassArray, setMyFriClassArray] = useRecoilState(FriClassArray);
   const [myFriClassIds, setMyFriClassIds] = useRecoilState(FriClassIds);
 
+  // classList
+
+  const [mondayClassList, setMondayClassList] =
+    useRecoilState(mondayClassListAtom);
+  const [tuedayClassList, setTuedayClassList] =
+    useRecoilState(tuedayClassListAtom);
+  const [wendayClassList, setWendayClassList] =
+    useRecoilState(wendayClassListAtom);
+  const [thudayClassList, setThudayClassList] =
+    useRecoilState(thudayClassListAtom);
+  const [fridayClassList, setFridayClassList] =
+    useRecoilState(fridayClassListAtom);
+
   const onDelete = (wantDeleteID) => {
+    // 최종
     var newFinalList = [...finalClassArr];
     setFinalClassArr(
       newFinalList.filter((data) => data.classId !== wantDeleteID)
     );
     var newFinalIDs = [...finalClassIds];
     setFinalClassIds(newFinalIDs.filter((data) => data !== wantDeleteID));
-    //
+
+    // 월요일
     var newMonList = [...myMonClassArray];
     setMyMonClassArray(
       newMonList.filter((data) => data.classId !== wantDeleteID)
     );
     var newMonIDs = [...myMonClassIds];
     setMyMonClassIds(newMonIDs.filter((data) => data !== wantDeleteID));
-    //
+    var newMonCL = [...mondayClassList];
+    setMondayClassList(
+      newMonCL.filter((data) => data.classId !== wantDeleteID)
+    );
+    //화요알
     var newTueList = [...myTueClassArray];
     setMyTueClassArray(
       newTueList.filter((data) => data.classId !== wantDeleteID)
     );
     var newTueIDs = [...myTueClassIds];
     setMyTueClassIds(newTueIDs.filter((data) => data !== wantDeleteID));
-    //
+    var newTueCL = [...tuedayClassList];
+    setTuedayClassList(
+      newTueCL.filter((data) => data.classId !== wantDeleteID)
+    );
+    // 수요알
     var newWendayList = [...myWenClassArray];
     setMyWenClassArray(
       newWendayList.filter((data) => data.classId !== wantDeleteID)
     );
     var newWendayIDs = [...myWenClassIds];
     setMyWenClassIds(newWendayIDs.filter((data) => data !== wantDeleteID));
-    //
+    var newWenCL = [...wendayClassList];
+    setWendayClassList(
+      newWenCL.filter((data) => data.classId !== wantDeleteID)
+    );
+
+    // 목요알
     var newThudayList = [...myThuClassArray];
     setMyThuClassArray(
       newThudayList.filter((data) => data.classId !== wantDeleteID)
     );
     var newThudayIDs = [...myThuClassIds];
     setMyThuClassIds(newThudayIDs.filter((data) => data !== wantDeleteID));
+    var newThuCL = [...thudayClassList];
+    setThudayClassList(
+      newThuCL.filter((data) => data.classId !== wantDeleteID)
+    );
 
-    //
+    // 금요알
     var newFridayList = [...myFriClassArray];
     setMyFriClassArray(
       newFridayList.filter((data) => data.classId !== wantDeleteID)
     );
     var newFridayIDs = [...myFriClassIds];
     setMyFriClassIds(newFridayIDs.filter((data) => data !== wantDeleteID));
+    var newFriCL = [...fridayClassList];
+    setFridayClassList(
+      newFriCL.filter((data) => data.classId !== wantDeleteID)
+    );
   };
 
   return (

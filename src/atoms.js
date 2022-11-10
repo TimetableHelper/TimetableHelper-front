@@ -115,3 +115,26 @@ export const nowClickClassDataArray = atom({
   key: 'nowClickClassDataArray',
   default: [],
 });
+
+//////////////////
+// ClassList
+export const mondayClassListAtom = atom({
+  key: 'mondayClassListAtom',
+  default: [],
+});
+export const tuedayClassListAtom = atom({
+  key: 'tuedayClassListAtom',
+  default: [],
+});
+export const wendayClassListAtom = atom({
+  key: 'wendayClassListAtom',
+  default: [],
+});
+export const thudayClassListAtom = atom({
+  key: 'thudayClassListAtom',
+  default: [],
+});
+export const fridayClassListAtom = atom({
+  key: 'fridayClassListAtom',
+  default: [],
+});
