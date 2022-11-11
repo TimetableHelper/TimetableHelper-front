@@ -108,13 +108,15 @@ function MyTimetable() {
     forsetExistArr.push(exist);
     setNewAddClass(newAdd);
 
-    setExistingClass1(forsetExistArr);
+    setExistingClass1([...new Set(forsetExistArr)]);
     ////////////
 
     setShowOverlapModal(true);
   };
 
   console.log('기존ID', existingclass);
+  console.log('기존ID수정', [...new Set(existingclass)]);
+
   console.log('클릭ID', newAddclass);
   console.log('finalClassArr', finalClassArr);
 
