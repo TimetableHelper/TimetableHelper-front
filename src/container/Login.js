@@ -9,7 +9,6 @@ import { useRecoilState } from 'recoil';
 
 function Login(props) {
   const [isLoginedState, setisLoginedState] = useRecoilState(isLoginIn);
-  console.log('Main', isLoginedState);
   useEffect(() => {
     //    const isLoginedState = window.localStorage.getItem('isLoginIn');
     if (isLoginedState) {

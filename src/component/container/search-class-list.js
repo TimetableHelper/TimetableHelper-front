@@ -20,11 +20,16 @@ import {
   FriClassArray,
   FriClassIds,
   numberOfPressesAtom,
+  nowClickClassData,
+  nowClickClassDataArray,
 } from '../../atoms';
 
 import addToMonToFriArray from '../../utils/component/addMonToFriArray';
 
-function SearchClassList() {
+function SearchClassList({}) {
+  // 마지막으로 클릭한 수업의 데이터
+  const [nowClickClass, setNowClickClass] = useRecoilState(nowClickClassData);
+
   const [finalClassArr, setFinalClassArr] = useRecoilState(finalClassArray);
   // 최종 배열. 이걸 요일별로 나눌 예정
 
@@ -151,6 +156,11 @@ function SearchClassList() {
     }
   };
 
+  // 마지막 클릭한 수업 데이터
+  const [nowClickClassArray, setNowClickClassArray] = useRecoilState(
+    nowClickClassDataArray
+  );
+
   return (
     <>
       <div className="SearchClassList__column">
@@ -219,8 +229,10 @@ function SearchClassList() {
                       Grades: data.Grades,
                       continuity: data.continuity,
                       numberOfPresses: numberOfPresses,
-                      isInSchedule: true,
                     };
+
+                    setNowClickClass(clickedClass);
+
                     if (finalClassArr.length === 0) {
                       // finalClassArr가 비었다면,( = 첫클릭, 중복체크 필요x)
                       // 바로 클릭한 수업을 arr2에넣기 , classId를 arr4에 넣기

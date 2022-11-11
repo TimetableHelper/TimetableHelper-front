@@ -105,12 +105,36 @@ export const numberOfPressesAtom = atom({
   default: 1,
 });
 
-//
-export const isUseOnMonday = atom({
-  key: 'isUseOnMonday',
+// 마지막으로 클릭한 수업의 데이터
+export const nowClickClassData = atom({
+  key: 'nowClickClassData',
   default: [],
 });
-export const xBtnOnMonday = atom({
-  key: 'xBtnOnMonday',
+
+export const nowClickClassDataArray = atom({
+  key: 'nowClickClassDataArray',
+  default: [],
+});
+
+//////////////////
+// ClassList
+export const mondayClassListAtom = atom({
+  key: 'mondayClassListAtom',
+  default: [],
+});
+export const tuedayClassListAtom = atom({
+  key: 'tuedayClassListAtom',
+  default: [],
+});
+export const wendayClassListAtom = atom({
+  key: 'wendayClassListAtom',
+  default: [],
+});
+export const thudayClassListAtom = atom({
+  key: 'thudayClassListAtom',
+  default: [],
+});
+export const fridayClassListAtom = atom({
+  key: 'fridayClassListAtom',
   default: [],
 });
