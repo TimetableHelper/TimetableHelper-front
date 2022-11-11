@@ -101,12 +101,14 @@ function MyTimetable() {
 
   // 겹침 모달창 생성
   let forsetExistArr = [...existingclass];
+
   const viewOverlapModal = (exist, newAdd) => {
     forsetExistArr.push(exist);
-    //    console.log('newAddclass', newAddclass);
     setNewAddClass(newAdd);
 
     setExistingClass1(forsetExistArr);
+    ////////////
+
     setShowOverlapModal(true);
   };
 
@@ -115,13 +117,46 @@ function MyTimetable() {
   console.log('finalClassArr', finalClassArr);
 
   useEffect(() => {
-    // 여기
-    var foundNewAddclassName = finalClassArr.find(
-      (e) => e.classId === newAddclass
-    );
-    if (foundNewAddclassName) {
-      setNewAddClassName(foundNewAddclassName.className);
+    let forsetExistNameArr = [...existingclassName];
+
+    if (existingclass.length === 0) {
+    } else if (existingclass.length === 1) {
+      forsetExistNameArr.push(
+        finalClassArr.find((e) => e.classId === existingclass[0]).className
+      );
+    } else if (existingclass.length === 2) {
+      forsetExistNameArr.push(
+        finalClassArr.find((e) => e.classId === existingclass[0]).className,
+        finalClassArr.find((e) => e.classId === existingclass[1]).className
+      );
+    } else if (existingclass.length === 3) {
+      forsetExistNameArr.push(
+        finalClassArr.find((e) => e.classId === existingclass[0]).className,
+        finalClassArr.find((e) => e.classId === existingclass[1]).className,
+        finalClassArr.find((e) => e.classId === existingclass[2]).className
+      );
+    } else if (existingclass.length === 4) {
+      forsetExistNameArr.push(
+        finalClassArr.find((e) => e.classId === existingclass[0]).className,
+        finalClassArr.find((e) => e.classId === existingclass[1]).className,
+        finalClassArr.find((e) => e.classId === existingclass[2]).className,
+        finalClassArr.find((e) => e.classId === existingclass[3]).className
+      );
     }
+
+    setExistingClassName(forsetExistNameArr);
+  }, [existingclass]);
+
+  console.log('existingclassName 확인', existingclassName);
+
+  // 모달창에서 보여줄 수업명 찾기
+  useEffect(() => {
+    var NewAddclassName = finalClassArr.find((e) => e.classId === newAddclass);
+    if (NewAddclassName) {
+      setNewAddClassName(NewAddclassName.className);
+    }
+
+    var ExistclassNames = [];
   }, [newAddclass]);
 
   // 현재 클릭한 수업 데이터 담기
@@ -879,14 +914,6 @@ function MyTimetable() {
     forSetClassArray = [];
   }, [nowClickClass]);
 
-  //  console.log('nowClickClassArray', nowClickClassArray);
-
-  // console.log('myMonClassArray', myMonClassArray);
-  // console.log('myTueClassArray', myTueClassArray);
-  // console.log('myWenClassArray', myWenClassArray);
-  // console.log('myThuClassArray', myThuClassArray);
-  // console.log('myFriClassArray', myFriClassArray);
-
   const deleteFn = (wantDeleteID) => {
     var newFinalList = [...finalClassArr];
     setFinalClassArr(
@@ -959,14 +986,16 @@ function MyTimetable() {
     //    deleteFn(exist);
 
     setExistingClass1([]);
+    setExistingClassName([]);
     setShowOverlapModal(false);
   };
 
   // 경고문 "아니요" 버튼
   const existClassListFn = (exist, newAdd) => {
-    //   deleteFn(newAdd);
+    deleteFn(newAdd);
 
     setExistingClass1([]);
+    setExistingClassName([]);
     setShowOverlapModal(false);
   };
 
@@ -1368,7 +1397,7 @@ function MyTimetable() {
       {showOverlapModal && (
         <div className="OverlapModal">
           <h2>
-            {`"${existingclass}" 수업을 "${newAddclassName}" 수업으로 바꿀래?`}
+            {`"${existingclassName}" 수업을 "${newAddclassName}" 수업으로 바꿀래?`}
           </h2>
           <button
             onClick={() => changeOverlapClassListFn(existingclass, newAddclass)}
