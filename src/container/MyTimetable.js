@@ -1116,79 +1116,351 @@ function MyTimetable() {
 
   // 1109 고민 메모장 구현
   useEffect(() => {
-    if (nowClickClassArray[0]) {
+    if (nowClickClassArray[0] && !stop) {
       if (nowClickClassArray[0].day) {
         if (nowClickClassArray[0].day === '월' && !stop) {
           console.log('1월');
 
-          /*
-
-          myMonClassArray 의 [i]들의 totalClass ( for :: var i=0; i < myMonClassArray.length; )
-
-          */
-
-          for (var i = 0; i < myMonClassArray.length; i++) {}
+          for (var i = 0; i < myMonClassArray.length - 1; i++) {
+            if (
+              nowClickClassArray[0].totalClass.filter((x) =>
+                myMonClassArray[i].totalClass.includes(x)
+              ) !== []
+            ) {
+              console.log(
+                'i',
+                i,
+                '(기존) : ',
+                myMonClassArray[i].className,
+                '(클릭) : ',
+                nowClickClassArray[0].className
+              );
+              setStop(true);
+            }
+          }
         }
 
         //            console.log('1월', mondayClassList);
         if (nowClickClassArray[0].day === '화' && !stop) {
           console.log('1화');
-          //            console.log(mondayClassList.findIndex(nowClickClassArray[0].))
-          //          console.log('1화', tuedayClassList);
+
+          for (var i = 0; i < myTueClassArray.length - 1; i++) {
+            if (
+              nowClickClassArray[0].totalClass.filter((x) =>
+                myTueClassArray[i].totalClass.includes(x)
+              ) !== []
+            ) {
+              console.log(
+                'i',
+                i,
+                '(기존) : ',
+                myTueClassArray[i].className,
+                '(클릭) : ',
+                nowClickClassArray[0].className
+              );
+              setStop(true);
+            }
+          }
         }
         if (nowClickClassArray[0].day === '수' && !stop) {
           console.log('1수');
+
+          for (var i = 0; i < myWenClassArray.length - 1; i++) {
+            if (
+              nowClickClassArray[0].totalClass.filter((x) =>
+                myWenClassArray[i].totalClass.includes(x)
+              ) !== []
+            ) {
+              console.log(
+                'i',
+                i,
+                '(기존) : ',
+                myWenClassArray[i].className,
+                '(클릭) : ',
+                nowClickClassArray[0].className
+              );
+              setStop(true);
+            }
+          }
+
           //        console.log('1수', wendayClassList);
         }
         if (nowClickClassArray[0].day === '목' && !stop) {
           console.log('1목');
+
+          for (var i = 0; i < myThuClassArray.length - 1; i++) {
+            if (
+              nowClickClassArray[0].totalClass.filter((x) =>
+                myThuClassArray[i].totalClass.includes(x)
+              ) !== []
+            ) {
+              console.log(
+                'i',
+                i,
+                '(기존) : ',
+                myThuClassArray[i].className,
+                '(클릭) : ',
+                nowClickClassArray[0].className
+              );
+              setStop(true);
+            }
+          }
+
           //      console.log('1목', thudayClassList);
         }
         if (nowClickClassArray[0].day === '금' && !stop) {
           console.log('1금');
+
+          for (var i = 0; i < myFriClassArray.length - 1; i++) {
+            if (
+              nowClickClassArray[0].totalClass.filter((x) =>
+                myFriClassArray[i].totalClass.includes(x)
+              ) !== []
+            ) {
+              console.log(
+                'i',
+                i,
+                '(기존) : ',
+                myFriClassArray[i].className,
+                '(클릭) : ',
+                nowClickClassArray[0].className
+              );
+              setStop(true);
+            }
+          }
+
           //    console.log('1금', fridayClassList);
         }
       }
     }
-    if (nowClickClassArray[1]) {
+    if (nowClickClassArray[1] && !stop) {
       if (nowClickClassArray[1].day) {
         if (nowClickClassArray[1].day === '월' && !stop) {
           console.log('2월');
+
+          for (var i = 0; i < myMonClassArray.length - 1; i++) {
+            if (
+              nowClickClassArray[1].totalClass.filter((x) =>
+                myMonClassArray[i].totalClass.includes(x)
+              ) !== []
+            ) {
+              console.log(
+                'i',
+                i,
+                '(기존) : ',
+                myMonClassArray[i].className,
+                '(클릭) : ',
+                nowClickClassArray[1].className
+              );
+              setStop(true);
+            }
+          }
         }
         if (nowClickClassArray[1].day === '화' && !stop) {
           console.log('2화');
+
+          for (var i = 0; i < myTueClassArray.length - 1; i++) {
+            if (
+              nowClickClassArray[1].totalClass.filter((x) =>
+                myTueClassArray[i].totalClass.includes(x)
+              ) !== []
+            ) {
+              console.log(
+                'i',
+                i,
+                '(기존) : ',
+                myTueClassArray[i].className,
+                '(클릭) : ',
+                nowClickClassArray[1].className
+              );
+              setStop(true);
+            }
+          }
         }
         if (nowClickClassArray[1].day === '수' && !stop) {
           console.log('2수');
+
+          for (var i = 0; i < myWenClassArray.length - 1; i++) {
+            if (
+              nowClickClassArray[1].totalClass.filter((x) =>
+                myWenClassArray[i].totalClass.includes(x)
+              ) !== []
+            ) {
+              console.log(
+                'i',
+                i,
+                '(기존) : ',
+                myWenClassArray[i].className,
+                '(클릭) : ',
+                nowClickClassArray[1].className
+              );
+              setStop(true);
+            }
+          }
         }
         if (nowClickClassArray[1].day === '목' && !stop) {
           console.log('2목');
+
+          for (var i = 0; i < myThuClassArray.length - 1; i++) {
+            if (
+              nowClickClassArray[1].totalClass.filter((x) =>
+                myThuClassArray[i].totalClass.includes(x)
+              ) !== []
+            ) {
+              console.log(
+                'i',
+                i,
+                '(기존) : ',
+                myThuClassArray[i].className,
+                '(클릭) : ',
+                nowClickClassArray[1].className
+              );
+              setStop(true);
+            }
+          }
         }
         if (nowClickClassArray[1].day === '금' && !stop) {
           console.log('2금');
+
+          for (var i = 0; i < myFriClassArray.length - 1; i++) {
+            if (
+              nowClickClassArray[1].totalClass.filter((x) =>
+                myFriClassArray[i].totalClass.includes(x)
+              ) !== []
+            ) {
+              console.log(
+                'i',
+                i,
+                '(기존) : ',
+                myFriClassArray[i].className,
+                '(클릭) : ',
+                nowClickClassArray[1].className
+              );
+              setStop(true);
+            }
+          }
         }
       }
     }
-    if (nowClickClassArray[2]) {
+    if (nowClickClassArray[2] && !stop) {
       if (nowClickClassArray[2].day) {
         if (nowClickClassArray[2].day === '월' && !stop) {
           console.log('3월');
+
+          for (var i = 0; i < myMonClassArray.length - 1; i++) {
+            if (
+              nowClickClassArray[2].totalClass.filter((x) =>
+                myMonClassArray[i].totalClass.includes(x)
+              ) !== []
+            ) {
+              console.log(
+                'i',
+                i,
+                '(기존) : ',
+                myMonClassArray[i].className,
+                '(클릭) : ',
+                nowClickClassArray[2].className
+              );
+              setStop(true);
+            }
+          }
         }
         if (nowClickClassArray[2].day === '화' && !stop) {
           console.log('3화');
+
+          for (var i = 0; i < myTueClassArray.length - 1; i++) {
+            if (
+              nowClickClassArray[2].totalClass.filter((x) =>
+                myTueClassArray[i].totalClass.includes(x)
+              ) !== []
+            ) {
+              console.log(
+                'i',
+                i,
+                '(기존) : ',
+                myTueClassArray[i].className,
+                '(클릭) : ',
+                nowClickClassArray[2].className
+              );
+              setStop(true);
+            }
+          }
         }
         if (nowClickClassArray[2].day === '수' && !stop) {
           console.log('3수');
+
+          for (var i = 0; i < myWenClassArray.length - 1; i++) {
+            if (
+              nowClickClassArray[2].totalClass.filter((x) =>
+                myWenClassArray[i].totalClass.includes(x)
+              ) !== []
+            ) {
+              console.log(
+                'i',
+                i,
+                '(기존) : ',
+                myWenClassArray[i].className,
+                '(클릭) : ',
+                nowClickClassArray[2].className
+              );
+              setStop(true);
+            }
+          }
         }
         if (nowClickClassArray[2].day === '목' && !stop) {
           console.log('3목');
+
+          for (var i = 0; i < myThuClassArray.length - 1; i++) {
+            if (
+              nowClickClassArray[2].totalClass.filter((x) =>
+                myThuClassArray[i].totalClass.includes(x)
+              ) !== []
+            ) {
+              console.log(
+                'i',
+                i,
+                '(기존) : ',
+                myThuClassArray[i].className,
+                '(클릭) : ',
+                nowClickClassArray[2].className
+              );
+              setStop(true);
+            }
+          }
         }
         if (nowClickClassArray[2].day === '금' && !stop) {
           console.log('3금');
+
+          for (var i = 0; i < myFriClassArray.length - 1; i++) {
+            if (
+              nowClickClassArray[2].totalClass.filter((x) =>
+                myFriClassArray[i].totalClass.includes(x)
+              ) !== []
+            ) {
+              console.log(
+                'i',
+                i,
+                '(기존) : ',
+                myFriClassArray[i].className,
+                '(클릭) : ',
+                nowClickClassArray[2].className
+              );
+              setStop(true);
+            }
+          }
         }
       }
     }
-  }, [mondayClassList, nowClickClassArray]);
+
+    setStop(false);
+  }, [
+    nowClickClassArray,
+    myMonClassArray,
+    myTueClassArray,
+    myWenClassArray,
+    myThuClassArray,
+    myFriClassArray,
+  ]);
 
   return (
     <>
