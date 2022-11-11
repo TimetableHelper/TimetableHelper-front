@@ -94,14 +94,17 @@ function MyTimetable() {
 
   const [showOverlapModal, setShowOverlapModal] = useState(false);
 
-  const [existingclass, setExistingClass1] = useState('');
+  const [existingclass, setExistingClass1] = useState([]);
   const [newAddclass, setNewAddClass] = useState('');
 
+  let forsetExistArr = [...existingclass];
   const viewOverlapModal = (exist, newAdd) => {
-    setExistingClass1(exist);
+    forsetExistArr.push(exist);
+    //    console.log('newAddclass', newAddclass);
     setNewAddClass(newAdd);
-
     setShowOverlapModal(true);
+
+    setExistingClass1(forsetExistArr);
   };
 
   // 현재 클릭한 수업 데이터 담기
@@ -116,7 +119,6 @@ function MyTimetable() {
         // [0] == 클릭한 수업의 첫번째 요일
         if (nowClickClass.ClassTime.split(',')[0].substr(0, 1) === '월') {
           // 월요일
-          console.log('월');
 
           if (+nowClickClass.continuity[0] === 1) {
             forSetClassArray.push({
@@ -128,10 +130,7 @@ function MyTimetable() {
               ),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
-              totalClass: [
-                0,
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
-              ],
+              totalClass: [+nowClickClass.ClassTime.split(',')[0].substr(1, 1)],
             });
           }
           if (+nowClickClass.continuity[0] === 2) {
@@ -145,7 +144,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
               ],
@@ -162,7 +160,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 2,
@@ -173,7 +170,6 @@ function MyTimetable() {
 
         if (nowClickClass.ClassTime.split(',')[0].substr(0, 1) === '화') {
           // 화요일
-          console.log('화');
 
           if (+nowClickClass.continuity[0] === 1) {
             forSetClassArray.push({
@@ -185,10 +181,7 @@ function MyTimetable() {
               ),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
-              totalClass: [
-                0,
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
-              ],
+              totalClass: [+nowClickClass.ClassTime.split(',')[0].substr(1, 1)],
             });
           }
           if (+nowClickClass.continuity[0] === 2) {
@@ -202,7 +195,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
               ],
@@ -219,7 +211,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 2,
@@ -229,7 +220,6 @@ function MyTimetable() {
         }
         if (nowClickClass.ClassTime.split(',')[0].substr(0, 1) === '수') {
           // 수요일
-          console.log('수');
 
           if (+nowClickClass.continuity[0] === 1) {
             forSetClassArray.push({
@@ -241,10 +231,7 @@ function MyTimetable() {
               ),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
-              totalClass: [
-                0,
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
-              ],
+              totalClass: [+nowClickClass.ClassTime.split(',')[0].substr(1, 1)],
             });
           }
           if (+nowClickClass.continuity[0] === 2) {
@@ -258,7 +245,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
               ],
@@ -275,7 +261,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 2,
@@ -285,7 +270,6 @@ function MyTimetable() {
         }
         if (nowClickClass.ClassTime.split(',')[0].substr(0, 1) === '목') {
           // 목요일
-          console.log('목');
 
           if (+nowClickClass.continuity[0] === 1) {
             forSetClassArray.push({
@@ -297,10 +281,7 @@ function MyTimetable() {
               ),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
-              totalClass: [
-                0,
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
-              ],
+              totalClass: [+nowClickClass.ClassTime.split(',')[0].substr(1, 1)],
             });
           }
           if (+nowClickClass.continuity[0] === 2) {
@@ -314,7 +295,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
               ],
@@ -331,7 +311,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 2,
@@ -342,7 +321,6 @@ function MyTimetable() {
 
         if (nowClickClass.ClassTime.split(',')[0].substr(0, 1) === '금') {
           // 금요일
-          console.log('금');
 
           if (+nowClickClass.continuity[0] === 1) {
             forSetClassArray.push({
@@ -354,10 +332,7 @@ function MyTimetable() {
               ),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
-              totalClass: [
-                0,
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
-              ],
+              totalClass: [+nowClickClass.ClassTime.split(',')[0].substr(1, 1)],
             });
           }
           if (+nowClickClass.continuity[0] === 2) {
@@ -371,7 +346,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
               ],
@@ -388,7 +362,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 2,
@@ -402,7 +375,6 @@ function MyTimetable() {
         // [1] == 클릭한 수업의 두번째 요일
         if (nowClickClass.ClassTime.split(',')[1].substr(0, 1) === '월') {
           // 월요일
-          console.log('월2');
 
           if (+nowClickClass.continuity[1] === 1) {
             forSetClassArray.push({
@@ -414,10 +386,7 @@ function MyTimetable() {
               ),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
-              totalClass: [
-                0,
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
-              ],
+              totalClass: [+nowClickClass.ClassTime.split(',')[1].substr(1, 1)],
             });
           }
           if (+nowClickClass.continuity[1] === 2) {
@@ -431,7 +400,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
               ],
@@ -448,7 +416,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 2,
@@ -458,7 +425,6 @@ function MyTimetable() {
         }
         if (nowClickClass.ClassTime.split(',')[1].substr(0, 1) === '화') {
           // 화요일
-          console.log('화2');
 
           if (+nowClickClass.continuity[1] === 1) {
             forSetClassArray.push({
@@ -470,10 +436,7 @@ function MyTimetable() {
               ),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
-              totalClass: [
-                0,
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
-              ],
+              totalClass: [+nowClickClass.ClassTime.split(',')[1].substr(1, 1)],
             });
           }
           if (+nowClickClass.continuity[1] === 2) {
@@ -487,7 +450,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
               ],
@@ -504,7 +466,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 2,
@@ -514,7 +475,6 @@ function MyTimetable() {
         }
         if (nowClickClass.ClassTime.split(',')[1].substr(0, 1) === '수') {
           // 수요일
-          console.log('수2');
 
           if (+nowClickClass.continuity[1] === 1) {
             forSetClassArray.push({
@@ -526,10 +486,7 @@ function MyTimetable() {
               ),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
-              totalClass: [
-                0,
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
-              ],
+              totalClass: [+nowClickClass.ClassTime.split(',')[1].substr(1, 1)],
             });
           }
           if (+nowClickClass.continuity[1] === 2) {
@@ -543,7 +500,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
               ],
@@ -560,7 +516,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 2,
@@ -570,7 +525,6 @@ function MyTimetable() {
         }
         if (nowClickClass.ClassTime.split(',')[1].substr(0, 1) === '목') {
           // 목요일
-          console.log('목2');
 
           if (+nowClickClass.continuity[1] === 1) {
             forSetClassArray.push({
@@ -582,10 +536,7 @@ function MyTimetable() {
               ),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
-              totalClass: [
-                0,
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
-              ],
+              totalClass: [+nowClickClass.ClassTime.split(',')[1].substr(1, 1)],
             });
           }
           if (+nowClickClass.continuity[1] === 2) {
@@ -599,7 +550,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
               ],
@@ -616,7 +566,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 2,
@@ -626,7 +575,6 @@ function MyTimetable() {
         }
         if (nowClickClass.ClassTime.split(',')[1].substr(0, 1) === '금') {
           // 금요일
-          console.log('금2');
 
           if (+nowClickClass.continuity[1] === 1) {
             forSetClassArray.push({
@@ -638,10 +586,7 @@ function MyTimetable() {
               ),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
-              totalClass: [
-                0,
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
-              ],
+              totalClass: [+nowClickClass.ClassTime.split(',')[1].substr(1, 1)],
             });
           }
           if (+nowClickClass.continuity[1] === 2) {
@@ -655,7 +600,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
               ],
@@ -672,7 +616,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 2,
@@ -686,7 +629,6 @@ function MyTimetable() {
         // [2] == 클릭한 수업의 세번째 요일
         if (nowClickClass.ClassTime.split(',')[2].substr(0, 1) === '월') {
           // 월요일
-          console.log('월3');
 
           if (+nowClickClass.continuity[2] === 1) {
             forSetClassArray.push({
@@ -698,10 +640,7 @@ function MyTimetable() {
               ),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
-              totalClass: [
-                0,
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
-              ],
+              totalClass: [+nowClickClass.ClassTime.split(',')[2].substr(1, 1)],
             });
           }
           if (+nowClickClass.continuity[2] === 2) {
@@ -715,7 +654,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
               ],
@@ -732,7 +670,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 2,
@@ -742,7 +679,6 @@ function MyTimetable() {
         }
         if (nowClickClass.ClassTime.split(',')[2].substr(0, 1) === '화') {
           // 화요일
-          console.log('화3');
 
           if (+nowClickClass.continuity[2] === 1) {
             forSetClassArray.push({
@@ -754,10 +690,7 @@ function MyTimetable() {
               ),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
-              totalClass: [
-                0,
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
-              ],
+              totalClass: [+nowClickClass.ClassTime.split(',')[2].substr(1, 1)],
             });
           }
           if (+nowClickClass.continuity[2] === 2) {
@@ -771,7 +704,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
               ],
@@ -788,7 +720,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 2,
@@ -798,7 +729,6 @@ function MyTimetable() {
         }
         if (nowClickClass.ClassTime.split(',')[2].substr(0, 1) === '수') {
           // 수요일
-          console.log('수3');
 
           if (+nowClickClass.continuity[2] === 1) {
             forSetClassArray.push({
@@ -810,10 +740,7 @@ function MyTimetable() {
               ),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
-              totalClass: [
-                +0,
-                nowClickClass.ClassTime.split(',')[2].substr(1, 1),
-              ],
+              totalClass: [+nowClickClass.ClassTime.split(',')[2].substr(1, 1)],
             });
           }
           if (+nowClickClass.continuity[2] === 2) {
@@ -824,7 +751,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
               ],
@@ -838,7 +764,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 2,
@@ -848,7 +773,6 @@ function MyTimetable() {
         }
         if (nowClickClass.ClassTime.split(',')[2].substr(0, 1) === '목') {
           // 목요일
-          console.log('목3');
 
           if (+nowClickClass.continuity[2] === 1) {
             forSetClassArray.push({
@@ -857,10 +781,7 @@ function MyTimetable() {
               firstClassNum: nowClickClass.ClassTime.split(',')[2].substr(1, 1),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
-              totalClass: [
-                0,
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
-              ],
+              totalClass: [+nowClickClass.ClassTime.split(',')[2].substr(1, 1)],
             });
           }
           if (+nowClickClass.continuity[2] === 2) {
@@ -871,7 +792,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
               ],
@@ -885,7 +805,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 2,
@@ -895,7 +814,6 @@ function MyTimetable() {
         }
         if (nowClickClass.ClassTime.split(',')[2].substr(0, 1) === '금') {
           // 금요일
-          console.log('금3');
 
           if (+nowClickClass.continuity[2] === 1) {
             forSetClassArray.push({
@@ -904,10 +822,7 @@ function MyTimetable() {
               firstClassNum: nowClickClass.ClassTime.split(',')[2].substr(1, 1),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
-              totalClass: [
-                0,
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
-              ],
+              totalClass: [+nowClickClass.ClassTime.split(',')[2].substr(1, 1)],
             });
           }
           if (+nowClickClass.continuity[2] === 2) {
@@ -918,7 +833,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
               ],
@@ -932,7 +846,6 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
               totalClass: [
-                0,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 2,
@@ -953,156 +866,11 @@ function MyTimetable() {
 
   //  console.log('nowClickClassArray', nowClickClassArray);
 
-  // 경고문 활성화 코드
-  useEffect(() => {
-    let forMon = [...mondayClassList];
-    let forTue = [...tuedayClassList];
-    let forWen = [...wendayClassList];
-    let forThu = [...thudayClassList];
-    let forFri = [...fridayClassList];
-
-    for (var m = 0; m < myMonClassArray.length; m++) {
-      if (myMonClassArray[m]) {
-        if (myMonClassArray[m].firstClassNum) {
-          for (
-            var i = +myMonClassArray[m].firstClassNum;
-            i <
-            +myMonClassArray[m].firstClassNum + myMonClassArray[m].continuity;
-            i++
-          ) {
-            if (
-              mondayClassList.findIndex((x) => x.ClassTime === i) === -1
-              // 겹침이 없다면 그냥 추가
-            ) {
-              forMon.push({
-                ClassTime: i,
-                classId: myMonClassArray[m].classId,
-                ClassName: myMonClassArray[m].className,
-              });
-            }
-          }
-        }
-      }
-    }
-    for (var t = 0; t < myTueClassArray.length; t++) {
-      if (myTueClassArray[t]) {
-        if (myTueClassArray[t].firstClassNum) {
-          for (
-            var u = +myTueClassArray[t].firstClassNum;
-            u <
-            +myTueClassArray[t].firstClassNum + myTueClassArray[t].continuity;
-            u++
-          ) {
-            if (tuedayClassList.findIndex((x) => x.ClassTime === u) === -1) {
-              forTue.push({
-                ClassTime: u,
-                classId: myTueClassArray[t].classId,
-                ClassName: myTueClassArray[t].className,
-              });
-            }
-          }
-        }
-      }
-    }
-
-    for (var w = 0; w < myWenClassArray.length; w++) {
-      if (myWenClassArray[w]) {
-        if (myWenClassArray[w].firstClassNum) {
-          for (
-            var y = +myWenClassArray[w].firstClassNum;
-            y <
-            +myWenClassArray[w].firstClassNum + myWenClassArray[w].continuity;
-            y++
-          ) {
-            if (wendayClassList.findIndex((x) => x.ClassTime === y) === -1) {
-              forWen.push({
-                ClassTime: y,
-                classId: myWenClassArray[w].classId,
-                ClassName: myWenClassArray[w].className,
-              });
-            }
-          }
-        }
-      }
-    }
-    for (var h = 0; h < myThuClassArray.length; h++) {
-      if (myThuClassArray[h]) {
-        if (myThuClassArray[h].firstClassNum) {
-          for (
-            var r = +myThuClassArray[h].firstClassNum;
-            r <
-            +myThuClassArray[h].firstClassNum + myThuClassArray[h].continuity;
-            r++
-          ) {
-            if (thudayClassList.findIndex((x) => x.ClassTime === r) === -1) {
-              forThu.push({
-                ClassTime: r,
-                classId: myThuClassArray[h].classId,
-                ClassName: myThuClassArray[h].className,
-              });
-            }
-          }
-        }
-      }
-    }
-    for (var f = 0; f < myFriClassArray.length; f++) {
-      if (myFriClassArray[f]) {
-        if (myFriClassArray[f].firstClassNum) {
-          for (
-            var e = +myFriClassArray[f].firstClassNum;
-            e <
-            +myFriClassArray[f].firstClassNum + myFriClassArray[f].continuity;
-            e++
-          ) {
-            if (fridayClassList.findIndex((x) => x.ClassTime === e) === -1) {
-              forFri.push({
-                ClassTime: e,
-                classId: myFriClassArray[f].classId,
-                ClassName: myFriClassArray[f].className,
-              });
-            }
-          }
-        }
-      }
-    }
-
-    setMondayClassList(forMon);
-
-    setTuedayClassList(forTue);
-    setWendayClassList(forWen);
-    setThudayClassList(forThu);
-    setFridayClassList(forFri);
-
-    // 위에 코드완성하면
-    // 이후에
-
-    //조건문 만약 넣으려는 수업시간의 값이 이미 존재한다면,
-    // 바꿀것인지 경고문을 띄워라 !!
-
-    // for (
-    //   var i = row.firstClassNum;
-    //   i < row.firstClassNum + row.continuity;
-    //   i++
-    // ) {
-    //   myMonClassArray.map((row) => forMon.push({ classTime: row.ClassTime }));
-    // }
-
-    // console.log('forMon', forMon);
-
-    // 아래 1109 useEffect 복붙
-  }, [
-    myMonClassArray,
-    myTueClassArray,
-    myWenClassArray,
-    myThuClassArray,
-    myFriClassArray,
-  ]);
-
-  console.log('myMonClassArray', myMonClassArray);
-  console.log('myTueClassArray', myTueClassArray);
-  console.log('myWenClassArray', myWenClassArray);
-  console.log('myThuClassArray', myThuClassArray);
-  console.log('myFriClassArray', myFriClassArray);
+  // console.log('myMonClassArray', myMonClassArray);
+  // console.log('myTueClassArray', myTueClassArray);
+  // console.log('myWenClassArray', myWenClassArray);
+  // console.log('myThuClassArray', myThuClassArray);
+  // console.log('myFriClassArray', myFriClassArray);
 
   const deleteFn = (wantDeleteID) => {
     var newFinalList = [...finalClassArr];
@@ -1173,19 +941,20 @@ function MyTimetable() {
 
   // 경고문 "네" 버튼
   const changeOverlapClassListFn = (exist, newAdd) => {
-    deleteFn(exist);
+    //    deleteFn(exist);
 
     setShowOverlapModal(false);
   };
 
   // 경고문 "아니요" 버튼
   const existClassListFn = (exist, newAdd) => {
-    deleteFn(newAdd);
+    //   deleteFn(newAdd);
 
     setShowOverlapModal(false);
   };
 
   console.log('nowClickClassArray', nowClickClassArray);
+  console.log('wen', myWenClassArray);
 
   const [stop, setStop] = useState(false);
 
@@ -1195,7 +964,7 @@ function MyTimetable() {
         now[0].totalClass.filter((x) => dayArr[i].totalClass.includes(x))
       ) &&
       now[0].totalClass.filter((x) => dayArr[i].totalClass.includes(x))
-        .length !== 1
+        .length !== 0
     )
       return true;
     if (
@@ -1203,7 +972,7 @@ function MyTimetable() {
         now[0].totalClass.filter((x) => dayArr[i].totalClass.includes(x))
       ) &&
       now[0].totalClass.filter((x) => dayArr[i].totalClass.includes(x))
-        .length === 1
+        .length === 0
     )
       return false;
   };
@@ -1218,31 +987,6 @@ function MyTimetable() {
 
           for (var i = 0; i < myMonClassArray.length - 1; i++) {
             if (ifNotZeroTrue(nowClickClassArray, myMonClassArray, i)) {
-              console.log(
-                '1월이다',
-                nowClickClassArray[0].totalClass.filter((x) =>
-                  myMonClassArray[i].totalClass.includes(x)
-                ),
-
-                nowClickClassArray[0].totalClass.filter((x) =>
-                  myMonClassArray[i].totalClass.includes(x)
-                ).length,
-                nowClickClassArray[0].totalClass.filter((x) =>
-                  myMonClassArray[i].totalClass.includes(x)
-                ).length !== 1,
-
-                'i',
-                i,
-                '(기존) : ',
-                myMonClassArray[i].classId,
-                myMonClassArray[i].className,
-                myMonClassArray[i].totalClass,
-                '(클릭) : ',
-                nowClickClassArray[0].classId,
-                nowClickClassArray[0].className,
-                nowClickClassArray[0].totalClass
-              );
-
               viewOverlapModal(
                 myMonClassArray[i].classId,
                 nowClickClassArray[0].classId
@@ -1252,24 +996,11 @@ function MyTimetable() {
             }
           }
         }
-
-        //            console.log('1월', mondayClassList);
         if (nowClickClassArray[0].day === '화' && !stop) {
           console.log('1화');
 
           for (var i = 0; i < myTueClassArray.length - 1; i++) {
             if (ifNotZeroTrue(nowClickClassArray, myTueClassArray, i)) {
-              console.log(
-                'i',
-                i,
-                '(기존) : ',
-                myTueClassArray[i].classId,
-                myTueClassArray[i].className,
-                '(클릭) : ',
-                nowClickClassArray[0].classId,
-                nowClickClassArray[0].className
-              );
-
               viewOverlapModal(
                 myTueClassArray[i].classId,
                 nowClickClassArray[0].classId
@@ -1284,17 +1015,6 @@ function MyTimetable() {
 
           for (var i = 0; i < myWenClassArray.length - 1; i++) {
             if (ifNotZeroTrue(nowClickClassArray, myWenClassArray, i)) {
-              console.log(
-                'i',
-                i,
-                '(기존) : ',
-                myWenClassArray[i].classId,
-                myWenClassArray[i].className,
-                '(클릭) : ',
-                nowClickClassArray[0].classId,
-                nowClickClassArray[0].className
-              );
-
               viewOverlapModal(
                 myWenClassArray[i].classId,
                 nowClickClassArray[0].classId
@@ -1311,17 +1031,6 @@ function MyTimetable() {
 
           for (var i = 0; i < myThuClassArray.length - 1; i++) {
             if (ifNotZeroTrue(nowClickClassArray, myThuClassArray, i)) {
-              console.log(
-                'i',
-                i,
-                '(기존) : ',
-                myThuClassArray[i].classId,
-                myThuClassArray[i].className,
-                '(클릭) : ',
-                nowClickClassArray[0].classId,
-                nowClickClassArray[0].className
-              );
-
               viewOverlapModal(
                 myThuClassArray[i].classId,
                 nowClickClassArray[0].classId
@@ -1338,17 +1047,6 @@ function MyTimetable() {
 
           for (var i = 0; i < myFriClassArray.length - 1; i++) {
             if (ifNotZeroTrue(nowClickClassArray, myFriClassArray, i)) {
-              console.log(
-                'i',
-                i,
-                '(기존) : ',
-                myFriClassArray[i].classId,
-                myFriClassArray[i].className,
-                '(클릭) : ',
-                nowClickClassArray[0].classId,
-                nowClickClassArray[0].className
-              );
-
               viewOverlapModal(
                 myFriClassArray[i].classId,
                 nowClickClassArray[0].classId
@@ -1361,6 +1059,7 @@ function MyTimetable() {
           //    console.log('1금', fridayClassList);
         }
       }
+      setStop(false);
     }
     if (nowClickClassArray[1] && !stop) {
       if (nowClickClassArray[1].day) {
@@ -1418,6 +1117,16 @@ function MyTimetable() {
           console.log('2수');
 
           for (var i = 0; i < myWenClassArray.length - 1; i++) {
+            console.log(
+              '??',
+              nowClickClassArray[0].totalClass.filter((x) =>
+                myWenClassArray[i].totalClass.includes(x)
+              ),
+              'boolean',
+
+              ifNotZeroTrue(nowClickClassArray, myWenClassArray, i)
+            );
+
             if (ifNotZeroTrue(nowClickClassArray, myWenClassArray, i)) {
               console.log(
                 'i',
@@ -1489,6 +1198,7 @@ function MyTimetable() {
             }
           }
         }
+        setStop(false);
       }
     }
     if (nowClickClassArray[2] && !stop) {
@@ -1618,12 +1328,13 @@ function MyTimetable() {
             }
           }
         }
+        setStop(false);
       }
     }
 
-    setStop(false);
+    setNowClickClassArray([]);
+    //    setStop(false);
   }, [
-    nowClickClassArray,
     myMonClassArray,
     myTueClassArray,
     myWenClassArray,
