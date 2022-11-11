@@ -102,9 +102,9 @@ function MyTimetable() {
     forsetExistArr.push(exist);
     //    console.log('newAddclass', newAddclass);
     setNewAddClass(newAdd);
-    setShowOverlapModal(true);
 
     setExistingClass1(forsetExistArr);
+    setShowOverlapModal(true);
   };
 
   // 현재 클릭한 수업 데이터 담기
@@ -943,6 +943,7 @@ function MyTimetable() {
   const changeOverlapClassListFn = (exist, newAdd) => {
     //    deleteFn(exist);
 
+    setExistingClass1([]);
     setShowOverlapModal(false);
   };
 
@@ -950,6 +951,7 @@ function MyTimetable() {
   const existClassListFn = (exist, newAdd) => {
     //   deleteFn(newAdd);
 
+    setExistingClass1([]);
     setShowOverlapModal(false);
   };
 
@@ -958,23 +960,28 @@ function MyTimetable() {
 
   const [stop, setStop] = useState(false);
 
-  const ifNotZeroTrue = (now, dayArr, i) => {
-    if (
-      Array.isArray(
-        now[0].totalClass.filter((x) => dayArr[i].totalClass.includes(x))
-      ) &&
+  const ifNotZeroReturnTrue = (now, dayArr, i, nowI) => {
+    /* if (
+      // Array.isArray(
+      //   now[0].totalClass.filter((x) => dayArr[i].totalClass.includes(x))
+      // ) &&
       now[0].totalClass.filter((x) => dayArr[i].totalClass.includes(x))
         .length !== 0
     )
       return true;
-    if (
-      Array.isArray(
-        now[0].totalClass.filter((x) => dayArr[i].totalClass.includes(x))
-      ) &&
+    else if (
+      // Array.isArray(
+      //   now[0].totalClass.filter((x) => dayArr[i].totalClass.includes(x))
+      // ) &&
       now[0].totalClass.filter((x) => dayArr[i].totalClass.includes(x))
         .length === 0
     )
-      return false;
+      return false; */
+
+    return (
+      now[nowI].totalClass.filter((x) => dayArr[i].totalClass.includes(x))
+        .length !== 0
+    );
   };
 
   // 1109~ 1111 고민 메모장 구현
@@ -986,7 +993,9 @@ function MyTimetable() {
           console.log('1월');
 
           for (var i = 0; i < myMonClassArray.length - 1; i++) {
-            if (ifNotZeroTrue(nowClickClassArray, myMonClassArray, i)) {
+            if (
+              ifNotZeroReturnTrue(nowClickClassArray, myMonClassArray, i, 0)
+            ) {
               viewOverlapModal(
                 myMonClassArray[i].classId,
                 nowClickClassArray[0].classId
@@ -1000,7 +1009,9 @@ function MyTimetable() {
           console.log('1화');
 
           for (var i = 0; i < myTueClassArray.length - 1; i++) {
-            if (ifNotZeroTrue(nowClickClassArray, myTueClassArray, i)) {
+            if (
+              ifNotZeroReturnTrue(nowClickClassArray, myTueClassArray, i, 0)
+            ) {
               viewOverlapModal(
                 myTueClassArray[i].classId,
                 nowClickClassArray[0].classId
@@ -1014,7 +1025,9 @@ function MyTimetable() {
           console.log('1수');
 
           for (var i = 0; i < myWenClassArray.length - 1; i++) {
-            if (ifNotZeroTrue(nowClickClassArray, myWenClassArray, i)) {
+            if (
+              ifNotZeroReturnTrue(nowClickClassArray, myWenClassArray, i, 0)
+            ) {
               viewOverlapModal(
                 myWenClassArray[i].classId,
                 nowClickClassArray[0].classId
@@ -1030,7 +1043,9 @@ function MyTimetable() {
           console.log('1목');
 
           for (var i = 0; i < myThuClassArray.length - 1; i++) {
-            if (ifNotZeroTrue(nowClickClassArray, myThuClassArray, i)) {
+            if (
+              ifNotZeroReturnTrue(nowClickClassArray, myThuClassArray, i, 0)
+            ) {
               viewOverlapModal(
                 myThuClassArray[i].classId,
                 nowClickClassArray[0].classId
@@ -1046,7 +1061,9 @@ function MyTimetable() {
           console.log('1금');
 
           for (var i = 0; i < myFriClassArray.length - 1; i++) {
-            if (ifNotZeroTrue(nowClickClassArray, myFriClassArray, i)) {
+            if (
+              ifNotZeroReturnTrue(nowClickClassArray, myFriClassArray, i, 0)
+            ) {
               viewOverlapModal(
                 myFriClassArray[i].classId,
                 nowClickClassArray[0].classId
@@ -1067,7 +1084,9 @@ function MyTimetable() {
           console.log('2월');
 
           for (var i = 0; i < myMonClassArray.length - 1; i++) {
-            if (ifNotZeroTrue(nowClickClassArray, myMonClassArray, i)) {
+            if (
+              ifNotZeroReturnTrue(nowClickClassArray, myMonClassArray, i, 1)
+            ) {
               console.log(
                 'i',
                 i,
@@ -1092,7 +1111,9 @@ function MyTimetable() {
           console.log('2화');
 
           for (var i = 0; i < myTueClassArray.length - 1; i++) {
-            if (ifNotZeroTrue(nowClickClassArray, myTueClassArray, i)) {
+            if (
+              ifNotZeroReturnTrue(nowClickClassArray, myTueClassArray, i, 1)
+            ) {
               console.log(
                 'i',
                 i,
@@ -1116,18 +1137,42 @@ function MyTimetable() {
         if (nowClickClassArray[1].day === '수' && !stop) {
           console.log('2수');
 
+          // 콘솔문
           for (var i = 0; i < myWenClassArray.length - 1; i++) {
             console.log(
-              '??',
-              nowClickClassArray[0].totalClass.filter((x) =>
+              'i',
+              i,
+
+              'now ::',
+              nowClickClassArray[1].className,
+              nowClickClassArray[1].totalClass,
+
+              '기존',
+              myWenClassArray[i].className,
+              myWenClassArray[i].totalClass,
+
+              'filter',
+              nowClickClassArray[1].totalClass.filter((x) =>
                 myWenClassArray[i].totalClass.includes(x)
               ),
-              'boolean',
 
-              ifNotZeroTrue(nowClickClassArray, myWenClassArray, i)
+              'filter boolean',
+              nowClickClassArray[1].totalClass.filter((x) =>
+                myWenClassArray[i].totalClass.includes(x)
+              ) !== 0,
+              nowClickClassArray[0].totalClass.filter((x) =>
+                myWenClassArray[i].totalClass.includes(x)
+              ).length !== 0,
+              'if문 함수',
+              ifNotZeroReturnTrue(nowClickClassArray, myWenClassArray, i, 1)
             );
+          }
 
-            if (ifNotZeroTrue(nowClickClassArray, myWenClassArray, i)) {
+          // 찐
+          for (var i = 0; i < myWenClassArray.length - 1; i++) {
+            if (
+              ifNotZeroReturnTrue(nowClickClassArray, myWenClassArray, i, 1)
+            ) {
               console.log(
                 'i',
                 i,
@@ -1152,7 +1197,9 @@ function MyTimetable() {
           console.log('2목');
 
           for (var i = 0; i < myThuClassArray.length - 1; i++) {
-            if (ifNotZeroTrue(nowClickClassArray, myThuClassArray, i)) {
+            if (
+              ifNotZeroReturnTrue(nowClickClassArray, myThuClassArray, i, 1)
+            ) {
               console.log(
                 'i',
                 i,
@@ -1177,7 +1224,9 @@ function MyTimetable() {
           console.log('2금');
 
           for (var i = 0; i < myFriClassArray.length - 1; i++) {
-            if (ifNotZeroTrue(nowClickClassArray, myFriClassArray, i)) {
+            if (
+              ifNotZeroReturnTrue(nowClickClassArray, myFriClassArray, i, 1)
+            ) {
               console.log(
                 'i',
                 i,
@@ -1207,7 +1256,9 @@ function MyTimetable() {
           console.log('3월');
 
           for (var i = 0; i < myMonClassArray.length - 1; i++) {
-            if (ifNotZeroTrue(nowClickClassArray, myMonClassArray, i)) {
+            if (
+              ifNotZeroReturnTrue(nowClickClassArray, myMonClassArray, i, 2)
+            ) {
               console.log(
                 'i',
                 i,
@@ -1232,7 +1283,9 @@ function MyTimetable() {
           console.log('3화');
 
           for (var i = 0; i < myTueClassArray.length - 1; i++) {
-            if (ifNotZeroTrue(nowClickClassArray, myTueClassArray, i)) {
+            if (
+              ifNotZeroReturnTrue(nowClickClassArray, myTueClassArray, i, 2)
+            ) {
               console.log(
                 'i',
                 i,
@@ -1257,7 +1310,9 @@ function MyTimetable() {
           console.log('3수');
 
           for (var i = 0; i < myWenClassArray.length - 1; i++) {
-            if (ifNotZeroTrue(nowClickClassArray, myWenClassArray, i)) {
+            if (
+              ifNotZeroReturnTrue(nowClickClassArray, myWenClassArray, i, 2)
+            ) {
               console.log(
                 'i',
                 i,
@@ -1282,7 +1337,9 @@ function MyTimetable() {
           console.log('3목');
 
           for (var i = 0; i < myThuClassArray.length - 1; i++) {
-            if (ifNotZeroTrue(nowClickClassArray, myThuClassArray, i)) {
+            if (
+              ifNotZeroReturnTrue(nowClickClassArray, myThuClassArray, i, 2)
+            ) {
               console.log(
                 'i',
                 i,
@@ -1307,7 +1364,9 @@ function MyTimetable() {
           console.log('3금');
 
           for (var i = 0; i < myFriClassArray.length - 1; i++) {
-            if (ifNotZeroTrue(nowClickClassArray, myFriClassArray, i)) {
+            if (
+              ifNotZeroReturnTrue(nowClickClassArray, myFriClassArray, i, 2)
+            ) {
               console.log(
                 'i',
                 i,
