@@ -100,7 +100,9 @@ function MyTimetable() {
   const [newAddclassName, setNewAddClassName] = useState('');
 
   // 겹침 모달창 생성
-  let forsetExistArr = [...existingclass];
+
+  let forsetExistArr = [];
+  forsetExistArr = [...existingclass];
 
   const viewOverlapModal = (exist, newAdd) => {
     forsetExistArr.push(exist);
@@ -112,10 +114,11 @@ function MyTimetable() {
     setShowOverlapModal(true);
   };
 
-  console.log('기존', existingclass);
-  console.log('클릭', newAddclass);
+  console.log('기존ID', existingclass);
+  console.log('클릭ID', newAddclass);
   console.log('finalClassArr', finalClassArr);
 
+  // 기존 시간표 중에 겹치는 이름들 추출
   useEffect(() => {
     let forsetExistNameArr = [...existingclassName];
 
@@ -155,8 +158,6 @@ function MyTimetable() {
     if (NewAddclassName) {
       setNewAddClassName(NewAddclassName.className);
     }
-
-    var ExistclassNames = [];
   }, [newAddclass]);
 
   // 현재 클릭한 수업 데이터 담기
@@ -915,6 +916,8 @@ function MyTimetable() {
   }, [nowClickClass]);
 
   const deleteFn = (wantDeleteID) => {
+    console.log(wantDeleteID, '삭제 시작!');
+
     var newFinalList = [...finalClassArr];
     setFinalClassArr(
       newFinalList.filter((data) => data.classId !== wantDeleteID)
@@ -983,7 +986,38 @@ function MyTimetable() {
 
   // 경고문 "네" 버튼
   const changeOverlapClassListFn = (exist, newAdd) => {
-    //    deleteFn(exist);
+    console.log('네 버튼ㅁㄴ', exist);
+
+    if (exist.length === 1) {
+      deleteFn(exist[0]);
+    }
+    if (exist.length === 2) {
+      deleteFn(exist[0]);
+      setTimeout(() => {
+        deleteFn(exist[1]);
+      }, 1000);
+    }
+    if (exist.length === 3) {
+      deleteFn(exist[0]);
+      setTimeout(() => {
+        deleteFn(exist[1]);
+      }, 1000);
+      setTimeout(() => {
+        deleteFn(exist[2]);
+      }, 2000);
+    }
+    if (exist.length === 4) {
+      deleteFn(exist[0]);
+      setTimeout(() => {
+        deleteFn(exist[1]);
+      }, 1000);
+      setTimeout(() => {
+        deleteFn(exist[2]);
+      }, 2000);
+      setTimeout(() => {
+        deleteFn(exist[3]);
+      }, 3000);
+    }
 
     setExistingClass1([]);
     setExistingClassName([]);
@@ -992,6 +1026,7 @@ function MyTimetable() {
 
   // 경고문 "아니요" 버튼
   const existClassListFn = (exist, newAdd) => {
+    console.log('아니요 버튼 숫자', newAdd);
     deleteFn(newAdd);
 
     setExistingClass1([]);
