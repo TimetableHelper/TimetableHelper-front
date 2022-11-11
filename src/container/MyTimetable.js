@@ -95,8 +95,11 @@ function MyTimetable() {
   const [showOverlapModal, setShowOverlapModal] = useState(false);
 
   const [existingclass, setExistingClass1] = useState([]);
+  const [existingclassName, setExistingClassName] = useState([]);
   const [newAddclass, setNewAddClass] = useState('');
+  const [newAddclassName, setNewAddClassName] = useState('');
 
+  // 겹침 모달창 생성
   let forsetExistArr = [...existingclass];
   const viewOverlapModal = (exist, newAdd) => {
     forsetExistArr.push(exist);
@@ -107,9 +110,21 @@ function MyTimetable() {
     setShowOverlapModal(true);
   };
 
-  // 현재 클릭한 수업 데이터 담기
+  console.log('기존', existingclass);
+  console.log('클릭', newAddclass);
+  console.log('finalClassArr', finalClassArr);
 
-  // 아래 800줄은 ekarl()로
+  useEffect(() => {
+    // 여기
+    var foundNewAddclassName = finalClassArr.find(
+      (e) => e.classId === newAddclass
+    );
+    if (foundNewAddclassName) {
+      setNewAddClassName(foundNewAddclassName.className);
+    }
+  }, [newAddclass]);
+
+  // 현재 클릭한 수업 데이터 담기
   useEffect(() => {
     // 임시 저장용 array
     var forSetClassArray = [];
@@ -956,28 +971,10 @@ function MyTimetable() {
   };
 
   console.log('nowClickClassArray', nowClickClassArray);
-  console.log('wen', myWenClassArray);
 
   const [stop, setStop] = useState(false);
 
   const ifNotZeroReturnTrue = (now, dayArr, i, nowI) => {
-    /* if (
-      // Array.isArray(
-      //   now[0].totalClass.filter((x) => dayArr[i].totalClass.includes(x))
-      // ) &&
-      now[0].totalClass.filter((x) => dayArr[i].totalClass.includes(x))
-        .length !== 0
-    )
-      return true;
-    else if (
-      // Array.isArray(
-      //   now[0].totalClass.filter((x) => dayArr[i].totalClass.includes(x))
-      // ) &&
-      now[0].totalClass.filter((x) => dayArr[i].totalClass.includes(x))
-        .length === 0
-    )
-      return false; */
-
     return (
       now[nowI].totalClass.filter((x) => dayArr[i].totalClass.includes(x))
         .length !== 0
@@ -1137,53 +1134,11 @@ function MyTimetable() {
         if (nowClickClassArray[1].day === '수' && !stop) {
           console.log('2수');
 
-          // 콘솔문
-          for (var i = 0; i < myWenClassArray.length - 1; i++) {
-            console.log(
-              'i',
-              i,
-
-              'now ::',
-              nowClickClassArray[1].className,
-              nowClickClassArray[1].totalClass,
-
-              '기존',
-              myWenClassArray[i].className,
-              myWenClassArray[i].totalClass,
-
-              'filter',
-              nowClickClassArray[1].totalClass.filter((x) =>
-                myWenClassArray[i].totalClass.includes(x)
-              ),
-
-              'filter boolean',
-              nowClickClassArray[1].totalClass.filter((x) =>
-                myWenClassArray[i].totalClass.includes(x)
-              ) !== 0,
-              nowClickClassArray[0].totalClass.filter((x) =>
-                myWenClassArray[i].totalClass.includes(x)
-              ).length !== 0,
-              'if문 함수',
-              ifNotZeroReturnTrue(nowClickClassArray, myWenClassArray, i, 1)
-            );
-          }
-
           // 찐
           for (var i = 0; i < myWenClassArray.length - 1; i++) {
             if (
               ifNotZeroReturnTrue(nowClickClassArray, myWenClassArray, i, 1)
             ) {
-              console.log(
-                'i',
-                i,
-                '(기존) : ',
-                myWenClassArray[i].classId,
-                myWenClassArray[i].className,
-                '(클릭) : ',
-                nowClickClassArray[1].classId,
-                nowClickClassArray[1].className
-              );
-
               viewOverlapModal(
                 myWenClassArray[i].classId,
                 nowClickClassArray[1].classId
@@ -1413,7 +1368,7 @@ function MyTimetable() {
       {showOverlapModal && (
         <div className="OverlapModal">
           <h2>
-            {`"${existingclass}" 수업을 "${newAddclass}" 수업으로 바꿀래?`}
+            {`"${existingclass}" 수업을 "${newAddclassName}" 수업으로 바꿀래?`}
           </h2>
           <button
             onClick={() => changeOverlapClassListFn(existingclass, newAddclass)}
