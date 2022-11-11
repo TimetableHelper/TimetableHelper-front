@@ -150,6 +150,7 @@ function MyTimetable() {
     setExistingClassName(forsetExistNameArr);
   }, [existingclass]);
 
+  console.log('existingclass 확인', existingclass);
   console.log('existingclassName 확인', existingclassName);
 
   // 모달창에서 보여줄 수업명 찾기
@@ -916,108 +917,195 @@ function MyTimetable() {
   }, [nowClickClass]);
 
   const deleteFn = (wantDeleteID) => {
-    console.log(wantDeleteID, '삭제 시작!');
+    if (typeof wantDeleteID === 'number') {
+      console.log(wantDeleteID, '삭제 시작!');
+      setFinalClassArr(
+        finalClassArr.filter((data) => data.classId !== wantDeleteID)
+      );
+      setFinalClassIds(finalClassIds.filter((data) => data !== wantDeleteID));
+      //
+      setMyMonClassArray(
+        myMonClassArray.filter((data) => data.classId !== wantDeleteID)
+      );
+      setMyMonClassIds(myMonClassIds.filter((data) => data !== wantDeleteID));
+      //
+      setMyTueClassArray(
+        myTueClassArray.filter((data) => data.classId !== wantDeleteID)
+      );
+      setMyTueClassIds(myTueClassIds.filter((data) => data !== wantDeleteID));
+      //
+      setMyWenClassArray(
+        myWenClassArray.filter((data) => data.classId !== wantDeleteID)
+      );
+      setMyWenClassIds(myWenClassIds.filter((data) => data !== wantDeleteID));
+      //
+      setMyThuClassArray(
+        myThuClassArray.filter((data) => data.classId !== wantDeleteID)
+      );
+      setMyThuClassIds(myThuClassIds.filter((data) => data !== wantDeleteID));
 
-    var newFinalList = [...finalClassArr];
-    setFinalClassArr(
-      newFinalList.filter((data) => data.classId !== wantDeleteID)
-    );
-    var newFinalIDs = [...finalClassIds];
-    setFinalClassIds(newFinalIDs.filter((data) => data !== wantDeleteID));
-    //
-    var newMonList = [...myMonClassArray];
-    setMyMonClassArray(
-      newMonList.filter((data) => data.classId !== wantDeleteID)
-    );
-    var newMonIDs = [...myMonClassIds];
-    setMyMonClassIds(newMonIDs.filter((data) => data !== wantDeleteID));
-    //
-    var newTueList = [...myTueClassArray];
-    setMyTueClassArray(
-      newTueList.filter((data) => data.classId !== wantDeleteID)
-    );
-    var newTueIDs = [...myTueClassIds];
-    setMyTueClassIds(newTueIDs.filter((data) => data !== wantDeleteID));
-    //
-    var newWendayList = [...myWenClassArray];
-    setMyWenClassArray(
-      newWendayList.filter((data) => data.classId !== wantDeleteID)
-    );
-    var newWendayIDs = [...myWenClassIds];
-    setMyWenClassIds(newWendayIDs.filter((data) => data !== wantDeleteID));
-    //
-    var newThudayList = [...myThuClassArray];
-    setMyThuClassArray(
-      newThudayList.filter((data) => data.classId !== wantDeleteID)
-    );
-    var newThudayIDs = [...myThuClassIds];
-    setMyThuClassIds(newThudayIDs.filter((data) => data !== wantDeleteID));
+      //
+      setMyFriClassArray(
+        myFriClassArray.filter((data) => data.classId !== wantDeleteID)
+      );
+      setMyFriClassIds(myFriClassIds.filter((data) => data !== wantDeleteID));
 
-    //
-    var newFridayList = [...myFriClassArray];
-    setMyFriClassArray(
-      newFridayList.filter((data) => data.classId !== wantDeleteID)
-    );
-    var newFridayIDs = [...myFriClassIds];
-    setMyFriClassIds(newFridayIDs.filter((data) => data !== wantDeleteID));
+      //////////////////// 모달창에 쓰이는 array에서도 삭제해야함.
+      setMondayClassList(
+        mondayClassList.filter((data) => data.classId !== wantDeleteID)
+      );
+      setTuedayClassList(
+        tuedayClassList.filter((data) => data.classId !== wantDeleteID)
+      );
+      setWendayClassList(
+        wendayClassList.filter((data) => data.classId !== wantDeleteID)
+      );
+      setThudayClassList(
+        thudayClassList.filter((data) => data.classId !== wantDeleteID)
+      );
+      setFridayClassList(
+        fridayClassList.filter((data) => data.classId !== wantDeleteID)
+      );
+    } else if (Array.isArray(wantDeleteID)) {
+      console.log('여러수업 삭제!');
+      console.log('wantDeleteID', wantDeleteID);
 
-    //////////////////// 모달창에 쓰이는 array에서도 삭제해야함.
-    var newMonClassList = [...mondayClassList];
-    setMondayClassList(
-      newMonClassList.filter((data) => data.classId !== wantDeleteID)
-    );
-    var newTueClassList = [...tuedayClassList];
-    setTuedayClassList(
-      newTueClassList.filter((data) => data.classId !== wantDeleteID)
-    );
-    var newWenClassList = [...wendayClassList];
-    setWendayClassList(
-      newWenClassList.filter((data) => data.classId !== wantDeleteID)
-    );
-    var newThuClassList = [...thudayClassList];
-    setThudayClassList(
-      newThuClassList.filter((data) => data.classId !== wantDeleteID)
-    );
-    var newFriClassList = [...fridayClassList];
-    setFridayClassList(
-      newFriClassList.filter((data) => data.classId !== wantDeleteID)
-    );
+      if (wantDeleteID.length === 1) {
+        deleteFn(wantDeleteID[0]);
+      }
+      if (wantDeleteID.length === 2) {
+        console.log();
+
+        setFinalClassArr(
+          finalClassArr.filter(
+            (data) =>
+              data.classId !== wantDeleteID[0] &&
+              data.classId !== wantDeleteID[1]
+          )
+        );
+
+        setFinalClassIds(
+          finalClassIds.filter(
+            (data) => data !== wantDeleteID[0] && data !== wantDeleteID[1]
+          )
+        );
+        //
+        setMyMonClassArray(
+          myMonClassArray.filter(
+            (data) =>
+              data.classId !== wantDeleteID[0] &&
+              data.classId !== wantDeleteID[1]
+          )
+        );
+        setMyMonClassIds(
+          myMonClassIds.filter(
+            (data) => data !== wantDeleteID[0] && data !== wantDeleteID[1]
+          )
+        );
+        //
+        setMyTueClassArray(
+          myTueClassArray.filter(
+            (data) =>
+              data.classId !== wantDeleteID[0] &&
+              data.classId !== wantDeleteID[1]
+          )
+        );
+        setMyTueClassIds(
+          myTueClassIds.filter(
+            (data) => data !== wantDeleteID[0] && data !== wantDeleteID[1]
+          )
+        );
+        //
+        setMyWenClassArray(
+          myWenClassArray.filter(
+            (data) =>
+              data.classId !== wantDeleteID[0] &&
+              data.classId !== wantDeleteID[1]
+          )
+        );
+        setMyWenClassIds(
+          myWenClassIds.filter(
+            (data) => data !== wantDeleteID[0] && data !== wantDeleteID[1]
+          )
+        );
+        //
+        setMyThuClassArray(
+          myThuClassArray.filter(
+            (data) =>
+              data.classId !== wantDeleteID[0] &&
+              data.classId !== wantDeleteID[1]
+          )
+        );
+        setMyThuClassIds(
+          myThuClassIds.filter(
+            (data) => data !== wantDeleteID[0] && data !== wantDeleteID[1]
+          )
+        );
+
+        //
+        setMyFriClassArray(
+          myFriClassArray.filter(
+            (data) =>
+              data.classId !== wantDeleteID[0] &&
+              data.classId !== wantDeleteID[1]
+          )
+        );
+        setMyFriClassIds(
+          myFriClassIds.filter(
+            (data) => data !== wantDeleteID[0] && data !== wantDeleteID[1]
+          )
+        );
+
+        //////////////////// 모달창에 쓰이는 array에서도 삭제해야함.
+        setMondayClassList(
+          mondayClassList.filter(
+            (data) =>
+              data.classId !== wantDeleteID[0] &&
+              data.classId !== wantDeleteID[1]
+          )
+        );
+        setTuedayClassList(
+          tuedayClassList.filter(
+            (data) =>
+              data.classId !== wantDeleteID[0] &&
+              data.classId !== wantDeleteID[1]
+          )
+        );
+        setWendayClassList(
+          wendayClassList.filter(
+            (data) =>
+              data.classId !== wantDeleteID[0] &&
+              data.classId !== wantDeleteID[1]
+          )
+        );
+        setThudayClassList(
+          thudayClassList.filter(
+            (data) =>
+              data.classId !== wantDeleteID[0] &&
+              data.classId !== wantDeleteID[1]
+          )
+        );
+        setFridayClassList(
+          fridayClassList.filter(
+            (data) =>
+              data.classId !== wantDeleteID[0] &&
+              data.classId !== wantDeleteID[1]
+          )
+        );
+      }
+      //    if (wantDeleteID.length === 3) {
+      //      deleteFn(wantDeleteID[0]);
+      //      deleteFn(wantDeleteID[1]);
+      //      deleteFn(wantDeleteID[2]);
+      //   }
+    }
   };
 
   // 경고문 "네" 버튼
   const changeOverlapClassListFn = (exist, newAdd) => {
     console.log('네 버튼ㅁㄴ', exist);
 
-    if (exist.length === 1) {
-      deleteFn(exist[0]);
-    }
-    if (exist.length === 2) {
-      deleteFn(exist[0]);
-      setTimeout(() => {
-        deleteFn(exist[1]);
-      }, 1000);
-    }
-    if (exist.length === 3) {
-      deleteFn(exist[0]);
-      setTimeout(() => {
-        deleteFn(exist[1]);
-      }, 1000);
-      setTimeout(() => {
-        deleteFn(exist[2]);
-      }, 2000);
-    }
-    if (exist.length === 4) {
-      deleteFn(exist[0]);
-      setTimeout(() => {
-        deleteFn(exist[1]);
-      }, 1000);
-      setTimeout(() => {
-        deleteFn(exist[2]);
-      }, 2000);
-      setTimeout(() => {
-        deleteFn(exist[3]);
-      }, 3000);
-    }
+    deleteFn(exist);
 
     setExistingClass1([]);
     setExistingClassName([]);
