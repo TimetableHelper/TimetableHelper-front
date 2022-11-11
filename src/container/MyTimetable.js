@@ -107,7 +107,7 @@ function MyTimetable() {
   // 현재 클릭한 수업 데이터 담기
 
   // 아래 800줄은 ekarl()로
-  /* useEffect(() => {
+  useEffect(() => {
     // 임시 저장용 array
     var forSetClassArray = [];
 
@@ -874,781 +874,9 @@ function MyTimetable() {
     setNowClickClassArray(forSetClassArray);
     // 담은 이후에 초기화
     forSetClassArray = [];
-
-
-  }, [nowClickClass]); */
+  }, [nowClickClass]);
 
   //  console.log('nowClickClassArray', nowClickClassArray);
-
-  function ekarl() {
-    var forSetClassArray = [];
-
-    if (nowClickClass && nowClickClass.ClassTime) {
-      if (nowClickClass.ClassTime.split(',')[0]) {
-        // [0] == 클릭한 수업의 첫번째 요일
-        if (nowClickClass.ClassTime.split(',')[0].substr(0, 1) === '월') {
-          // 월요일
-          console.log('월');
-
-          if (+nowClickClass.continuity[0] === 1) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '월',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[0].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[0],
-              totalClass: [+nowClickClass.ClassTime.split(',')[0].substr(1, 1)],
-            });
-          }
-          if (+nowClickClass.continuity[0] === 2) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '월',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[0].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[0],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
-              ],
-            });
-          }
-          if (+nowClickClass.continuity[0] === 3) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '월',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[0].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[0],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 2,
-              ],
-            });
-          }
-        }
-
-        if (nowClickClass.ClassTime.split(',')[0].substr(0, 1) === '화') {
-          // 화요일
-          console.log('화');
-
-          if (+nowClickClass.continuity[0] === 1) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '화',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[0].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[0],
-              totalClass: [+nowClickClass.ClassTime.split(',')[0].substr(1, 1)],
-            });
-          }
-          if (+nowClickClass.continuity[0] === 2) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '화',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[0].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[0],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
-              ],
-            });
-          }
-          if (+nowClickClass.continuity[0] === 3) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '화',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[0].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[0],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 2,
-              ],
-            });
-          }
-        }
-        if (nowClickClass.ClassTime.split(',')[0].substr(0, 1) === '수') {
-          // 수요일
-          console.log('수');
-
-          if (+nowClickClass.continuity[0] === 1) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '수',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[0].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[0],
-              totalClass: [+nowClickClass.ClassTime.split(',')[0].substr(1, 1)],
-            });
-          }
-          if (+nowClickClass.continuity[0] === 2) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '수',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[0].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[0],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
-              ],
-            });
-          }
-          if (+nowClickClass.continuity[0] === 3) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '수',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[0].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[0],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 2,
-              ],
-            });
-          }
-        }
-        if (nowClickClass.ClassTime.split(',')[0].substr(0, 1) === '목') {
-          // 목요일
-          console.log('목');
-
-          if (+nowClickClass.continuity[0] === 1) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '목',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[0].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[0],
-              totalClass: [+nowClickClass.ClassTime.split(',')[0].substr(1, 1)],
-            });
-          }
-          if (+nowClickClass.continuity[0] === 2) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '목',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[0].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[0],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
-              ],
-            });
-          }
-          if (+nowClickClass.continuity[0] === 3) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '목',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[0].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[0],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 2,
-              ],
-            });
-          }
-        }
-
-        if (nowClickClass.ClassTime.split(',')[0].substr(0, 1) === '금') {
-          // 금요일
-          console.log('금');
-
-          if (+nowClickClass.continuity[0] === 1) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '금',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[0].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[0],
-              totalClass: [+nowClickClass.ClassTime.split(',')[0].substr(1, 1)],
-            });
-          }
-          if (+nowClickClass.continuity[0] === 2) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '금',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[0].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[0],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
-              ],
-            });
-          }
-          if (+nowClickClass.continuity[0] === 3) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '금',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[0].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[0],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
-                +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 2,
-              ],
-            });
-          }
-        }
-      }
-
-      if (nowClickClass.ClassTime.split(',')[1]) {
-        // [1] == 클릭한 수업의 두번째 요일
-        if (nowClickClass.ClassTime.split(',')[1].substr(0, 1) === '월') {
-          // 월요일
-          console.log('월2');
-
-          if (+nowClickClass.continuity[1] === 1) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '월',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[1].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[1],
-              totalClass: [+nowClickClass.ClassTime.split(',')[1].substr(1, 1)],
-            });
-          }
-          if (+nowClickClass.continuity[1] === 2) {
-            forSetClassArray.push({
-              classId: nowClickClass.classId,
-              day: '월',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[1].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[1],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
-              ],
-            });
-          }
-          if (+nowClickClass.continuity[1] === 3) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '월',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[1].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[1],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 2,
-              ],
-            });
-          }
-        }
-        if (nowClickClass.ClassTime.split(',')[1].substr(0, 1) === '화') {
-          // 화요일
-          console.log('화2');
-
-          if (+nowClickClass.continuity[1] === 1) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '화',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[1].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[1],
-              totalClass: [+nowClickClass.ClassTime.split(',')[1].substr(1, 1)],
-            });
-          }
-          if (+nowClickClass.continuity[1] === 2) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '화',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[1].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[1],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
-              ],
-            });
-          }
-          if (+nowClickClass.continuity[1] === 3) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '화',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[1].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[1],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 2,
-              ],
-            });
-          }
-        }
-        if (nowClickClass.ClassTime.split(',')[1].substr(0, 1) === '수') {
-          // 수요일
-          console.log('수2');
-
-          if (+nowClickClass.continuity[1] === 1) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '수',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[1].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[1],
-              totalClass: [+nowClickClass.ClassTime.split(',')[1].substr(1, 1)],
-            });
-          }
-          if (+nowClickClass.continuity[1] === 2) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '수',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[1].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[1],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
-              ],
-            });
-          }
-          if (+nowClickClass.continuity[1] === 3) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '수',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[1].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[1],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 2,
-              ],
-            });
-          }
-        }
-        if (nowClickClass.ClassTime.split(',')[1].substr(0, 1) === '목') {
-          // 목요일
-          console.log('목2');
-
-          if (+nowClickClass.continuity[1] === 1) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '목',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[1].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[1],
-              totalClass: [+nowClickClass.ClassTime.split(',')[1].substr(1, 1)],
-            });
-          }
-          if (+nowClickClass.continuity[1] === 2) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '목',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[1].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[1],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
-              ],
-            });
-          }
-          if (+nowClickClass.continuity[1] === 3) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '목',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[1].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[1],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 2,
-              ],
-            });
-          }
-        }
-        if (nowClickClass.ClassTime.split(',')[1].substr(0, 1) === '금') {
-          // 금요일
-          console.log('금2');
-
-          if (+nowClickClass.continuity[1] === 1) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '금',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[1].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[1],
-              totalClass: [+nowClickClass.ClassTime.split(',')[1].substr(1, 1)],
-            });
-          }
-          if (+nowClickClass.continuity[1] === 2) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '금',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[1].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[1],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
-              ],
-            });
-          }
-          if (+nowClickClass.continuity[1] === 3) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '금',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[1].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[1],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
-                +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 2,
-              ],
-            });
-          }
-        }
-      }
-
-      if (nowClickClass.ClassTime.split(',')[2]) {
-        // [2] == 클릭한 수업의 세번째 요일
-        if (nowClickClass.ClassTime.split(',')[2].substr(0, 1) === '월') {
-          // 월요일
-          console.log('월3');
-
-          if (+nowClickClass.continuity[2] === 1) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '월',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[2].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[2],
-              totalClass: [+nowClickClass.ClassTime.split(',')[2].substr(1, 1)],
-            });
-          }
-          if (+nowClickClass.continuity[2] === 2) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '월',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[2].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[2],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
-              ],
-            });
-          }
-          if (+nowClickClass.continuity[2] === 3) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '월',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[2].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[2],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 2,
-              ],
-            });
-          }
-        }
-        if (nowClickClass.ClassTime.split(',')[2].substr(0, 1) === '화') {
-          // 화요일
-          console.log('화3');
-
-          if (+nowClickClass.continuity[2] === 1) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '화',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[2].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[2],
-              totalClass: [+nowClickClass.ClassTime.split(',')[2].substr(1, 1)],
-            });
-          }
-          if (+nowClickClass.continuity[2] === 2) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '화',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[2].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[2],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
-              ],
-            });
-          }
-          if (+nowClickClass.continuity[2] === 3) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '화',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[2].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[2],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 2,
-              ],
-            });
-          }
-        }
-        if (nowClickClass.ClassTime.split(',')[2].substr(0, 1) === '수') {
-          // 수요일
-          console.log('수3');
-
-          if (+nowClickClass.continuity[2] === 1) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '수',
-              firstClassNum: +nowClickClass.ClassTime.split(',')[2].substr(
-                1,
-                1
-              ),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[2],
-              totalClass: [+nowClickClass.ClassTime.split(',')[2].substr(1, 1)],
-            });
-          }
-          if (+nowClickClass.continuity[2] === 2) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '수',
-              firstClassNum: nowClickClass.ClassTime.split(',')[2].substr(1, 1),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[2],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
-              ],
-            });
-          }
-          if (+nowClickClass.continuity[2] === 3) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '수',
-              firstClassNum: nowClickClass.ClassTime.split(',')[2].substr(1, 1),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[2],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 2,
-              ],
-            });
-          }
-        }
-        if (nowClickClass.ClassTime.split(',')[2].substr(0, 1) === '목') {
-          // 목요일
-          console.log('목3');
-
-          if (+nowClickClass.continuity[2] === 1) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '목',
-              firstClassNum: nowClickClass.ClassTime.split(',')[2].substr(1, 1),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[2],
-              totalClass: [+nowClickClass.ClassTime.split(',')[2].substr(1, 1)],
-            });
-          }
-          if (+nowClickClass.continuity[2] === 2) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '목',
-              firstClassNum: nowClickClass.ClassTime.split(',')[2].substr(1, 1),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[2],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
-              ],
-            });
-          }
-          if (+nowClickClass.continuity[2] === 3) {
-            forSetClassArray.push({
-              classId: nowClickClass.classId,
-              day: '목',
-              firstClassNum: nowClickClass.ClassTime.split(',')[2].substr(1, 1),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[2],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 2,
-              ],
-            });
-          }
-        }
-        if (nowClickClass.ClassTime.split(',')[2].substr(0, 1) === '금') {
-          // 금요일
-          console.log('금3');
-
-          if (+nowClickClass.continuity[2] === 1) {
-            forSetClassArray.push({
-              classId: nowClickClass.classId,
-              day: '금',
-              firstClassNum: nowClickClass.ClassTime.split(',')[2].substr(1, 1),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[2],
-              totalClass: [+nowClickClass.ClassTime.split(',')[2].substr(1, 1)],
-            });
-          }
-          if (+nowClickClass.continuity[2] === 2) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '금',
-              firstClassNum: nowClickClass.ClassTime.split(',')[2].substr(1, 1),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[2],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
-              ],
-            });
-          }
-          if (+nowClickClass.continuity[2] === 3) {
-            forSetClassArray.push({
-              classId: +nowClickClass.classId,
-              day: '금',
-              firstClassNum: nowClickClass.ClassTime.split(',')[2].substr(1, 1),
-              className: nowClickClass.className,
-              continuity: +nowClickClass.continuity[2],
-              totalClass: [
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
-                +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 2,
-              ],
-            });
-          }
-        }
-      }
-    }
-
-    // 기존 데이터 초기화
-    setNowClickClassArray([]);
-    // 클릭한 수업의 데이터를 담고,
-    setNowClickClassArray(forSetClassArray);
-    // 담은 이후에 초기화
-    forSetClassArray = [];
-
-    console.log('nowClickClassArray', nowClickClassArray);
-  }
 
   // 경고문 활성화 코드
   useEffect(() => {
@@ -1657,7 +885,6 @@ function MyTimetable() {
     let forWen = [...wendayClassList];
     let forThu = [...thudayClassList];
     let forFri = [...fridayClassList];
-    console.log('...한 forMon', forMon);
 
     for (var m = 0; m < myMonClassArray.length; m++) {
       if (myMonClassArray[m]) {
@@ -1764,10 +991,8 @@ function MyTimetable() {
       }
     }
 
-    console.log('set전 forMon', forMon);
     setMondayClassList(forMon);
 
-    console.log('set된 mondayClassList', mondayClassList);
     setTuedayClassList(forTue);
     setWendayClassList(forWen);
     setThudayClassList(forThu);
@@ -1885,91 +1110,81 @@ function MyTimetable() {
     setShowOverlapModal(false);
   };
 
+  console.log('nowClickClassArray', nowClickClassArray);
+
+  const [stop, setStop] = useState(false);
+
   // 1109 고민 메모장 구현
   useEffect(() => {
-    if (nowClickClassArray) {
-      if (nowClickClassArray[0]) {
-        if (nowClickClassArray[0].day) {
-          if (nowClickClassArray[0].day === '월') {
-            console.log('1월');
+    if (nowClickClassArray[0]) {
+      if (nowClickClassArray[0].day) {
+        if (nowClickClassArray[0].day === '월' && !stop) {
+          console.log('1월');
 
-            if (
-              mondayClassList.findIndex(
-                (x) => x.ClassTime == nowClickClassArray[0].totalClass[0]
-              ) !== -1 ||
-              mondayClassList.findIndex(
-                (x) => x.ClassTime == nowClickClassArray[0].totalClass[1]
-              ) !== -1 ||
-              mondayClassList.findIndex(
-                (x) => x.ClassTime == nowClickClassArray[0].totalClass[2]
-              ) !== -1
-            ) {
-              console.log(
-                '월1이 겹친다, 수업:',
-                nowClickClassArray[0].className,
-                '시간 : ',
-                nowClickClassArray[0].totalClass
-              );
-              viewOverlapModal();
-            }
+          /*
 
-            //            console.log('1월', mondayClassList);
-          }
-          if (nowClickClassArray[0].day === '화') {
-            console.log('1화');
-            //            console.log(mondayClassList.findIndex(nowClickClassArray[0].))
-            //          console.log('1화', tuedayClassList);
-          }
-          if (nowClickClassArray[0].day === '수') {
-            console.log('1수');
-            //        console.log('1수', wendayClassList);
-          }
-          if (nowClickClassArray[0].day === '목') {
-            console.log('1목');
-            //      console.log('1목', thudayClassList);
-          }
-          if (nowClickClassArray[0].day === '금') {
-            console.log('1금');
-            //    console.log('1금', fridayClassList);
-          }
+          myMonClassArray 의 [i]들의 totalClass ( for :: var i=0; i < myMonClassArray.length; )
+
+          */
+
+          for (var i = 0; i < myMonClassArray.length; i++) {}
+        }
+
+        //            console.log('1월', mondayClassList);
+        if (nowClickClassArray[0].day === '화' && !stop) {
+          console.log('1화');
+          //            console.log(mondayClassList.findIndex(nowClickClassArray[0].))
+          //          console.log('1화', tuedayClassList);
+        }
+        if (nowClickClassArray[0].day === '수' && !stop) {
+          console.log('1수');
+          //        console.log('1수', wendayClassList);
+        }
+        if (nowClickClassArray[0].day === '목' && !stop) {
+          console.log('1목');
+          //      console.log('1목', thudayClassList);
+        }
+        if (nowClickClassArray[0].day === '금' && !stop) {
+          console.log('1금');
+          //    console.log('1금', fridayClassList);
         }
       }
-      if (nowClickClassArray[1]) {
-        if (nowClickClassArray[1].day) {
-          if (nowClickClassArray[1].day === '월') {
-            console.log('2월');
-          }
-          if (nowClickClassArray[1].day === '화') {
-            console.log('2화');
-          }
-          if (nowClickClassArray[1].day === '수') {
-            console.log('2수');
-          }
-          if (nowClickClassArray[1].day === '목') {
-            console.log('2목');
-          }
-          if (nowClickClassArray[1].day === '금') {
-            console.log('2금');
-          }
+    }
+    if (nowClickClassArray[1]) {
+      if (nowClickClassArray[1].day) {
+        if (nowClickClassArray[1].day === '월' && !stop) {
+          console.log('2월');
+        }
+        if (nowClickClassArray[1].day === '화' && !stop) {
+          console.log('2화');
+        }
+        if (nowClickClassArray[1].day === '수' && !stop) {
+          console.log('2수');
+        }
+        if (nowClickClassArray[1].day === '목' && !stop) {
+          console.log('2목');
+        }
+        if (nowClickClassArray[1].day === '금' && !stop) {
+          console.log('2금');
         }
       }
-      if (nowClickClassArray[2]) {
-        if (nowClickClassArray[2].day) {
-          if (nowClickClassArray[2].day === '월') {
-            console.log('3월');
-          }
-          if (nowClickClassArray[2].day === '화') {
-            console.log('3화');
-          }
-          if (nowClickClassArray[2].day === '수') {
-            console.log('3수');
-          }
-          if (nowClickClassArray[2].day === '목') {
-            console.log('3목');
-          }
-          if (nowClickClassArray[2].day === '금') {
-            console.log('3금');
-          }
+    }
+    if (nowClickClassArray[2]) {
+      if (nowClickClassArray[2].day) {
+        if (nowClickClassArray[2].day === '월' && !stop) {
+          console.log('3월');
+        }
+        if (nowClickClassArray[2].day === '화' && !stop) {
+          console.log('3화');
+        }
+        if (nowClickClassArray[2].day === '수' && !stop) {
+          console.log('3수');
+        }
+        if (nowClickClassArray[2].day === '목' && !stop) {
+          console.log('3목');
+        }
+        if (nowClickClassArray[2].day === '금' && !stop) {
+          console.log('3금');
         }
       }
     }
@@ -2008,10 +1223,10 @@ function MyTimetable() {
             </div>
             <div className="MyTimetable__right">
               <div className="MyTimetable__right__one">
-                <ClassList width="610px" height="350px" ekarl={ekarl} />
+                <ClassList width="610px" height="350px" />
               </div>
               <div className="MyTimetable__right__two">
-                <SearchClassList ekarl={ekarl} />
+                <SearchClassList />
               </div>
             </div>
           </div>
