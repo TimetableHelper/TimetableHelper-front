@@ -128,7 +128,10 @@ function MyTimetable() {
               ),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
-              totalClass: [+nowClickClass.ClassTime.split(',')[0].substr(1, 1)],
+              totalClass: [
+                0,
+                +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
+              ],
             });
           }
           if (+nowClickClass.continuity[0] === 2) {
@@ -142,6 +145,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
               ],
@@ -158,6 +162,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 2,
@@ -180,7 +185,10 @@ function MyTimetable() {
               ),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
-              totalClass: [+nowClickClass.ClassTime.split(',')[0].substr(1, 1)],
+              totalClass: [
+                0,
+                +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
+              ],
             });
           }
           if (+nowClickClass.continuity[0] === 2) {
@@ -194,6 +202,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
               ],
@@ -210,6 +219,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 2,
@@ -231,7 +241,10 @@ function MyTimetable() {
               ),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
-              totalClass: [+nowClickClass.ClassTime.split(',')[0].substr(1, 1)],
+              totalClass: [
+                0,
+                +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
+              ],
             });
           }
           if (+nowClickClass.continuity[0] === 2) {
@@ -245,6 +258,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
               ],
@@ -261,6 +275,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 2,
@@ -282,7 +297,10 @@ function MyTimetable() {
               ),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
-              totalClass: [+nowClickClass.ClassTime.split(',')[0].substr(1, 1)],
+              totalClass: [
+                0,
+                +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
+              ],
             });
           }
           if (+nowClickClass.continuity[0] === 2) {
@@ -296,6 +314,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
               ],
@@ -312,6 +331,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 2,
@@ -334,7 +354,10 @@ function MyTimetable() {
               ),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
-              totalClass: [+nowClickClass.ClassTime.split(',')[0].substr(1, 1)],
+              totalClass: [
+                0,
+                +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
+              ],
             });
           }
           if (+nowClickClass.continuity[0] === 2) {
@@ -348,6 +371,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
               ],
@@ -364,6 +388,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[0],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[0].substr(1, 1) + 2,
@@ -389,7 +414,10 @@ function MyTimetable() {
               ),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
-              totalClass: [+nowClickClass.ClassTime.split(',')[1].substr(1, 1)],
+              totalClass: [
+                0,
+                +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
+              ],
             });
           }
           if (+nowClickClass.continuity[1] === 2) {
@@ -403,6 +431,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
               ],
@@ -419,6 +448,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 2,
@@ -440,7 +470,10 @@ function MyTimetable() {
               ),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
-              totalClass: [+nowClickClass.ClassTime.split(',')[1].substr(1, 1)],
+              totalClass: [
+                0,
+                +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
+              ],
             });
           }
           if (+nowClickClass.continuity[1] === 2) {
@@ -454,6 +487,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
               ],
@@ -470,6 +504,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 2,
@@ -491,7 +526,10 @@ function MyTimetable() {
               ),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
-              totalClass: [+nowClickClass.ClassTime.split(',')[1].substr(1, 1)],
+              totalClass: [
+                0,
+                +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
+              ],
             });
           }
           if (+nowClickClass.continuity[1] === 2) {
@@ -505,6 +543,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
               ],
@@ -521,6 +560,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 2,
@@ -542,7 +582,10 @@ function MyTimetable() {
               ),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
-              totalClass: [+nowClickClass.ClassTime.split(',')[1].substr(1, 1)],
+              totalClass: [
+                0,
+                +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
+              ],
             });
           }
           if (+nowClickClass.continuity[1] === 2) {
@@ -556,6 +599,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
               ],
@@ -572,6 +616,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 2,
@@ -593,7 +638,10 @@ function MyTimetable() {
               ),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
-              totalClass: [+nowClickClass.ClassTime.split(',')[1].substr(1, 1)],
+              totalClass: [
+                0,
+                +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
+              ],
             });
           }
           if (+nowClickClass.continuity[1] === 2) {
@@ -607,6 +655,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
               ],
@@ -623,6 +672,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[1],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[1].substr(1, 1) + 2,
@@ -648,7 +698,10 @@ function MyTimetable() {
               ),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
-              totalClass: [+nowClickClass.ClassTime.split(',')[2].substr(1, 1)],
+              totalClass: [
+                0,
+                +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
+              ],
             });
           }
           if (+nowClickClass.continuity[2] === 2) {
@@ -662,6 +715,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
               ],
@@ -678,6 +732,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 2,
@@ -699,7 +754,10 @@ function MyTimetable() {
               ),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
-              totalClass: [+nowClickClass.ClassTime.split(',')[2].substr(1, 1)],
+              totalClass: [
+                0,
+                +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
+              ],
             });
           }
           if (+nowClickClass.continuity[2] === 2) {
@@ -713,6 +771,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
               ],
@@ -729,6 +788,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 2,
@@ -750,7 +810,10 @@ function MyTimetable() {
               ),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
-              totalClass: [+nowClickClass.ClassTime.split(',')[2].substr(1, 1)],
+              totalClass: [
+                +0,
+                nowClickClass.ClassTime.split(',')[2].substr(1, 1),
+              ],
             });
           }
           if (+nowClickClass.continuity[2] === 2) {
@@ -761,6 +824,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
               ],
@@ -774,6 +838,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 2,
@@ -792,7 +857,10 @@ function MyTimetable() {
               firstClassNum: nowClickClass.ClassTime.split(',')[2].substr(1, 1),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
-              totalClass: [+nowClickClass.ClassTime.split(',')[2].substr(1, 1)],
+              totalClass: [
+                0,
+                +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
+              ],
             });
           }
           if (+nowClickClass.continuity[2] === 2) {
@@ -803,6 +871,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
               ],
@@ -816,6 +885,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 2,
@@ -834,7 +904,10 @@ function MyTimetable() {
               firstClassNum: nowClickClass.ClassTime.split(',')[2].substr(1, 1),
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
-              totalClass: [+nowClickClass.ClassTime.split(',')[2].substr(1, 1)],
+              totalClass: [
+                0,
+                +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
+              ],
             });
           }
           if (+nowClickClass.continuity[2] === 2) {
@@ -845,6 +918,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
               ],
@@ -858,6 +932,7 @@ function MyTimetable() {
               className: nowClickClass.className,
               continuity: +nowClickClass.continuity[2],
               totalClass: [
+                0,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1),
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 1,
                 +nowClickClass.ClassTime.split(',')[2].substr(1, 1) + 2,
@@ -1098,14 +1173,14 @@ function MyTimetable() {
 
   // 경고문 "네" 버튼
   const changeOverlapClassListFn = (exist, newAdd) => {
-    //   deleteFn(exist);
+    deleteFn(exist);
 
     setShowOverlapModal(false);
   };
 
   // 경고문 "아니요" 버튼
   const existClassListFn = (exist, newAdd) => {
-    //   deleteFn(newAdd);
+    deleteFn(newAdd);
 
     setShowOverlapModal(false);
   };
@@ -1113,6 +1188,25 @@ function MyTimetable() {
   console.log('nowClickClassArray', nowClickClassArray);
 
   const [stop, setStop] = useState(false);
+
+  const ifNotZeroTrue = (now, dayArr, i) => {
+    if (
+      Array.isArray(
+        now[0].totalClass.filter((x) => dayArr[i].totalClass.includes(x))
+      ) &&
+      now[0].totalClass.filter((x) => dayArr[i].totalClass.includes(x))
+        .length !== 1
+    )
+      return true;
+    if (
+      Array.isArray(
+        now[0].totalClass.filter((x) => dayArr[i].totalClass.includes(x))
+      ) &&
+      now[0].totalClass.filter((x) => dayArr[i].totalClass.includes(x))
+        .length === 1
+    )
+      return false;
+  };
 
   // 1109~ 1111 고민 메모장 구현
   // totalClass 중복체크 후에 모달창 띄우기
@@ -1123,23 +1217,19 @@ function MyTimetable() {
           console.log('1월');
 
           for (var i = 0; i < myMonClassArray.length - 1; i++) {
-            if (
-              nowClickClassArray[0].totalClass.filter((x) =>
-                myMonClassArray[i].totalClass.includes(x)
-              ) != []
-            ) {
+            if (ifNotZeroTrue(nowClickClassArray, myMonClassArray, i)) {
               console.log(
+                '1월이다',
                 nowClickClassArray[0].totalClass.filter((x) =>
                   myMonClassArray[i].totalClass.includes(x)
                 ),
 
                 nowClickClassArray[0].totalClass.filter((x) =>
                   myMonClassArray[i].totalClass.includes(x)
-                ) !== [],
-
+                ).length,
                 nowClickClassArray[0].totalClass.filter((x) =>
                   myMonClassArray[i].totalClass.includes(x)
-                ) === [],
+                ).length !== 1,
 
                 'i',
                 i,
@@ -1168,11 +1258,7 @@ function MyTimetable() {
           console.log('1화');
 
           for (var i = 0; i < myTueClassArray.length - 1; i++) {
-            if (
-              nowClickClassArray[0].totalClass.filter((x) =>
-                myTueClassArray[i].totalClass.includes(x)
-              ) !== []
-            ) {
+            if (ifNotZeroTrue(nowClickClassArray, myTueClassArray, i)) {
               console.log(
                 'i',
                 i,
@@ -1197,11 +1283,7 @@ function MyTimetable() {
           console.log('1수');
 
           for (var i = 0; i < myWenClassArray.length - 1; i++) {
-            if (
-              nowClickClassArray[0].totalClass.filter((x) =>
-                myWenClassArray[i].totalClass.includes(x)
-              ) !== []
-            ) {
+            if (ifNotZeroTrue(nowClickClassArray, myWenClassArray, i)) {
               console.log(
                 'i',
                 i,
@@ -1228,11 +1310,7 @@ function MyTimetable() {
           console.log('1목');
 
           for (var i = 0; i < myThuClassArray.length - 1; i++) {
-            if (
-              nowClickClassArray[0].totalClass.filter((x) =>
-                myThuClassArray[i].totalClass.includes(x)
-              ) !== []
-            ) {
+            if (ifNotZeroTrue(nowClickClassArray, myThuClassArray, i)) {
               console.log(
                 'i',
                 i,
@@ -1259,11 +1337,7 @@ function MyTimetable() {
           console.log('1금');
 
           for (var i = 0; i < myFriClassArray.length - 1; i++) {
-            if (
-              nowClickClassArray[0].totalClass.filter((x) =>
-                myFriClassArray[i].totalClass.includes(x)
-              ) !== []
-            ) {
+            if (ifNotZeroTrue(nowClickClassArray, myFriClassArray, i)) {
               console.log(
                 'i',
                 i,
@@ -1294,11 +1368,7 @@ function MyTimetable() {
           console.log('2월');
 
           for (var i = 0; i < myMonClassArray.length - 1; i++) {
-            if (
-              nowClickClassArray[1].totalClass.filter((x) =>
-                myMonClassArray[i].totalClass.includes(x)
-              ) !== []
-            ) {
+            if (ifNotZeroTrue(nowClickClassArray, myMonClassArray, i)) {
               console.log(
                 'i',
                 i,
@@ -1323,11 +1393,7 @@ function MyTimetable() {
           console.log('2화');
 
           for (var i = 0; i < myTueClassArray.length - 1; i++) {
-            if (
-              nowClickClassArray[1].totalClass.filter((x) =>
-                myTueClassArray[i].totalClass.includes(x)
-              ) !== []
-            ) {
+            if (ifNotZeroTrue(nowClickClassArray, myTueClassArray, i)) {
               console.log(
                 'i',
                 i,
@@ -1352,11 +1418,7 @@ function MyTimetable() {
           console.log('2수');
 
           for (var i = 0; i < myWenClassArray.length - 1; i++) {
-            if (
-              nowClickClassArray[1].totalClass.filter((x) =>
-                myWenClassArray[i].totalClass.includes(x)
-              ) !== []
-            ) {
+            if (ifNotZeroTrue(nowClickClassArray, myWenClassArray, i)) {
               console.log(
                 'i',
                 i,
@@ -1381,11 +1443,7 @@ function MyTimetable() {
           console.log('2목');
 
           for (var i = 0; i < myThuClassArray.length - 1; i++) {
-            if (
-              nowClickClassArray[1].totalClass.filter((x) =>
-                myThuClassArray[i].totalClass.includes(x)
-              ) !== []
-            ) {
+            if (ifNotZeroTrue(nowClickClassArray, myThuClassArray, i)) {
               console.log(
                 'i',
                 i,
@@ -1410,11 +1468,7 @@ function MyTimetable() {
           console.log('2금');
 
           for (var i = 0; i < myFriClassArray.length - 1; i++) {
-            if (
-              nowClickClassArray[1].totalClass.filter((x) =>
-                myFriClassArray[i].totalClass.includes(x)
-              ) !== []
-            ) {
+            if (ifNotZeroTrue(nowClickClassArray, myFriClassArray, i)) {
               console.log(
                 'i',
                 i,
@@ -1443,11 +1497,7 @@ function MyTimetable() {
           console.log('3월');
 
           for (var i = 0; i < myMonClassArray.length - 1; i++) {
-            if (
-              nowClickClassArray[2].totalClass.filter((x) =>
-                myMonClassArray[i].totalClass.includes(x)
-              ) !== []
-            ) {
+            if (ifNotZeroTrue(nowClickClassArray, myMonClassArray, i)) {
               console.log(
                 'i',
                 i,
@@ -1472,11 +1522,7 @@ function MyTimetable() {
           console.log('3화');
 
           for (var i = 0; i < myTueClassArray.length - 1; i++) {
-            if (
-              nowClickClassArray[2].totalClass.filter((x) =>
-                myTueClassArray[i].totalClass.includes(x)
-              ) !== []
-            ) {
+            if (ifNotZeroTrue(nowClickClassArray, myTueClassArray, i)) {
               console.log(
                 'i',
                 i,
@@ -1501,11 +1547,7 @@ function MyTimetable() {
           console.log('3수');
 
           for (var i = 0; i < myWenClassArray.length - 1; i++) {
-            if (
-              nowClickClassArray[2].totalClass.filter((x) =>
-                myWenClassArray[i].totalClass.includes(x)
-              ) !== []
-            ) {
+            if (ifNotZeroTrue(nowClickClassArray, myWenClassArray, i)) {
               console.log(
                 'i',
                 i,
@@ -1530,11 +1572,7 @@ function MyTimetable() {
           console.log('3목');
 
           for (var i = 0; i < myThuClassArray.length - 1; i++) {
-            if (
-              nowClickClassArray[2].totalClass.filter((x) =>
-                myThuClassArray[i].totalClass.includes(x)
-              ) !== []
-            ) {
+            if (ifNotZeroTrue(nowClickClassArray, myThuClassArray, i)) {
               console.log(
                 'i',
                 i,
@@ -1559,11 +1597,7 @@ function MyTimetable() {
           console.log('3금');
 
           for (var i = 0; i < myFriClassArray.length - 1; i++) {
-            if (
-              nowClickClassArray[2].totalClass.filter((x) =>
-                myFriClassArray[i].totalClass.includes(x)
-              ) !== []
-            ) {
+            if (ifNotZeroTrue(nowClickClassArray, myFriClassArray, i)) {
               console.log(
                 'i',
                 i,

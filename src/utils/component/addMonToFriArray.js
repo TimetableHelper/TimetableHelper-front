@@ -59,6 +59,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
                 ],
               };
@@ -79,6 +80,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 1,
                 ],
@@ -100,6 +102,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 1,
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 2,
@@ -147,6 +150,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
                 ],
               };
@@ -167,6 +171,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 1,
                 ],
@@ -188,6 +193,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 1,
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 2,
@@ -225,6 +231,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
                 ],
               };
@@ -245,6 +252,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 1,
                 ],
@@ -266,6 +274,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 1,
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 2,
@@ -303,6 +312,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
                 ],
               };
@@ -323,6 +333,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 1,
                 ],
@@ -344,6 +355,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 1,
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 2,
@@ -380,6 +392,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
                 ],
               };
@@ -400,6 +413,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 1,
                 ],
@@ -421,6 +435,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 1,
                   +finalClassArr[i].ClassTime.split(',')[0].substr(1, 1) + 2,
@@ -466,6 +481,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
                 ],
               };
@@ -486,6 +502,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 1,
                 ],
@@ -507,6 +524,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 1,
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 2,
@@ -544,6 +562,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
                 ],
               };
@@ -564,6 +583,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 1,
                 ],
@@ -585,6 +605,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 1,
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 2,
@@ -621,6 +642,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
                 ],
               };
@@ -641,6 +663,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 1,
                 ],
@@ -662,6 +685,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 1,
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 2,
@@ -698,6 +722,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
                 ],
               };
@@ -718,6 +743,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 1,
                 ],
@@ -739,6 +765,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 1,
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 2,
@@ -775,6 +802,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
                 ],
               };
@@ -795,6 +823,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 1,
                 ],
@@ -816,6 +845,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 1,
                   +finalClassArr[i].ClassTime.split(',')[1].substr(1, 1) + 2,
@@ -861,6 +891,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
                 ],
               };
@@ -881,6 +912,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 1,
                 ],
@@ -902,6 +934,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 1,
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 2,
@@ -938,6 +971,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
                 ],
               };
@@ -958,6 +992,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 1,
                 ],
@@ -979,6 +1014,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 1,
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 2,
@@ -1013,6 +1049,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
                 ],
               };
@@ -1033,6 +1070,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 1,
                 ],
@@ -1054,6 +1092,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 1,
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 2,
@@ -1092,6 +1131,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
                 ],
               };
@@ -1112,6 +1152,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 1,
                 ],
@@ -1133,6 +1174,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 1,
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 2,
@@ -1169,6 +1211,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
                 ],
               };
@@ -1189,6 +1232,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 1,
                 ],
@@ -1210,6 +1254,7 @@ export default function addToMonToFriArray({
                 ),
                 numberOfPresses: finalClassArr[i].numberOfPresses,
                 totalClass: [
+                  0,
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1),
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 1,
                   +finalClassArr[i].ClassTime.split(',')[2].substr(1, 1) + 2,
