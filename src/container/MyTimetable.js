@@ -1098,14 +1098,14 @@ function MyTimetable() {
 
   // 경고문 "네" 버튼
   const changeOverlapClassListFn = (exist, newAdd) => {
-    deleteFn(exist);
+    //   deleteFn(exist);
 
     setShowOverlapModal(false);
   };
 
   // 경고문 "아니요" 버튼
   const existClassListFn = (exist, newAdd) => {
-    deleteFn(newAdd);
+    //   deleteFn(newAdd);
 
     setShowOverlapModal(false);
   };
@@ -1114,7 +1114,8 @@ function MyTimetable() {
 
   const [stop, setStop] = useState(false);
 
-  // 1109 고민 메모장 구현
+  // 1109~ 1111 고민 메모장 구현
+  // totalClass 중복체크 후에 모달창 띄우기
   useEffect(() => {
     if (nowClickClassArray[0] && !stop) {
       if (nowClickClassArray[0].day) {
@@ -1125,16 +1126,38 @@ function MyTimetable() {
             if (
               nowClickClassArray[0].totalClass.filter((x) =>
                 myMonClassArray[i].totalClass.includes(x)
-              ) !== []
+              ) != []
             ) {
               console.log(
+                nowClickClassArray[0].totalClass.filter((x) =>
+                  myMonClassArray[i].totalClass.includes(x)
+                ),
+
+                nowClickClassArray[0].totalClass.filter((x) =>
+                  myMonClassArray[i].totalClass.includes(x)
+                ) !== [],
+
+                nowClickClassArray[0].totalClass.filter((x) =>
+                  myMonClassArray[i].totalClass.includes(x)
+                ) === [],
+
                 'i',
                 i,
                 '(기존) : ',
+                myMonClassArray[i].classId,
                 myMonClassArray[i].className,
+                myMonClassArray[i].totalClass,
                 '(클릭) : ',
-                nowClickClassArray[0].className
+                nowClickClassArray[0].classId,
+                nowClickClassArray[0].className,
+                nowClickClassArray[0].totalClass
               );
+
+              viewOverlapModal(
+                myMonClassArray[i].classId,
+                nowClickClassArray[0].classId
+              );
+
               setStop(true);
             }
           }
@@ -1154,10 +1177,18 @@ function MyTimetable() {
                 'i',
                 i,
                 '(기존) : ',
+                myTueClassArray[i].classId,
                 myTueClassArray[i].className,
                 '(클릭) : ',
+                nowClickClassArray[0].classId,
                 nowClickClassArray[0].className
               );
+
+              viewOverlapModal(
+                myTueClassArray[i].classId,
+                nowClickClassArray[0].classId
+              );
+
               setStop(true);
             }
           }
@@ -1175,10 +1206,18 @@ function MyTimetable() {
                 'i',
                 i,
                 '(기존) : ',
+                myWenClassArray[i].classId,
                 myWenClassArray[i].className,
                 '(클릭) : ',
+                nowClickClassArray[0].classId,
                 nowClickClassArray[0].className
               );
+
+              viewOverlapModal(
+                myWenClassArray[i].classId,
+                nowClickClassArray[0].classId
+              );
+
               setStop(true);
             }
           }
@@ -1198,10 +1237,18 @@ function MyTimetable() {
                 'i',
                 i,
                 '(기존) : ',
+                myThuClassArray[i].classId,
                 myThuClassArray[i].className,
                 '(클릭) : ',
+                nowClickClassArray[0].classId,
                 nowClickClassArray[0].className
               );
+
+              viewOverlapModal(
+                myThuClassArray[i].classId,
+                nowClickClassArray[0].classId
+              );
+
               setStop(true);
             }
           }
@@ -1221,10 +1268,18 @@ function MyTimetable() {
                 'i',
                 i,
                 '(기존) : ',
+                myFriClassArray[i].classId,
                 myFriClassArray[i].className,
                 '(클릭) : ',
+                nowClickClassArray[0].classId,
                 nowClickClassArray[0].className
               );
+
+              viewOverlapModal(
+                myFriClassArray[i].classId,
+                nowClickClassArray[0].classId
+              );
+
               setStop(true);
             }
           }
@@ -1249,9 +1304,17 @@ function MyTimetable() {
                 i,
                 '(기존) : ',
                 myMonClassArray[i].className,
+                myMonClassArray[i].classId,
                 '(클릭) : ',
+                nowClickClassArray[1].classId,
                 nowClickClassArray[1].className
               );
+
+              viewOverlapModal(
+                myMonClassArray[i].className,
+                nowClickClassArray[1].classId
+              );
+
               setStop(true);
             }
           }
@@ -1269,10 +1332,18 @@ function MyTimetable() {
                 'i',
                 i,
                 '(기존) : ',
+                myTueClassArray[i].classId,
                 myTueClassArray[i].className,
                 '(클릭) : ',
+                nowClickClassArray[1].classId,
                 nowClickClassArray[1].className
               );
+
+              viewOverlapModal(
+                myTueClassArray[i].classId,
+                nowClickClassArray[1].classId
+              );
+
               setStop(true);
             }
           }
@@ -1290,10 +1361,18 @@ function MyTimetable() {
                 'i',
                 i,
                 '(기존) : ',
+                myWenClassArray[i].classId,
                 myWenClassArray[i].className,
                 '(클릭) : ',
+                nowClickClassArray[1].classId,
                 nowClickClassArray[1].className
               );
+
+              viewOverlapModal(
+                myWenClassArray[i].classId,
+                nowClickClassArray[1].classId
+              );
+
               setStop(true);
             }
           }
@@ -1311,10 +1390,18 @@ function MyTimetable() {
                 'i',
                 i,
                 '(기존) : ',
+                myThuClassArray[i].classId,
                 myThuClassArray[i].className,
                 '(클릭) : ',
+                nowClickClassArray[1].classId,
                 nowClickClassArray[1].className
               );
+
+              viewOverlapModal(
+                myThuClassArray[i].classId,
+                nowClickClassArray[1].classId
+              );
+
               setStop(true);
             }
           }
@@ -1332,10 +1419,18 @@ function MyTimetable() {
                 'i',
                 i,
                 '(기존) : ',
+                myFriClassArray[i].classId,
                 myFriClassArray[i].className,
                 '(클릭) : ',
+                nowClickClassArray[1].classId,
                 nowClickClassArray[1].className
               );
+
+              viewOverlapModal(
+                myFriClassArray[i].classId,
+                nowClickClassArray[1].classId
+              );
+
               setStop(true);
             }
           }
@@ -1357,10 +1452,18 @@ function MyTimetable() {
                 'i',
                 i,
                 '(기존) : ',
+                myMonClassArray[i].classId,
                 myMonClassArray[i].className,
                 '(클릭) : ',
+                nowClickClassArray[2].classId,
                 nowClickClassArray[2].className
               );
+
+              viewOverlapModal(
+                myMonClassArray[i].classId,
+                nowClickClassArray[2].classId
+              );
+
               setStop(true);
             }
           }
@@ -1378,10 +1481,18 @@ function MyTimetable() {
                 'i',
                 i,
                 '(기존) : ',
+                myTueClassArray[i].classId,
                 myTueClassArray[i].className,
                 '(클릭) : ',
+                nowClickClassArray[2].classId,
                 nowClickClassArray[2].className
               );
+
+              viewOverlapModal(
+                myTueClassArray[i].classId,
+                nowClickClassArray[2].classId
+              );
+
               setStop(true);
             }
           }
@@ -1399,10 +1510,18 @@ function MyTimetable() {
                 'i',
                 i,
                 '(기존) : ',
+                myWenClassArray[i].classId,
                 myWenClassArray[i].className,
                 '(클릭) : ',
+                nowClickClassArray[2].classId,
                 nowClickClassArray[2].className
               );
+
+              viewOverlapModal(
+                myWenClassArray[i].classId,
+                nowClickClassArray[2].classId
+              );
+
               setStop(true);
             }
           }
@@ -1420,10 +1539,18 @@ function MyTimetable() {
                 'i',
                 i,
                 '(기존) : ',
+                myThuClassArray[i].classId,
                 myThuClassArray[i].className,
                 '(클릭) : ',
+                nowClickClassArray[2].classId,
                 nowClickClassArray[2].className
               );
+
+              viewOverlapModal(
+                myThuClassArray[i].classId,
+                nowClickClassArray[2].classId
+              );
+
               setStop(true);
             }
           }
@@ -1441,10 +1568,18 @@ function MyTimetable() {
                 'i',
                 i,
                 '(기존) : ',
+                myFriClassArray[i].classId,
                 myFriClassArray[i].className,
                 '(클릭) : ',
+                nowClickClassArray[2].classId,
                 nowClickClassArray[2].className
               );
+
+              viewOverlapModal(
+                myFriClassArray[i].classId,
+                nowClickClassArray[2].classId
+              );
+
               setStop(true);
             }
           }
