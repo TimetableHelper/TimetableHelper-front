@@ -913,7 +913,6 @@ function MyTimetable() {
 
   const deleteFn = (wantDeleteID) => {
     if (typeof wantDeleteID === 'number') {
-      console.log(wantDeleteID, '삭제 시작!');
       setFinalClassArr(
         finalClassArr.filter((data) => data.classId !== wantDeleteID)
       );
@@ -1529,10 +1528,10 @@ function MyTimetable() {
             </div>
 
             <h2>
-              {existingclassName.map((data) => {
+              {existingclassName.map((data, index) => {
                 return (
-                  <strong>
-                    <span>{data}&nbsp;</span>
+                  <strong key={index + data}>
+                    <span key={data + index}>{data}&nbsp;</span>
                   </strong>
                 );
               })}
