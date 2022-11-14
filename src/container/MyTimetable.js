@@ -35,6 +35,8 @@ import {
   fridayClassListAtom,
 } from '../atoms';
 
+import { AnimatePresence, motion, useScroll } from 'framer-motion';
+
 import '../styles/container/OverlapModal.scss';
 
 function MyTimetable() {
@@ -114,12 +116,6 @@ function MyTimetable() {
     setShowOverlapModal(true);
   };
 
-  console.log('기존ID', existingclass);
-  console.log('기존ID수정', [...new Set(existingclass)]);
-
-  console.log('클릭ID', newAddclass);
-  console.log('finalClassArr', finalClassArr);
-
   // 기존 시간표 중에 겹치는 이름들 추출
   useEffect(() => {
     let forsetExistNameArr = [...existingclassName];
@@ -151,9 +147,6 @@ function MyTimetable() {
 
     setExistingClassName(forsetExistNameArr);
   }, [existingclass]);
-
-  console.log('existingclass 확인', existingclass);
-  console.log('existingclassName 확인', existingclassName);
 
   // 모달창에서 보여줄 수업명 찾기
   useEffect(() => {
@@ -920,7 +913,6 @@ function MyTimetable() {
 
   const deleteFn = (wantDeleteID) => {
     if (typeof wantDeleteID === 'number') {
-      console.log(wantDeleteID, '삭제 시작!');
       setFinalClassArr(
         finalClassArr.filter((data) => data.classId !== wantDeleteID)
       );
@@ -969,15 +961,10 @@ function MyTimetable() {
         fridayClassList.filter((data) => data.classId !== wantDeleteID)
       );
     } else if (Array.isArray(wantDeleteID)) {
-      console.log('여러수업 삭제!');
-      console.log('wantDeleteID', wantDeleteID);
-
       if (wantDeleteID.length === 1) {
         deleteFn(wantDeleteID[0]);
       }
       if (wantDeleteID.length === 2) {
-        console.log();
-
         setFinalClassArr(
           finalClassArr.filter(
             (data) =>
@@ -1095,18 +1082,158 @@ function MyTimetable() {
           )
         );
       }
-      //    if (wantDeleteID.length === 3) {
-      //      deleteFn(wantDeleteID[0]);
-      //      deleteFn(wantDeleteID[1]);
-      //      deleteFn(wantDeleteID[2]);
-      //   }
+      if (wantDeleteID.length === 3) {
+        setFinalClassArr(
+          finalClassArr.filter(
+            (data) =>
+              data.classId !== wantDeleteID[0] &&
+              data.classId !== wantDeleteID[1] &&
+              data.classId !== wantDeleteID[2]
+          )
+        );
+
+        setFinalClassIds(
+          finalClassIds.filter(
+            (data) =>
+              data !== wantDeleteID[0] &&
+              data !== wantDeleteID[1] &&
+              data !== wantDeleteID[2]
+          )
+        );
+        //
+        setMyMonClassArray(
+          myMonClassArray.filter(
+            (data) =>
+              data.classId !== wantDeleteID[0] &&
+              data.classId !== wantDeleteID[1] &&
+              data.classId !== wantDeleteID[2]
+          )
+        );
+        setMyMonClassIds(
+          myMonClassIds.filter(
+            (data) =>
+              data !== wantDeleteID[0] &&
+              data !== wantDeleteID[1] &&
+              data !== wantDeleteID[2]
+          )
+        );
+        //
+        setMyTueClassArray(
+          myTueClassArray.filter(
+            (data) =>
+              data.classId !== wantDeleteID[0] &&
+              data.classId !== wantDeleteID[1] &&
+              data.classId !== wantDeleteID[2]
+          )
+        );
+        setMyTueClassIds(
+          myTueClassIds.filter(
+            (data) =>
+              data !== wantDeleteID[0] &&
+              data !== wantDeleteID[1] &&
+              data !== wantDeleteID[2]
+          )
+        );
+        //
+        setMyWenClassArray(
+          myWenClassArray.filter(
+            (data) =>
+              data.classId !== wantDeleteID[0] &&
+              data.classId !== wantDeleteID[1] &&
+              data.classId !== wantDeleteID[2]
+          )
+        );
+        setMyWenClassIds(
+          myWenClassIds.filter(
+            (data) =>
+              data !== wantDeleteID[0] &&
+              data !== wantDeleteID[1] &&
+              data !== wantDeleteID[2]
+          )
+        );
+        //
+        setMyThuClassArray(
+          myThuClassArray.filter(
+            (data) =>
+              data.classId !== wantDeleteID[0] &&
+              data.classId !== wantDeleteID[1] &&
+              data.classId !== wantDeleteID[2]
+          )
+        );
+        setMyThuClassIds(
+          myThuClassIds.filter(
+            (data) =>
+              data !== wantDeleteID[0] &&
+              data !== wantDeleteID[1] &&
+              data !== wantDeleteID[2]
+          )
+        );
+
+        //
+        setMyFriClassArray(
+          myFriClassArray.filter(
+            (data) =>
+              data.classId !== wantDeleteID[0] &&
+              data.classId !== wantDeleteID[1] &&
+              data.classId !== wantDeleteID[2]
+          )
+        );
+        setMyFriClassIds(
+          myFriClassIds.filter(
+            (data) =>
+              data !== wantDeleteID[0] &&
+              data !== wantDeleteID[1] &&
+              data !== wantDeleteID[2]
+          )
+        );
+
+        //////////////////// 모달창에 쓰이는 array에서도 삭제해야함.
+        setMondayClassList(
+          mondayClassList.filter(
+            (data) =>
+              data.classId !== wantDeleteID[0] &&
+              data.classId !== wantDeleteID[1] &&
+              data.classId !== wantDeleteID[2]
+          )
+        );
+        setTuedayClassList(
+          tuedayClassList.filter(
+            (data) =>
+              data.classId !== wantDeleteID[0] &&
+              data.classId !== wantDeleteID[1] &&
+              data.classId !== wantDeleteID[2]
+          )
+        );
+        setWendayClassList(
+          wendayClassList.filter(
+            (data) =>
+              data.classId !== wantDeleteID[0] &&
+              data.classId !== wantDeleteID[1] &&
+              data.classId !== wantDeleteID[2]
+          )
+        );
+        setThudayClassList(
+          thudayClassList.filter(
+            (data) =>
+              data.classId !== wantDeleteID[0] &&
+              data.classId !== wantDeleteID[1] &&
+              data.classId !== wantDeleteID[2]
+          )
+        );
+        setFridayClassList(
+          fridayClassList.filter(
+            (data) =>
+              data.classId !== wantDeleteID[0] &&
+              data.classId !== wantDeleteID[1] &&
+              data.classId !== wantDeleteID[2]
+          )
+        );
+      }
     }
   };
 
   // 경고문 "네" 버튼
   const changeOverlapClassListFn = (exist, newAdd) => {
-    console.log('네 버튼ㅁㄴ', exist);
-
     deleteFn(exist);
 
     setExistingClass1([]);
@@ -1116,15 +1243,12 @@ function MyTimetable() {
 
   // 경고문 "아니요" 버튼
   const existClassListFn = (exist, newAdd) => {
-    console.log('아니요 버튼 숫자', newAdd);
     deleteFn(newAdd);
 
     setExistingClass1([]);
     setExistingClassName([]);
     setShowOverlapModal(false);
   };
-
-  console.log('nowClickClassArray', nowClickClassArray);
 
   const [stop, setStop] = useState(false);
 
@@ -1135,14 +1259,11 @@ function MyTimetable() {
     );
   };
 
-  // 1109~ 1111 고민 메모장 구현
   // totalClass 중복체크 후에 모달창 띄우기
   useEffect(() => {
     if (nowClickClassArray[0] && !stop) {
       if (nowClickClassArray[0].day) {
         if (nowClickClassArray[0].day === '월' && !stop) {
-          console.log('1월');
-
           for (var i = 0; i < myMonClassArray.length - 1; i++) {
             if (
               ifNotZeroReturnTrue(nowClickClassArray, myMonClassArray, i, 0)
@@ -1157,8 +1278,6 @@ function MyTimetable() {
           }
         }
         if (nowClickClassArray[0].day === '화' && !stop) {
-          console.log('1화');
-
           for (var i = 0; i < myTueClassArray.length - 1; i++) {
             if (
               ifNotZeroReturnTrue(nowClickClassArray, myTueClassArray, i, 0)
@@ -1173,8 +1292,6 @@ function MyTimetable() {
           }
         }
         if (nowClickClassArray[0].day === '수' && !stop) {
-          console.log('1수');
-
           for (var i = 0; i < myWenClassArray.length - 1; i++) {
             if (
               ifNotZeroReturnTrue(nowClickClassArray, myWenClassArray, i, 0)
@@ -1191,8 +1308,6 @@ function MyTimetable() {
           //        console.log('1수', wendayClassList);
         }
         if (nowClickClassArray[0].day === '목' && !stop) {
-          console.log('1목');
-
           for (var i = 0; i < myThuClassArray.length - 1; i++) {
             if (
               ifNotZeroReturnTrue(nowClickClassArray, myThuClassArray, i, 0)
@@ -1209,8 +1324,6 @@ function MyTimetable() {
           //      console.log('1목', thudayClassList);
         }
         if (nowClickClassArray[0].day === '금' && !stop) {
-          console.log('1금');
-
           for (var i = 0; i < myFriClassArray.length - 1; i++) {
             if (
               ifNotZeroReturnTrue(nowClickClassArray, myFriClassArray, i, 0)
@@ -1232,23 +1345,10 @@ function MyTimetable() {
     if (nowClickClassArray[1] && !stop) {
       if (nowClickClassArray[1].day) {
         if (nowClickClassArray[1].day === '월' && !stop) {
-          console.log('2월');
-
           for (var i = 0; i < myMonClassArray.length - 1; i++) {
             if (
               ifNotZeroReturnTrue(nowClickClassArray, myMonClassArray, i, 1)
             ) {
-              console.log(
-                'i',
-                i,
-                '(기존) : ',
-                myMonClassArray[i].className,
-                myMonClassArray[i].classId,
-                '(클릭) : ',
-                nowClickClassArray[1].classId,
-                nowClickClassArray[1].className
-              );
-
               viewOverlapModal(
                 myMonClassArray[i].className,
                 nowClickClassArray[1].classId
@@ -1259,23 +1359,10 @@ function MyTimetable() {
           }
         }
         if (nowClickClassArray[1].day === '화' && !stop) {
-          console.log('2화');
-
           for (var i = 0; i < myTueClassArray.length - 1; i++) {
             if (
               ifNotZeroReturnTrue(nowClickClassArray, myTueClassArray, i, 1)
             ) {
-              console.log(
-                'i',
-                i,
-                '(기존) : ',
-                myTueClassArray[i].classId,
-                myTueClassArray[i].className,
-                '(클릭) : ',
-                nowClickClassArray[1].classId,
-                nowClickClassArray[1].className
-              );
-
               viewOverlapModal(
                 myTueClassArray[i].classId,
                 nowClickClassArray[1].classId
@@ -1286,9 +1373,6 @@ function MyTimetable() {
           }
         }
         if (nowClickClassArray[1].day === '수' && !stop) {
-          console.log('2수');
-
-          // 찐
           for (var i = 0; i < myWenClassArray.length - 1; i++) {
             if (
               ifNotZeroReturnTrue(nowClickClassArray, myWenClassArray, i, 1)
@@ -1303,23 +1387,10 @@ function MyTimetable() {
           }
         }
         if (nowClickClassArray[1].day === '목' && !stop) {
-          console.log('2목');
-
           for (var i = 0; i < myThuClassArray.length - 1; i++) {
             if (
               ifNotZeroReturnTrue(nowClickClassArray, myThuClassArray, i, 1)
             ) {
-              console.log(
-                'i',
-                i,
-                '(기존) : ',
-                myThuClassArray[i].classId,
-                myThuClassArray[i].className,
-                '(클릭) : ',
-                nowClickClassArray[1].classId,
-                nowClickClassArray[1].className
-              );
-
               viewOverlapModal(
                 myThuClassArray[i].classId,
                 nowClickClassArray[1].classId
@@ -1330,23 +1401,10 @@ function MyTimetable() {
           }
         }
         if (nowClickClassArray[1].day === '금' && !stop) {
-          console.log('2금');
-
           for (var i = 0; i < myFriClassArray.length - 1; i++) {
             if (
               ifNotZeroReturnTrue(nowClickClassArray, myFriClassArray, i, 1)
             ) {
-              console.log(
-                'i',
-                i,
-                '(기존) : ',
-                myFriClassArray[i].classId,
-                myFriClassArray[i].className,
-                '(클릭) : ',
-                nowClickClassArray[1].classId,
-                nowClickClassArray[1].className
-              );
-
               viewOverlapModal(
                 myFriClassArray[i].classId,
                 nowClickClassArray[1].classId
@@ -1362,23 +1420,10 @@ function MyTimetable() {
     if (nowClickClassArray[2] && !stop) {
       if (nowClickClassArray[2].day) {
         if (nowClickClassArray[2].day === '월' && !stop) {
-          console.log('3월');
-
           for (var i = 0; i < myMonClassArray.length - 1; i++) {
             if (
               ifNotZeroReturnTrue(nowClickClassArray, myMonClassArray, i, 2)
             ) {
-              console.log(
-                'i',
-                i,
-                '(기존) : ',
-                myMonClassArray[i].classId,
-                myMonClassArray[i].className,
-                '(클릭) : ',
-                nowClickClassArray[2].classId,
-                nowClickClassArray[2].className
-              );
-
               viewOverlapModal(
                 myMonClassArray[i].classId,
                 nowClickClassArray[2].classId
@@ -1389,23 +1434,10 @@ function MyTimetable() {
           }
         }
         if (nowClickClassArray[2].day === '화' && !stop) {
-          console.log('3화');
-
           for (var i = 0; i < myTueClassArray.length - 1; i++) {
             if (
               ifNotZeroReturnTrue(nowClickClassArray, myTueClassArray, i, 2)
             ) {
-              console.log(
-                'i',
-                i,
-                '(기존) : ',
-                myTueClassArray[i].classId,
-                myTueClassArray[i].className,
-                '(클릭) : ',
-                nowClickClassArray[2].classId,
-                nowClickClassArray[2].className
-              );
-
               viewOverlapModal(
                 myTueClassArray[i].classId,
                 nowClickClassArray[2].classId
@@ -1416,23 +1448,10 @@ function MyTimetable() {
           }
         }
         if (nowClickClassArray[2].day === '수' && !stop) {
-          console.log('3수');
-
           for (var i = 0; i < myWenClassArray.length - 1; i++) {
             if (
               ifNotZeroReturnTrue(nowClickClassArray, myWenClassArray, i, 2)
             ) {
-              console.log(
-                'i',
-                i,
-                '(기존) : ',
-                myWenClassArray[i].classId,
-                myWenClassArray[i].className,
-                '(클릭) : ',
-                nowClickClassArray[2].classId,
-                nowClickClassArray[2].className
-              );
-
               viewOverlapModal(
                 myWenClassArray[i].classId,
                 nowClickClassArray[2].classId
@@ -1443,23 +1462,10 @@ function MyTimetable() {
           }
         }
         if (nowClickClassArray[2].day === '목' && !stop) {
-          console.log('3목');
-
           for (var i = 0; i < myThuClassArray.length - 1; i++) {
             if (
               ifNotZeroReturnTrue(nowClickClassArray, myThuClassArray, i, 2)
             ) {
-              console.log(
-                'i',
-                i,
-                '(기존) : ',
-                myThuClassArray[i].classId,
-                myThuClassArray[i].className,
-                '(클릭) : ',
-                nowClickClassArray[2].classId,
-                nowClickClassArray[2].className
-              );
-
               viewOverlapModal(
                 myThuClassArray[i].classId,
                 nowClickClassArray[2].classId
@@ -1470,23 +1476,10 @@ function MyTimetable() {
           }
         }
         if (nowClickClassArray[2].day === '금' && !stop) {
-          console.log('3금');
-
           for (var i = 0; i < myFriClassArray.length - 1; i++) {
             if (
               ifNotZeroReturnTrue(nowClickClassArray, myFriClassArray, i, 2)
             ) {
-              console.log(
-                'i',
-                i,
-                '(기존) : ',
-                myFriClassArray[i].classId,
-                myFriClassArray[i].className,
-                '(클릭) : ',
-                nowClickClassArray[2].classId,
-                nowClickClassArray[2].className
-              );
-
               viewOverlapModal(
                 myFriClassArray[i].classId,
                 nowClickClassArray[2].classId
@@ -1501,7 +1494,6 @@ function MyTimetable() {
     }
 
     setNowClickClassArray([]);
-    //    setStop(false);
   }, [
     myMonClassArray,
     myTueClassArray,
@@ -1509,7 +1501,6 @@ function MyTimetable() {
     myThuClassArray,
     myFriClassArray,
   ]);
-
   return (
     <>
       <HelmetProvider>
@@ -1520,20 +1511,51 @@ function MyTimetable() {
       <Header />
 
       {showOverlapModal && (
-        <div className="OverlapModal">
-          <h2>
-            {`"${existingclassName}" 수업을 "${newAddclassName}" 수업으로 바꿀래?`}
-          </h2>
-          <button
-            onClick={() => changeOverlapClassListFn(existingclass, newAddclass)}
+        <>
+          <motion.div
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="Overlay"
+          ></motion.div>
+          <motion.div
+            className="OverlapModal"
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
           >
-            네
-          </button>
-          <button onClick={() => existClassListFn(existingclass, newAddclass)}>
-            아니요
-          </button>
-        </div>
+            <div className="ModalTopColorbar">
+              <span>●</span>
+              <span>●</span>
+            </div>
+
+            <h2>
+              {existingclassName.map((data, index) => {
+                return (
+                  <strong key={index + data}>
+                    <span key={data + index}>{data}&nbsp;</span>
+                  </strong>
+                );
+              })}
+              수업을&nbsp;
+              <strong>{newAddclassName}</strong> 수업으로 바꾸시겠습니까?
+            </h2>
+            <div className="ModalbuttonDiV">
+              <button
+                onClick={() =>
+                  changeOverlapClassListFn(existingclass, newAddclass)
+                }
+              >
+                네
+              </button>
+              <button
+                onClick={() => existClassListFn(existingclass, newAddclass)}
+              >
+                아니요
+              </button>
+            </div>
+          </motion.div>
+        </>
       )}
+      {}
 
       {islogin && !showModal && (
         <>

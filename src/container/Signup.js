@@ -152,7 +152,7 @@ function Signup() {
             {okGO2 ? (
               <Link to="/sign-up2">
                 <button className="btn btn-outline-primary w-100" type="submit">
-                  다음 True
+                  다음
                 </button>
               </Link>
             ) : (
@@ -164,7 +164,7 @@ function Signup() {
                 }}
                 disabled
               >
-                다음 False
+                다음
               </div>
             )}
           </form>
