@@ -1,8 +1,22 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../component/Header';
+import axios from 'axios';
+import { useRecoilValue } from 'recoil';
+
+import {
+  major_forSignUp,
+  grade_forSignUp,
+  studentID_forSignUp,
+  password_forSignUp,
+} from '../atoms';
 
 function Signup2(props) {
+  const major = useRecoilValue(major_forSignUp);
+  const grade = useRecoilValue(grade_forSignUp);
+  const studentID = useRecoilValue(studentID_forSignUp);
+  const password = useRecoilValue(password_forSignUp);
+
   const exampleSignupData = [
     {
       essentialCultureClass: ['영어', '전공기초영어', '논리적사고와글쓰기'],
@@ -93,6 +107,30 @@ function Signup2(props) {
   const axiosPost = () => {
     // 서버로 데이터 보내기
     console.log('서버로 데이터 보내기');
+    axios
+      .post(`/users/sign-in`, {
+        id: studentID,
+        pw: password,
+        major: major,
+        grade: grade,
+        //         coreSubject = [Array] ,
+        //         compSubject = [Array],
+      })
+      .then((res) => {
+        //        setFailModalContext('신청이 완료되었습니다!');
+        //        setFailModal(true);
+        console.log('res', res);
+        //         setFailModal(false);
+        //         document.location.href = '/';
+        //       }, 1300);
+      })
+      .catch((error) => {
+        console.log('error', error);
+        //        setFailModalContext(error.response.data.message);
+        //        setFailModal(true);
+        //       setTimeout(() => {
+        //          setFailModal(false);
+      });
   };
 
   return (

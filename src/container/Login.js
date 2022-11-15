@@ -6,6 +6,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 import { isLoginIn, studentID } from '../atoms';
 import { useRecoilState } from 'recoil';
+import axios from 'axios';
 
 function Login(props) {
   const [isLoginedState, setisLoginedState] = useRecoilState(isLoginIn);
@@ -20,7 +21,6 @@ function Login(props) {
   const [login, setLogin] = useRecoilState(isLoginIn);
   const [studentId, setStudentId] = useRecoilState(studentID);
 
-  const [loading, setLoading] = useState(false);
   const [id, setInputId] = useState('');
   const [password, setInputPw] = useState('');
   const [failModal, setFailModal] = useState(false);
@@ -47,7 +47,30 @@ function Login(props) {
     //   e.preventDefault();
     //    document.location.href = '/main';
 
+    axios
+      .post(`/users/:id`, {
+        id: id,
+        pw: password,
+      })
+      .then((res) => {
+        //        setFailModalContext('신청이 완료되었습니다!');
+        //        setFailModal(true);
+        console.log('res', res);
+        //         setFailModal(false);
+        //         document.location.href = '/';
+        //       }, 1300);
+      })
+      .catch((error) => {
+        console.log('error', error);
+        //        setFailModalContext(error.response.data.message);
+        //        setFailModal(true);
+        //       setTimeout(() => {
+        //          setFailModal(false);
+      });
+
     /*
+    ///////////////////////////////////
+
  axios
       .post(`/app/sign-in`, {
         email: id,
@@ -71,6 +94,7 @@ function Login(props) {
       });
 */
   };
+
   const failLogin = () => {
     setFailModal(true);
     //   setTimeout(() => {
@@ -83,6 +107,7 @@ function Login(props) {
   const [loginok, setloginok] = useState(true);
 
   const LoginFunc = (e) => {
+    setFailModal(false);
     //    e.preventDefault();
     if (!id) {
       return alert('ID를 입력하세요.');
@@ -93,24 +118,35 @@ function Login(props) {
         id,
         password,
       };
+      axios
+        // .post(`/users/:id`, body)
+        .post(`/users/${id}`, {
+          id: id,
+          pw: password,
+        })
+        .then((res) => {
+          console.log(res.data);
+          if (res.data.code === 200) {
+            console.log('로그인');
+            setisLoginedState(true);
+          }
+        })
+        .catch((error) => {
+          console.log('error', error);
+          failLogin();
+        });
       /*
-      axios.post('api', body).then((res) => {
-        console.log(res.data);
-        if (res.data.code === 200) {
-          console.log('로그인');
-          */
+       */
       // dispatch(loginUser(res.data.userInfo));
 
       // 200이뜨면 다음페이지로 이동
 
-      if (loginok) {
-        // 로그인 성공
-        axiosCheck();
-        setisLoginedState(true);
-      } else if (!loginok) {
-        // 로그인 실패
-        failLogin();
-      }
+      //      if (loginok) {
+      // 로그인 성공
+      //      axiosCheck();
+      //    } else if (!loginok) {
+      // 로그인 실패
+      //    }
 
       /*          setMsg('');
         }
@@ -126,7 +162,6 @@ function Login(props) {
       });
       */
     }
-    setLoading(true);
   };
 
   return (

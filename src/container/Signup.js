@@ -1,13 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
 import Header from '../component/Header';
 import '../styles/container/SignUp.scss';
 
+import {
+  major_forSignUp,
+  grade_forSignUp,
+  studentID_forSignUp,
+  password_forSignUp,
+} from '../atoms';
+
 function Signup() {
-  const [major, setMajor] = useState('');
-  const [grade, setGrade] = useState();
-  const [studentID, setStudentID] = useState('');
-  const [password, setPassword] = useState('');
+  const [major, setMajor] = useRecoilState(major_forSignUp);
+  const [grade, setGrade] = useRecoilState(grade_forSignUp);
+  const [studentID, setStudentID] = useRecoilState(studentID_forSignUp);
+  const [password, setPassword] = useRecoilState(password_forSignUp);
   console.log(
     `major: ${major}, grade:${grade}, studentID:${studentID}, password:${password} `
   );

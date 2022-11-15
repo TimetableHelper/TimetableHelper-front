@@ -11,6 +11,26 @@ const { persistAtom: tableInfo } = recoilPersist({
   storage: localStorage,
 });
 
+/// 회원가입 페이지 유저정보 저장용
+
+export const major_forSignUp = atom({
+  key: 'major_forSignUp',
+  default: '',
+});
+export const grade_forSignUp = atom({
+  key: 'grade_forSignUp',
+  default: '',
+});
+export const studentID_forSignUp = atom({
+  key: 'studentID_forSignUp',
+  default: '',
+});
+export const password_forSignUp = atom({
+  key: 'password_forSignUp',
+  default: '',
+});
+
+// 로그인 상태 / 로고 애니메이션용 첫접근상태 확인
 export const isLoginIn = atom({
   key: 'isLoginIn',
   default: false,
