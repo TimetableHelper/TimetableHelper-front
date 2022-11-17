@@ -83,42 +83,25 @@ function Main() {
         <>
           <main className="Main__Home">
             <div className="Main__LinkColumn">
-              <div
-                className="Main__linkBox"
-                style={{
-                  // 스타일은 나중에 이미지넣으면 삭제시킬것.
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}
-              >
-                <Link to="/make-newtimetable">필수과목 선택하러가기</Link>
-              </div>
+              <Link to="/make-newtimetable">
+                <div className="Main__linkBox Main__linkBox_1st">
+                  <span>필수과목 선택하러가기</span>
+                </div>
+              </Link>
 
-              <div
-                className="Main__linkBox"
-                style={{
-                  // 스타일은 나중에 이미지넣으면 삭제시킬것.
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}
-              >
-                <Link to="/my-timetable">시간표 짜러가기</Link>
-              </div>
+              <Link to="/my-timetable">
+                <div className="Main__linkBox Main__linkBox_2nd">
+                  <span>시간표 짜러가기</span>
+                </div>
+              </Link>
 
-              <div
-                className="Main__linkBox"
-                style={{
-                  // 스타일은 나중에 이미지넣으면 삭제시킬것.
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}
-              >
-                <Link to="/timetable-board">학우들의 시간표 보러가기</Link>
-              </div>
+              <Link to="/timetable-board">
+                <div className="Main__linkBox Main__linkBox_3rd">
+                  <span>학우들의 시간표 보러가기</span>
+                </div>
+              </Link>
             </div>
+
             <div className="Main__NewIssue">
               <div className="Main__NewIssue__title">
                 <HiOutlineSpeakerphone

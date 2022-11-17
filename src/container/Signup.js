@@ -34,16 +34,16 @@ function Signup() {
 
   const blinkAlert = () => {
     if (!studentID) {
-      alert('아이디');
+      alert('학번을 입력해주세요');
     }
     if (!password) {
-      alert('비번');
+      alert('비밀번호를 입력해주세요');
     }
     if (!major) {
-      alert('전공');
+      alert('전공을 선택해주세요');
     }
     if (!grade) {
-      alert('학년');
+      alert('학년을 입력해주세요');
     }
   };
 

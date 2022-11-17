@@ -103,18 +103,18 @@ function Signup2(props) {
   };
 
   console.log('userDataToSendServer', userDataToSendServer);
-
   const axiosPost = () => {
     // 서버로 데이터 보내기
     console.log('서버로 데이터 보내기');
+
     axios
       .post(`/users/sign-in`, {
         id: studentID,
         pw: password,
         major: major,
         grade: grade,
-        //         coreSubject = [Array] ,
-        //         compSubject = [Array],
+        //        coreSubject: userDataToSendServer[0].essentialCultureClass, //필수교양
+        //        compSubject: userDataToSendServer[0].mainCultureClass, //핵심교양
       })
       .then((res) => {
         //        setFailModalContext('신청이 완료되었습니다!');
@@ -174,55 +174,6 @@ function Signup2(props) {
                     );
                   }
                 )}
-                {/* <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="signUp2__checkbox__eng"
-                    onChange={(e) => {
-                      console.log('e', e);
-                      datagogo(e.target.value);
-                    }}
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="signUp2__checkbox__eng"
-                    onChange={(e) => {
-                      console.log('label e', e);
-                    }}
-                  >
-                    영어
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="signUp2__checkbox__majoEng"
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="signUp2__checkbox__majoEng"
-                  >
-                    전공기초영어
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="flexCheckDefault"
-                  >
-                    논리적사고와글쓰기
-                  </label>
-                </div> */}
               </div>
 
               <div className="col-6">
@@ -252,104 +203,6 @@ function Signup2(props) {
                     </>
                   );
                 })}
-                {/*                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="flexCheckDefault"
-                  >
-                    예술과디자인
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="flexCheckDefault"
-                  >
-                    제2외국어와한문
-                  </label>
-                </div>
-                 <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="flexCheckDefault"
-                  >
-                    과학과컴퓨터
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="flexCheckDefault"
-                  >
-                    언어와철학
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="flexCheckDefault"
-                  >
-                    법과생활
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="flexCheckDefault"
-                  >
-                    사회와경제
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="flexCheckDefault"
-                  >
-                    역사와문화
-                  </label>
-                </div> */}
               </div>
             </div>
 

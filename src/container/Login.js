@@ -103,9 +103,6 @@ function Login(props) {
     //   }, 7500);
   };
 
-  // 서버와 통신 전, 임시값 2개
-  const [loginok, setloginok] = useState(true);
-
   const LoginFunc = (e) => {
     setFailModal(false);
     //    e.preventDefault();
@@ -118,35 +115,28 @@ function Login(props) {
         id,
         password,
       };
-      axios
-        // .post(`/users/:id`, body)
+
+      /*    axios
+      // .post(`/users/:id`, body)
         .post(`/users/${id}`, {
           id: id,
           pw: password,
         })
         .then((res) => {
-          console.log(res.data);
           if (res.data.code === 200) {
-            console.log('로그인');
             setisLoginedState(true);
           }
         })
         .catch((error) => {
           console.log('error', error);
           failLogin();
-        });
-      /*
-       */
+        }); */
+
+      setisLoginedState(true);
+
       // dispatch(loginUser(res.data.userInfo));
 
       // 200이뜨면 다음페이지로 이동
-
-      //      if (loginok) {
-      // 로그인 성공
-      //      axiosCheck();
-      //    } else if (!loginok) {
-      // 로그인 실패
-      //    }
 
       /*          setMsg('');
         }
@@ -229,8 +219,6 @@ function Login(props) {
             >
               로그인
             </div>
-            <button onClick={() => setloginok(true)}>로그인 성공 예시</button>
-            <button onClick={() => setloginok(false)}>로그인 실패 예시</button>
           </form>
           <p className="p-p a-pwpage">
             <Link to="/sign-up">비밀번호 찾기</Link>

@@ -35,7 +35,7 @@ import {
   fridayClassListAtom,
 } from '../atoms';
 
-import { AnimatePresence, motion, useScroll } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import '../styles/container/OverlapModal.scss';
 

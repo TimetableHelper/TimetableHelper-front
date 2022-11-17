@@ -18,7 +18,6 @@ import AlertModalShow from '../src/component/alertNotLoginModalShow';
 
 function Router() {
   const islogin = useRecoilValue(isLoginIn);
-  let changePage = islogin;
 
   return (
     <BrowserRouter>
