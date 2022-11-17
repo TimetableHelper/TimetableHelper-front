@@ -13,8 +13,10 @@ const Svg = styled.svg`
 `;
 
 const svgVariants = {
-  start: { fill: 'rgba(48, 74, 226, 1)', pathLength: 0, y: 1200 },
-  end: { pathLength: 1, y: 0 },
+  /*  start: { fill: 'rgba(48, 74, 226, 1)', pathLength: 0, y: 1200 },
+    end: { pathLength: 1, y: 0 }, */
+  start: { pathLength: 0, fill: 'rgba(48, 74, 226,0)' },
+  end: { fill: 'rgba(48, 74, 226,1)', pathLength: 1 },
 };
 const textVariants = {
   start: { pathLength: 0, fill: 'rgba(0,0,0,0)' },
@@ -47,12 +49,12 @@ function LoadingPage() {
           height="128.000000pt"
           viewBox="0 0 361.000000 128.000000"
           preserveAspectRatio="xMidYMid meet"
-          transition={{
+          /*          transition={{
             default: {
               duration: 1,
             },
             fill: { duration: 2, delay: 1 },
-          }}
+          }} */
         >
           <motion.g
             transform="translate(0.000000,128.000000) scale(0.100000,-0.100000)"

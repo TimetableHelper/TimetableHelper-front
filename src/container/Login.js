@@ -6,6 +6,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 import { isLoginIn, studentID } from '../atoms';
 import { useRecoilState } from 'recoil';
+import axios from 'axios';
 
 function Login(props) {
   const [isLoginedState, setisLoginedState] = useRecoilState(isLoginIn);
@@ -20,7 +21,6 @@ function Login(props) {
   const [login, setLogin] = useRecoilState(isLoginIn);
   const [studentId, setStudentId] = useRecoilState(studentID);
 
-  const [loading, setLoading] = useState(false);
   const [id, setInputId] = useState('');
   const [password, setInputPw] = useState('');
   const [failModal, setFailModal] = useState(false);
@@ -47,7 +47,30 @@ function Login(props) {
     //   e.preventDefault();
     //    document.location.href = '/main';
 
+    axios
+      .post(`/users/:id`, {
+        id: id,
+        pw: password,
+      })
+      .then((res) => {
+        //        setFailModalContext('신청이 완료되었습니다!');
+        //        setFailModal(true);
+        console.log('res', res);
+        //         setFailModal(false);
+        //         document.location.href = '/';
+        //       }, 1300);
+      })
+      .catch((error) => {
+        console.log('error', error);
+        //        setFailModalContext(error.response.data.message);
+        //        setFailModal(true);
+        //       setTimeout(() => {
+        //          setFailModal(false);
+      });
+
     /*
+    ///////////////////////////////////
+
  axios
       .post(`/app/sign-in`, {
         email: id,
@@ -71,6 +94,7 @@ function Login(props) {
       });
 */
   };
+
   const failLogin = () => {
     setFailModal(true);
     //   setTimeout(() => {
@@ -79,10 +103,8 @@ function Login(props) {
     //   }, 7500);
   };
 
-  // 서버와 통신 전, 임시값 2개
-  const [loginok, setloginok] = useState(true);
-
   const LoginFunc = (e) => {
+    setFailModal(false);
     //    e.preventDefault();
     if (!id) {
       return alert('ID를 입력하세요.');
@@ -93,24 +115,28 @@ function Login(props) {
         id,
         password,
       };
-      /*
-      axios.post('api', body).then((res) => {
-        console.log(res.data);
-        if (res.data.code === 200) {
-          console.log('로그인');
-          */
+
+      /*    axios
+      // .post(`/users/:id`, body)
+        .post(`/users/${id}`, {
+          id: id,
+          pw: password,
+        })
+        .then((res) => {
+          if (res.data.code === 200) {
+            setisLoginedState(true);
+          }
+        })
+        .catch((error) => {
+          console.log('error', error);
+          failLogin();
+        }); */
+
+      setisLoginedState(true);
+
       // dispatch(loginUser(res.data.userInfo));
 
       // 200이뜨면 다음페이지로 이동
-
-      if (loginok) {
-        // 로그인 성공
-        axiosCheck();
-        setisLoginedState(true);
-      } else if (!loginok) {
-        // 로그인 실패
-        failLogin();
-      }
 
       /*          setMsg('');
         }
@@ -126,7 +152,6 @@ function Login(props) {
       });
       */
     }
-    setLoading(true);
   };
 
   return (
@@ -194,8 +219,6 @@ function Login(props) {
             >
               로그인
             </div>
-            <button onClick={() => setloginok(true)}>로그인 성공 예시</button>
-            <button onClick={() => setloginok(false)}>로그인 실패 예시</button>
           </form>
           <p className="p-p a-pwpage">
             <Link to="/sign-up">비밀번호 찾기</Link>

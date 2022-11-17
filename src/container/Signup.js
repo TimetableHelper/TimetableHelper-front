@@ -1,13 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
 import Header from '../component/Header';
 import '../styles/container/SignUp.scss';
 
+import {
+  major_forSignUp,
+  grade_forSignUp,
+  studentID_forSignUp,
+  password_forSignUp,
+} from '../atoms';
+
 function Signup() {
-  const [major, setMajor] = useState('');
-  const [grade, setGrade] = useState();
-  const [studentID, setStudentID] = useState('');
-  const [password, setPassword] = useState('');
+  const [major, setMajor] = useRecoilState(major_forSignUp);
+  const [grade, setGrade] = useRecoilState(grade_forSignUp);
+  const [studentID, setStudentID] = useRecoilState(studentID_forSignUp);
+  const [password, setPassword] = useRecoilState(password_forSignUp);
   console.log(
     `major: ${major}, grade:${grade}, studentID:${studentID}, password:${password} `
   );
@@ -26,16 +34,16 @@ function Signup() {
 
   const blinkAlert = () => {
     if (!studentID) {
-      alert('아이디');
+      alert('학번을 입력해주세요');
     }
     if (!password) {
-      alert('비번');
+      alert('비밀번호를 입력해주세요');
     }
     if (!major) {
-      alert('전공');
+      alert('전공을 선택해주세요');
     }
     if (!grade) {
-      alert('학년');
+      alert('학년을 입력해주세요');
     }
   };
 
