@@ -11,7 +11,7 @@ npm ci
 npm start
 ```
 
-개발 서버는 기본적으로 `http://localhost:3000`에서 열립니다. 포트를 바꾸려면 `PORT=4180 npm start`로 실행할 수 있습니다.
+
 
 ```sh
 npm run build
