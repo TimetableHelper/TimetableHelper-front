@@ -1,17 +1,155 @@
-.MyTimetable__column {
+.schedule-page {
+  width: min(1320px, calc(100% - 64px));
+  margin: 42px auto 72px;
+  min-width: 0;
+}
+
+.schedule-page__heading {
   display: flex;
-  margin-left: 100px;
-  margin-top: 20px;
-  margin-bottom: 40px;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  margin-bottom: 30px;
 }
+
+.schedule-page__eyebrow {
+  color: #8d8dcc;
+  font-size: 11px;
+  letter-spacing: .14em;
+  font-weight: 600;
+  margin: 0 0 9px;
+}
+
+.schedule-page__heading h1 {
+  margin: 0 0 12px;
+  color: #303958;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -.04em;
+}
+
+.schedule-page__heading > div > p:last-child {
+  margin: 0;
+  font-size: 13px;
+  color: #8490a6;
+  line-height: 1.7;
+}
+
+.schedule-save-note {
+  padding: 9px 13px;
+  background: #edf2ff;
+  border-radius: 20px;
+  color: #7b8fc4;
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+.MyTimetable__column {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.MyTimetable__left, .MyTimetable__right {
+  min-width: 0;
+}
+
 .MyTimetable__left {
-  margin-right: 38px;
+  padding: 22px;
+  border: 1px solid #e0e5f2;
+  border-radius: 18px;
+  background: #fff;
 }
 
-.MyTimetable__right__one {
-  margin-bottom: 20px;
+.MyTimetable__right {
+  display: grid;
+  gap: 22px;
 }
 
-.MyTimetable__right__two {
-  overflow: hidden;
+.schedule-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.schedule-summary h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #43516f;
+}
+
+.schedule-summary > span {
+  font-size: 11px;
+  color: #8390aa;
+  white-space: nowrap;
+}
+
+.schedule-empty {
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: #f5f7ff;
+  color: #6f7e9c;
+  font-size: 12px;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+
+.schedule-footnote {
+  margin: 15px 0 0;
+  font-size: 11px;
+  line-height: 1.7;
+  color: #76839b;
+  word-break: keep-all;
+}
+
+@media (max-width: 1080px) {
+  .schedule-page {
+    width: min(820px, calc(100% - 48px));
+  }
+  .MyTimetable__column {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .MyTimetable__right {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .schedule-page {
+    width: calc(100% - 32px);
+    margin-top: 28px;
+  }
+  .schedule-page__heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .schedule-page__heading h1 {
+    font-size: 24px;
+  }
+  .MyTimetable__column {
+    gap: 20px;
+  }
+  .MyTimetable__left {
+    padding: 16px;
+  }
+  .MyTimetable__right {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+  .schedule-summary {
+    align-items: flex-start;
+  }
+  .schedule-summary h2 {
+    font-size: 14px;
+  }
+  .schedule-summary > span {
+    font-size: 11px;
+  }
 }

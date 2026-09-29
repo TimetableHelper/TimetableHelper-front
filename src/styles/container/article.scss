@@ -1,36 +1,107 @@
-.article__title {
-  position: relative;
-  width: 100%;
-  height: 36px;
-  //left: 485px;
-  //  top: 170px;
+.required-page {
+  width: min(760px, calc(100% - 40px));
+  margin: 46px auto 70px;
+}
 
-  font-family: 'Noto Sans KR';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 35px;
+.required-page__intro {
   text-align: center;
+  margin-bottom: 28px;
+}
 
-  //  transform: translate(-50%);
-  //  left: 50%;
+.required-page__step {
+  display: inline-block;
+  color: #8a81c8;
+  font-size: 11px;
+  letter-spacing: .03em;
+  margin-bottom: 14px;
+}
 
-  color: #000000;
+.article__title {
+  color: #354261;
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: -.04em;
+  line-height: 1.5;
+  margin: 0 0 12px;
+  word-break: keep-all;
 }
 
 .article__sub-title {
-  position: relative;
-  width: 100%;
-  height: 18px;
-  //left: 590px;
-  //  top: 184px;
+  font-size: 13px;
+  color: #8993a9;
+  line-height: 1.8;
+  margin: 0;
+  word-break: keep-all;
+}
 
-  font-family: 'Noto Sans KR';
-  font-style: normal;
-  font-weight: 300;
+.required-page .course-list {
+  max-height: 440px;
+}
+
+.required-page__actions {
+  margin: 24px 0 16px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.required-page__actions > span {
+  color: #8a94a9;
   font-size: 12px;
-  line-height: 17px;
-  text-align: center;
+}
 
-  color: #000000;
+.required-page__next {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  min-height: 46px;
+  padding: 0 26px;
+  border-radius: 24px;
+  background: #768fff;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.required-page__next:hover {
+  background: #687fea;
+  color: #fff;
+}
+
+.required-page__next:focus-visible {
+  outline: 3px solid #b9c5ff;
+  outline-offset: 3px;
+}
+
+.required-page__note {
+  color: #7b879e;
+  font-size: 11px;
+  text-align: right;
+  line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+  .required-page {
+    width: calc(100% - 32px);
+    margin-top: 30px;
+  }
+  .article__title {
+    font-size: 22px;
+  }
+  .article__sub-title {
+    font-size: 12px;
+  }
+  .required-page__actions {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .required-page__next {
+    width: 100%;
+  }
+  .required-page__note {
+    text-align: center;
+  }
 }

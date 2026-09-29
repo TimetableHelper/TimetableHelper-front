@@ -1,109 +1,61 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import logo from './logo.svg';
-
+import React, { useState } from 'react';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { isLoginIn } from '../atoms';
-
+import logo from './logo.svg';
 import '../styles/component/Header.scss';
 
-function Header(props) {
-  const [islogin, setlogin] = useRecoilState(isLoginIn);
+function Header() {
+  const [isLoggedIn, setLoggedIn] = useRecoilState(isLoginIn);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
-  // "시도" 아이콘 클릭시 이동할 위치를 정하기 위해...
-  const isLoginedState = useRecoilState(isLoginIn)[0];
-
-  const logoutFn = () => {
-    document.location.href = '/';
-    // 유저 정보 삭제
-    window.localStorage.removeItem('userData');
-    // 시간표 정보 삭제
-    window.localStorage.removeItem('tableInfo');
+  const logout = () => {
+    setLoggedIn(false);
+    // Remove the legacy demo session; keep the saved timetable.
+    try {
+      window.localStorage.removeItem('userData');
+    } catch {
+      // Browsers that block storage can still end the in-memory session.
+    }
+    setMenuOpen(false);
+    navigate('/', { replace: true });
   };
 
+  const closeMenu = () => setMenuOpen(false);
+  const navClassName = ({ isActive }) => `sido-nav__link${isActive ? ' is-active' : ''}`;
+
   return (
-    <>
-      <div className="navigation">
-        {/* <nav class="navbar navbar-expannd-lg bg-light">
-                    <div class="containner-fluid">
-                        <a class="navbar-brand" href="#">
-                            대학생을 위한 시간표 도우미
-                        </a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" aria-current="page" href="#">이용안내</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">회원가입</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </nav> */}
-        <nav className="navbar navbar-expand-lg">
-          <div className="container-fluid">
-            <Link to={`/`} className="navbar-brand">
-              <img src={logo} className="App-logo" alt="logo" />
-            </Link>
-            <p className="p-p p-nav" style={{ whiteSpace: 'nowrap' }}>
-              대학생을 위한 시간표 도우미
-            </p>
+    <header className="navigation">
+      <nav className="sido-nav" aria-label="주 메뉴">
+        <div className="sido-nav__brand">
+          <Link to="/" onClick={closeMenu} aria-label="시도 홈">
+            <img src={logo} className="App-logo" alt="시도" />
+          </Link>
+          <p>대학생을 위한 시간표 도우미</p>
+        </div>
+        {isLoggedIn && (
+          <>
             <button
-              className="navbar-toggler"
               type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNavAltMarkup"
-              aria-controls="navbarNavAltMarkup"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
+              className="sido-nav__toggle"
+              aria-controls="sido-navigation"
+              aria-expanded={menuOpen}
+              aria-label={menuOpen ? '메뉴 닫기' : '메뉴 열기'}
+              onClick={() => setMenuOpen((open) => !open)}
             >
-              <span className="navbar-toggler-icon"></span>
+              <span aria-hidden="true">{menuOpen ? '✕' : '☰'}</span>
             </button>
-            <div
-              className="collapse navbar-collapse justify-content-end"
-              id="navbarNavAltMarkup"
-            >
-              <div className="navbar-nav">
-                <Link to={'/'} className="nav-link active" aria-current="page">
-                  이용안내
-                </Link>
-
-                {!isLoginedState && (
-                  <Link to="/sign-up" className="nav-link">
-                    회원가입
-                  </Link>
-                )}
-                {isLoginedState && (
-                  <Link to="/my-timetable" className="nav-link">
-                    내시간표
-                  </Link>
-                )}
-                {isLoginedState && (
-                  <Link to="/timetable-board" className="nav-link">
-                    게시판
-                  </Link>
-                )}
-                {islogin && (
-                  <button
-                    id="Header__logoutBtn"
-                    onClick={() => {
-                      logoutFn();
-                    }}
-                  >
-                    로그아웃
-                  </button>
-                )}
-              </div>
+            <div id="sido-navigation" className={`sido-nav__links${menuOpen ? ' is-open' : ''}`}>
+              <NavLink to="/" end className={navClassName} onClick={closeMenu}>이용안내</NavLink>
+              <NavLink to="/my-timetable" className={navClassName} onClick={closeMenu}>내 시간표</NavLink>
+              <NavLink to="/timetable-board" className={navClassName} onClick={closeMenu}>게시판</NavLink>
+              <button type="button" id="Header__logoutBtn" onClick={logout}>로그아웃</button>
             </div>
-          </div>
-        </nav>
-      </div>
-    </>
+          </>
+        )}
+      </nav>
+    </header>
   );
 }
 

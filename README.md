@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# 시도 · TimetableHelper
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+강의를 선택해 주간 시간표를 구성하고, 샘플 시간표에 반응을 남겨볼 수 있는 프론트엔드 데모입니다. React · Recoil · Sass를 사용합니다.
 
-## Available Scripts
+## 실행
 
-In the project directory, you can run:
+Node.js 24 (`.nvmrc`)와 npm을 사용합니다.
 
-### `npm start`
+```sh
+npm ci
+npm start
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+개발 서버는 기본적으로 `http://localhost:3000`에서 열립니다. 포트를 바꾸려면 `PORT=4180 npm start`로 실행할 수 있습니다.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```sh
+npm run build
+CI=true npm test -- --watch=false --runInBand
+```
 
-### `npm test`
+빌드 결과는 `build/`에 생성됩니다. 기존 `public/_redirects`는 Netlify에서 하위 경로로 직접 접속해도 앱이 열리도록 합니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 체험 방법
 
-### `npm run build`
+1. 아이디와 비밀번호에 임의의 값을 입력합니다. 예: `demo` / `demo`. 입력값은 저장하거나 전송하지 않습니다.
+2. 홈에서 **필수과목 선택하러가기** 또는 **시간표 짜러가기**를 선택합니다.
+3. 강의를 추가·삭제합니다. 시간이 겹치면 기존 강의를 유지하거나 겹치는 강의들을 교체할 수 있습니다.
+4. **학우들의 시간표 보러가기**에서 샘플 시간표를 살펴보고 반응을 누릅니다. 같은 반응을 다시 누르면 취소됩니다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 저장 범위와 제한
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- 실제 회원 인증, 수강 신청, 서버 저장, 실시간 공유 기능은 없습니다.
+- 강의 데이터는 기존 구현의 시연용 목록이며 최신 개설 강의 정보가 아닙니다.
+- 시간표는 `localStorage`의 기존 `tableInfo` 키를 유지해 저장합니다. 로그아웃해도 시간표는 남습니다.
+- 샘플 시간표는 실제 학생의 게시물이 아닙니다. 반응 수는 이 브라우저에서 누른 값(0 또는 1)이며, 다른 이용자의 평가를 합산하지 않습니다.
+- 반응은 `timetableHelper.boardReactions.v1`에 저장합니다. 로그인 여부만 `sessionStorage`에 저장하며 ID·비밀번호는 보관하지 않습니다.
+- 저장소 접근이 차단되면 화면 내 체험만 가능하고, 새로고침 후 저장이 보장되지 않습니다. 브라우저 데이터 삭제 시 저장한 시간표와 반응도 지워집니다. 기기·브라우저·사이트 주소 간 동기화는 없습니다.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 작업 이력
 
-### `npm run eject`
+2022년 홍익대학교 학생들의 졸업 프로젝트에 외부 팀원으로 참여해, 디자이너의 Figma 디자인을 바탕으로 웹 화면 개발을 맡았습니다.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2026년에는 기존 구현본을 포트폴리오에서 시연하기 위해 개인적으로 정비했습니다. 로그인 안내, 홈 이용 안내, 반응형 화면, 시간표 상태·충돌 처리와 샘플 게시판의 로컬 반응을 보완했습니다. 이번 정비를 당시 팀 프로젝트의 구현·운영 성과에 포함하지 않습니다.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+원본 저장소: [TimetableHelper/TimetableHelper-front](https://github.com/TimetableHelper/TimetableHelper-front). 기존 Git 기여 이력과 디자인 자산을 유지합니다.
