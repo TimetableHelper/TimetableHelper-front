@@ -2,23 +2,6 @@
 
 강의를 선택해 주간 시간표를 구성하고, 샘플 시간표에 반응을 남겨볼 수 있는 프론트엔드 데모입니다. React · Recoil · Sass를 사용합니다.
 
-## 실행
-
-Node.js 24 (`.nvmrc`)와 npm을 사용합니다.
-
-```sh
-npm ci
-npm start
-```
-
-
-
-```sh
-npm run build
-CI=true npm test -- --watch=false --runInBand
-```
-
-빌드 결과는 `build/`에 생성됩니다. 기존 `public/_redirects`는 Netlify에서 하위 경로로 직접 접속해도 앱이 열리도록 합니다.
 
 ## 체험 방법
 
