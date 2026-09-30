@@ -1,6 +1,5 @@
 import React from 'react';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { MemoryRouter, useLocation } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import { AppRoutes } from './Router';
@@ -19,8 +18,7 @@ function LocationIndicator() {
   return <output data-testid="location">{location.pathname}{location.search}{location.hash}</output>;
 }
 
-function renderEntry(path = '/', loggedIn = false) {
-  if (loggedIn) window.sessionStorage.setItem('timetable-demo-login', 'true');
+function renderEntry(path = '/') {
   return render(
     <RecoilRoot>
       <MemoryRouter initialEntries={[path]}>
@@ -36,48 +34,46 @@ beforeEach(() => {
   window.sessionStorage.clear();
 });
 
-test('rejects whitespace and returns to the requested page after demo entry without saving inputs', async () => {
-  renderEntry('/my-timetable?view=demo#schedule');
-  const idInput = await screen.findByLabelText('아이디');
-  const passwordInput = screen.getByLabelText('비밀번호');
-  fireEvent.change(idInput, { target: { value: '   ' } });
-  fireEvent.change(passwordInput, { target: { value: '   ' } });
-  fireEvent.click(screen.getByRole('button', { name: '로그인' }));
-  expect(screen.getByRole('alert')).toHaveTextContent('각각 입력해주세요');
-  expect(screen.queryByRole('heading', { name: '시간표 페이지' })).not.toBeInTheDocument();
-
-  fireEvent.change(idInput, { target: { value: 'demo-only-id' } });
-  fireEvent.change(passwordInput, { target: { value: 'demo-only-password' } });
-  userEvent.type(passwordInput, '{enter}');
-  expect(await screen.findByRole('heading', { name: '시간표 페이지' })).toBeInTheDocument();
-  expect(screen.getByTestId('location')).toHaveTextContent('/my-timetable?view=demo#schedule');
-  for (const storage of [window.localStorage, window.sessionStorage]) {
-    for (let index = 0; index < storage.length; index += 1) {
-      expect(storage.getItem(storage.key(index))).not.toMatch(/demo-only-id|demo-only-password/);
-    }
-  }
+test('opens the home guide and navigation immediately without a demo session', () => {
+  renderEntry();
+  expect(screen.getByRole('heading', { name: '이용안내' })).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: '필수과목 선택하러가기' })).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: '내 시간표' })).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: '게시판' })).toBeInTheDocument();
+  expect(screen.queryByLabelText('아이디')).not.toBeInTheDocument();
+  expect(screen.queryByRole('button', { name: /로그인|로그아웃/ })).not.toBeInTheDocument();
+  expect(window.sessionStorage.length).toBe(0);
 });
 
-test('logout ends the demo session while preserving the local timetable', async () => {
+test.each([
+  ['/my-timetable?view=demo#schedule', '시간표 페이지'],
+  ['/make-newtimetable', '과목 선택 페이지'],
+  ['/timetable-board', '샘플 게시판'],
+])('opens %s directly without changing the requested address', (path, heading) => {
+  renderEntry(path);
+  expect(screen.getByRole('heading', { name: heading })).toBeInTheDocument();
+  expect(screen.getByTestId('location').textContent).toBe(path);
+});
+
+test('a legacy logged-out session does not gate navigation or clear the saved timetable', () => {
   const savedTimetable = JSON.stringify({ finalClassArr: [{ classId: 8 }] });
   window.localStorage.setItem('tableInfo', savedTimetable);
-  renderEntry('/my-timetable', true);
-  fireEvent.click(await screen.findByRole('button', { name: '로그아웃' }));
-  expect(await screen.findByRole('heading', { name: '로그인' })).toBeInTheDocument();
+  window.sessionStorage.setItem('timetable-demo-login', 'false');
+  renderEntry();
+  fireEvent.click(screen.getByRole('link', { name: '내 시간표' }));
+  expect(screen.getByRole('heading', { name: '시간표 페이지' })).toBeInTheDocument();
   expect(window.localStorage.getItem('tableInfo')).toBe(savedTimetable);
-  expect(window.sessionStorage.getItem('timetable-demo-login')).toBeNull();
 });
 
-test.each(['/sign-up', '/sign-up2', '/not-a-page'])('recovers the unsupported route %s to the entry page', async (path) => {
+test.each(['/main', '/sign-up', '/sign-up2', '/not-a-page'])('recovers the old or unsupported route %s to the home guide', async (path) => {
   renderEntry(path);
-  expect(await screen.findByRole('heading', { name: '로그인' })).toBeInTheDocument();
+  expect(await screen.findByRole('heading', { name: '이용안내' })).toBeInTheDocument();
   await waitFor(() => expect(screen.getByTestId('location')).toHaveTextContent(/^\/$/));
-  expect(screen.queryByRole('link', { name: '회원가입' })).not.toBeInTheDocument();
 });
 
 test('the navigation toggle exposes and closes the mobile menu state', async () => {
-  renderEntry('/my-timetable', true);
-  const toggle = await screen.findByRole('button', { name: '메뉴 열기' });
+  renderEntry('/my-timetable');
+  const toggle = screen.getByRole('button', { name: '메뉴 열기' });
   expect(toggle).toHaveAttribute('aria-expanded', 'false');
   fireEvent.click(toggle);
   expect(screen.getByRole('button', { name: '메뉴 닫기' })).toHaveAttribute('aria-expanded', 'true');

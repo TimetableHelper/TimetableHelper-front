@@ -41,8 +41,7 @@
     flex-shrink: 0;
   }
 
-  &__link,
-  #Header__logoutBtn {
+  &__link {
     padding: 8px 0;
     color: #6f7787;
     font-size: 14px;
@@ -53,11 +52,6 @@
   &__link.is-active,
   &__link:hover {
     color: #2962ff;
-  }
-
-  #Header__logoutBtn {
-    border: 0;
-    background: transparent;
   }
 
   &__toggle {
@@ -119,8 +113,7 @@
       flex-direction: column;
     }
 
-    &__link,
-    #Header__logoutBtn {
+    &__link {
       padding: 10px 8px;
       text-align: left;
     }
